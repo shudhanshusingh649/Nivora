@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Nivora - Find verified hotels, hostels, PGs, flats, rooms, mess and flatmates."
+    >
+
+    <title>Nivora — Find. Verify. Live.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container nav-inner">
+
+        <a href="index.html" class="brand">
+            <span class="brand-symbol">⌂</span>
+
+            <span class="brand-copy">
+                <strong>Nivora</strong>
+                <small>Find. Verify. Live.</small>
+            </span>
+        </a>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            ☰
+        </button>
+
+        <nav class="main-nav" id="mainNav">
+            <a href="#home" class="active">Home</a>
+            <a href="pages/explore.html">Explore</a>
+            <a href="#how">How It Works</a>
+            <a href="#trust">Trust</a>
+            <a href="pages/support.html">Support</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="pages/login.html" class="btn btn-ghost">
+                Log in
+            </a>
+
+            <a href="pages/login.html" class="btn btn-primary">
+                Get Started
+            </a>
+        </div>
+
+    </div>
+</header>
+
+
+<main id="home">
+
+<!-- HERO -->
+
+<section class="hero-section">
+
+    <div class="container hero-grid">
+
+        <div class="hero-content">
+
+            <span class="eyebrow-pill">
+                ✓ VERIFIED LIVING PLATFORM
+            </span>
+
+            <h1>
+                Find a place that
+                <span>feels right.</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover verified hotels, hostels, PGs, rental flats,
+                rooms, mess services and compatible flatmates —
+                all in one connected platform.
+            </p>
+
+
+            <div class="hero-search">
+
+                <div class="hero-search-item">
+
+                    <span>⌕</span>
+
+                    <div>
+                        <small>LOOKING FOR</small>
+
+                        <input
+                            id="heroQuery"
+                            type="text"
+                            placeholder="PG, Hostel, Flat, Hotel..."
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="hero-search-divider"></div>
+
+
+                <div class="hero-search-item">
+
+                    <span>⌖</span>
+
+                    <div>
+                        <small>LOCATION</small>
+
+                        <input
+                            id="heroLocation"
+                            type="text"
+                            value="Patna, Bihar"
+                        >
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="btn btn-primary"
+                    id="heroSearchBtn"
+                >
+                    Search →
+                </button>
+
+            </div>
+
+
+            <div class="quick-search">
+
+                <span>Popular:</span>
+
+                <button data-quick="Hostel">
+                    Hostel
+                </button>
+
+                <button data-quick="PG">
+                    PG
+                </button>
+
+                <button data-quick="Rental Flat">
+                    Rental Flat
+                </button>
+
+                <button data-quick="Hotel">
+                    Hotel
+                </button>
+
+                <button data-quick="Mess">
+                    Mess
+                </button>
+
+                <button data-quick="Flatmate">
+                    Flatmate
+                </button>
+
+            </div>
+
+
+            <div class="trust-strip">
+
+                <div>
+                    <span>🛡</span>
+
+                    <div>
+                        <strong>Verified-first</strong>
+                        <small>Quality before publish</small>
+                    </div>
+                </div>
+
+
+                <div>
+                    <span>⌖</span>
+
+                    <div>
+                        <strong>Location smart</strong>
+                        <small>Area & radius discovery</small>
+                    </div>
+                </div>
+
+
+                <div>
+                    <span>💬</span>
+
+                    <div>
+                        <strong>Support ready</strong>
+                        <small>Report & resolve issues</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div class="hero-phone-area">
+
+            <div class="floating-card floating-left">
+
+                <span>✓</span>
+
+                <div>
+                    <strong>Verified PG</strong>
+                    <small>0.7 km from campus</small>
+                </div>
+
+            </div>
+
+
+            <div class="floating-card floating-right">
+
+                <strong>4.8 ★</strong>
+                <small>128 reviews</small>
+
+            </div>
+
+
+            <div class="phone">
+
+                <div class="phone-notch"></div>
+
+                <div class="phone-status">
+                    <span>9:41</span>
+                    <span>● ● ▪</span>
+                </div>
+
+
+                <div class="phone-header">
+
+                    <div>
+                        <small>Good morning 👋</small>
+                        <h3>Nivora</h3>
+                    </div>
+
+                    <button>♡</button>
+
+                </div>
+
+
+                <div class="phone-search">
+                    ⌕ Search hostel, PG, flat, hotel...
+                </div>
+
+
+                <div class="phone-location">
+                    <span>⌖ Patna</span>
+                    <b>Near me</b>
+                </div>
+
+
+                <div class="phone-category-grid">
+
+                    <a href="pages/explore.html?type=Hotel" class="mini-category hotel-bg">
+                        🏨
+                        <span>Hotel</span>
+                    </a>
+
+                    <a href="pages/explore.html?type=Hostel" class="mini-category hostel-bg">
+                        🏢
+                        <span>Hostel</span>
+                    </a>
+
+                    <a href="pages/explore.html?type=PG" class="mini-category pg-bg">
+                        🏠
+                        <span>PG</span>
+                    </a>
+
+                    <a href="pages/explore.html?type=Rental%20Flat" class="mini-category flat-bg">
+                        🏘
+                        <span>Flat</span>
+                    </a>
+
+                    <a href="pages/explore.html?type=Room" class="mini-category room-bg">
+                        🛏
+                        <span>Room</span>
+                    </a>
+
+                    <a href="pages/explore.html?type=Mess" class="mini-category mess-bg">
+                        🍱
+                        <span>Mess</span>
+                    </a>
+
+                </div>
+
+
+                <div class="phone-verified">
+
+                    <span>✓</span>
+
+                    <div>
+                        <strong>Verified listings only</strong>
+                        <small>Safe • Genuine • Hassle Free</small>
+                    </div>
+
+                    <b>›</b>
+
+                </div>
+
+
+                <div class="phone-mini-list">
+
+                    <div class="phone-mini-item">
+
+                        <div class="demo-photo photo-one"></div>
+
+                        <div>
+                            <strong>Sunrise Luxury PG</strong>
+                            <small>₹6,500/month · 0.7 km</small>
+                            <small>⭐ 4.8 · Students</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="phone-mini-item">
+
+                        <div class="demo-photo photo-two"></div>
+
+                        <div>
+                            <strong>Green Valley 2BHK</strong>
+                            <small>₹12,000/month · 1.2 km</small>
+                            <small>⭐ 4.6 · Furnished</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- CATEGORIES -->
+
+<section class="section" id="explore">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                ONE CONNECTED SYSTEM
+            </span>
+
+            <h2>
+                Everything you need to
+                <span>stay, rent & connect.</span>
+            </h2>
+
+            <p>
+                Accommodation, food and flatmate discovery
+                through one Explore experience.
+            </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <a href="pages/explore.html?type=Hotel" class="category-card">
+                <div class="category-icon hotel-bg">🏨</div>
+                <span class="category-label">STAY</span>
+                <h3>Hotels</h3>
+                <p>Discover comfortable short and long stay options.</p>
+                <b>Explore Hotels →</b>
+            </a>
+
+
+            <a href="pages/explore.html?type=Hostel" class="category-card">
+                <div class="category-icon hostel-bg">🏢</div>
+                <span class="category-label">VERIFIED</span>
+                <h3>Hostels</h3>
+                <p>Student-friendly hostels with transparent information.</p>
+                <b>Explore Hostels →</b>
+            </a>
+
+
+            <a href="pages/explore.html?type=PG" class="category-card">
+                <div class="category-icon pg-bg">🏠</div>
+                <span class="category-label">POPULAR</span>
+                <h3>PG</h3>
+                <p>PGs with food, security, facilities and room options.</p>
+                <b>Explore PGs →</b>
+            </a>
+
+
+            <a href="pages/explore.html?type=Rental%20Flat" class="category-card">
+                <div class="category-icon flat-bg">🏘</div>
+                <span class="category-label">RENT</span>
+                <h3>Rental Flats</h3>
+                <p>Find 1BHK, 2BHK, 3BHK and shared flats.</p>
+                <b>Explore Flats →</b>
+            </a>
+
+
+            <a href="pages/explore.html?type=Room" class="category-card">
+                <div class="category-icon room-bg">🛏</div>
+                <span class="category-label">ROOMS</span>
+                <h3>Rooms</h3>
+                <p>Single and shared rooms for your budget.</p>
+                <b>Explore Rooms →</b>
+            </a>
+
+
+            <a href="pages/explore.html?type=Mess" class="category-card">
+                <div class="category-icon mess-bg">🍱</div>
+                <span class="category-label">FOOD</span>
+                <h3>Mess</h3>
+                <p>Nearby food plans with ratings and offers.</p>
+                <b>Explore Mess →</b>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- HOW IT WORKS -->
+
+<section class="section section-tint" id="how">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                USER JOURNEY
+            </span>
+
+            <h2>
+                From login to
+                <span>discovery.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="workflow">
+
+            <div class="workflow-card">
+                <span>01</span>
+                <h3>Login & Verify</h3>
+                <p>Mobile OTP, Google or Email.</p>
+            </div>
+
+            <div class="workflow-arrow">→</div>
+
+            <div class="workflow-card">
+                <span>02</span>
+                <h3>Create Profile</h3>
+                <p>Add personal details and role.</p>
+            </div>
+
+            <div class="workflow-arrow">→</div>
+
+            <div class="workflow-card">
+                <span>03</span>
+                <h3>Explore</h3>
+                <p>Search every listing type.</p>
+            </div>
+
+            <div class="workflow-arrow">→</div>
+
+            <div class="workflow-card">
+                <span>04</span>
+                <h3>Connect</h3>
+                <p>Chat, save, report and enquire.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- TRUST -->
+
+<section class="section" id="trust">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                WHY NIVORA
+            </span>
+
+            <h2>
+                Built around
+                <span>trust.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="trust-grid">
+
+            <div class="trust-card">
+                <span>🛡</span>
+                <h3>Verification-first</h3>
+                <p>
+                    Listings can remain hidden until
+                    they pass the future verification workflow.
+                </p>
+            </div>
+
+            <div class="trust-card">
+                <span>📷</span>
+                <h3>Rich listings</h3>
+                <p>
+                    Photos, videos, location, price,
+                    facilities and reviews.
+                </p>
+            </div>
+
+            <div class="trust-card">
+                <span>⌖</span>
+                <h3>Location aware</h3>
+                <p>
+                    Search by city, locality, landmark,
+                    radius and budget.
+                </p>
+            </div>
+
+            <div class="trust-card">
+                <span>🤝</span>
+                <h3>Connected ecosystem</h3>
+                <p>
+                    Stay, rent, food, flatmates and
+                    future local services in one place.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section class="cta-section">
+
+    <div class="container cta-inner">
+
+        <div>
+            <span class="eyebrow light">START WITH NIVORA</span>
+            <h2>Find. Verify. Live.</h2>
+            <p>Your next place can start with one search.</p>
+        </div>
+
+        <a href="pages/login.html" class="btn btn-light">
+            Create Account →
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="container footer-grid">
+
+        <div>
+            <a class="brand" href="index.html">
+                <span class="brand-symbol">⌂</span>
+                <span class="brand-copy">
+                    <strong>Nivora</strong>
+                    <small>Find. Verify. Live.</small>
+                </span>
+            </a>
+        </div>
+
+        <div>
+            <strong>Explore</strong>
+            <a href="pages/explore.html">All Listings</a>
+            <a href="pages/explore.html?type=Flatmate">Flatmates</a>
+            <a href="pages/create-listing.html">List Your Space</a>
+        </div>
+
+        <div>
+            <strong>Support</strong>
+            <a href="pages/support.html">Help Center</a>
+            <a href="pages/about.html">About Nivora</a>
+        </div>
+
+        <div>
+            <strong>Project</strong>
+            <span>Verified living ecosystem</span>
+            <span>© 2026 Nivora</span>
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

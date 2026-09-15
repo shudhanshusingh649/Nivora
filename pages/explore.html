@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Explore | Nivora</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+</head>
+
+<body class="app-body">
+
+
+<header class="app-header">
+
+    <div class="container app-nav-inner">
+
+        <a href="../index.html" class="brand">
+
+            <span class="brand-symbol">⌂</span>
+
+            <span class="brand-copy">
+                <strong>Nivora</strong>
+                <small>Find. Verify. Live.</small>
+            </span>
+
+        </a>
+
+
+        <div class="app-search">
+
+            <span>⌕</span>
+
+            <input
+                id="listingSearch"
+                placeholder="Search hotel, PG, flat, room, mess, flatmate..."
+            >
+
+            <span>🎙</span>
+
+        </div>
+
+
+        <div class="app-actions">
+
+            <span class="location-chip">
+                ⌖ Patna
+            </span>
+
+            <button class="avatar-button">
+                S
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<main class="container app-main">
+
+
+<section class="explore-header">
+
+    <div>
+
+        <span class="eyebrow">
+            EXPLORE NIVORA
+        </span>
+
+        <h1>
+            Find your next place
+            <span>or your next connection.</span>
+        </h1>
+
+        <p>
+            One connected feed for stays,
+            rentals, food and flatmates.
+        </p>
+
+    </div>
+
+
+    <div class="location-card">
+
+        <span>📍</span>
+
+        <div>
+            <small>SEARCH LOCATION</small>
+            <strong>Patna, Bihar</strong>
+        </div>
+
+        <button>
+            Change
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<section class="explore-controls">
+
+    <div class="filter-tabs">
+
+        <button class="active" data-filter="all">
+            All
+        </button>
+
+        <button data-filter="Hotel">
+            Hotel
+        </button>
+
+        <button data-filter="Hostel">
+            Hostel
+        </button>
+
+        <button data-filter="PG">
+            PG
+        </button>
+
+        <button data-filter="Rental Flat">
+            Rental Flat
+        </button>
+
+        <button data-filter="Room">
+            Room
+        </button>
+
+        <button data-filter="Mess">
+            Mess
+        </button>
+
+        <button data-filter="Flatmate">
+            Flatmate
+        </button>
+
+    </div>
+
+
+    <div class="filter-row">
+
+        <button>⌖ 2 KM</button>
+        <button>₹ Budget</button>
+        <button>⭐ Rating</button>
+        <button>Availability</button>
+        <button>⚙ More Filters</button>
+
+    </div>
+
+</section>
+
+
+
+<section class="result-head">
+
+    <div>
+
+        <span class="eyebrow">
+            NEAR YOU
+        </span>
+
+        <h2 id="listingTitle">
+            All verified listings
+        </h2>
+
+        <p id="resultCount">
+            Showing verified options around you
+        </p>
+
+    </div>
+
+
+    <div class="sort-control">
+
+        <label>Sort</label>
+
+        <select id="sortSelect">
+
+            <option value="recommended">
+                Recommended
+            </option>
+
+            <option value="rating">
+                Highest Rated
+            </option>
+
+            <option value="price">
+                Price: Low to High
+            </option>
+
+        </select>
+
+    </div>
+
+</section>
+
+
+
+<section
+    id="listingGrid"
+    class="listing-grid"
+>
+</section>
+
+
+
+<section class="explore-bottom">
+
+
+    <div class="surface-card">
+
+        <div class="section-topline">
+
+            <div>
+                <span class="eyebrow">
+                    AROUND YOU
+                </span>
+
+                <h2>
+                    Nearby ecosystem
+                </h2>
+            </div>
+
+            <span class="radius-tag">
+                2 KM
+            </span>
+
+        </div>
+
+
+        <div class="map-preview">
+
+            <span class="map-pin pin-1">🏠</span>
+            <span class="map-pin pin-2">🍱</span>
+            <span class="map-pin pin-3">🏨</span>
+            <span class="map-pin pin-4">🏢</span>
+
+            <span class="map-center">
+                ⌖
+            </span>
+
+            <div class="map-radius"></div>
+
+        </div>
+
+
+        <div class="map-legend">
+
+            <span>🏠 PG / Flat</span>
+            <span>🍱 Mess</span>
+            <span>🏨 Hotel</span>
+            <span>🏢 Hostel</span>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="surface-card">
+
+        <span class="eyebrow">
+            COMMUNITY
+        </span>
+
+        <h2>
+            Flatmate connection
+        </h2>
+
+        <p class="muted">
+            Flatmates appear in the same
+            Explore and filter system.
+        </p>
+
+
+        <div class="connection-card">
+
+            <span class="match-avatar">
+                A
+            </span>
+
+            <div>
+                <strong>Aman Kumar</strong>
+                <small>Student · ₹4,000 · 92% match</small>
+            </div>
+
+            <button>
+                Connect
+            </button>
+
+        </div>
+
+
+        <div class="connection-card">
+
+            <span class="match-avatar purple">
+                R
+            </span>
+
+            <div>
+                <strong>Rohit Raj</strong>
+                <small>Student · ₹4,500 · 87% match</small>
+            </div>
+
+            <button>
+                Connect
+            </button>
+
+        </div>
+
+
+        <div class="safety-note">
+            🛡 Chat, connect and report
+            will be handled inside Nivora.
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<script src="../js/explore.js"></script>
+<script src="../js/flatmate.js"></script>
+
+</body>
+</html>

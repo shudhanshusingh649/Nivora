@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Profile Setup | Nivora</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+</head>
+
+<body class="auth-body">
+
+
+<div class="auth-shell">
+
+    <section class="auth-brand-panel">
+
+        <a href="../index.html" class="brand brand-light">
+            <span class="brand-symbol">⌂</span>
+
+            <span class="brand-copy">
+                <strong>Nivora</strong>
+                <small>Find. Verify. Live.</small>
+            </span>
+        </a>
+
+
+        <div class="auth-brand-content">
+
+            <span class="eyebrow-pill">
+                ✨ PERSONALIZED DISCOVERY
+            </span>
+
+            <h1>
+                Tell us
+                <span>about you.</span>
+            </h1>
+
+            <p>
+                Your profile helps Nivora personalize
+                your discovery experience.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="auth-content">
+
+        <div class="auth-card profile-card">
+
+            <div class="progress-bar">
+                <span></span>
+            </div>
+
+            <span class="eyebrow">
+                STEP 02 · PROFILE
+            </span>
+
+            <h2>Create your profile</h2>
+
+            <p class="muted">
+                Add your basic information.
+            </p>
+
+
+            <form id="profileForm">
+
+                <div class="form-grid">
+
+                    <div>
+                        <label>Full Name</label>
+                        <input
+                            id="fullName"
+                            required
+                            placeholder="Shudhanshu Kumar"
+                        >
+                    </div>
+
+
+                    <div>
+                        <label>Username</label>
+                        <input
+                            id="username"
+                            required
+                            placeholder="shudhanshu"
+                        >
+                    </div>
+
+
+                    <div>
+                        <label>Age</label>
+                        <input
+                            id="age"
+                            type="number"
+                            min="13"
+                            max="100"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label>Gender</label>
+
+                        <select id="gender">
+                            <option value="">Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                            <option>Prefer not to say</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label>Current City</label>
+                        <input
+                            id="currentCity"
+                            required
+                            placeholder="Patna"
+                        >
+                    </div>
+
+
+                    <div>
+                        <label>Permanent City</label>
+                        <input
+                            id="permanentCity"
+                            placeholder="Optional"
+                        >
+                    </div>
+
+
+                    <div>
+                        <label>Occupation</label>
+                        <input
+                            id="occupation"
+                            placeholder="Student"
+                        >
+                    </div>
+
+
+                    <div>
+                        <label>College / University</label>
+                        <input
+                            id="college"
+                            placeholder="IIT Patna"
+                        >
+                    </div>
+
+
+                    <div>
+                        <label>Course</label>
+                        <input
+                            id="course"
+                            placeholder="B.Sc Computer Science"
+                        >
+                    </div>
+
+
+                    <div>
+                        <label>Year / Semester</label>
+                        <input
+                            id="year"
+                            placeholder="3rd Year"
+                        >
+                    </div>
+
+                </div>
+
+
+                <label>
+                    User Type
+                </label>
+
+                <select id="role" required>
+
+                    <option value="">
+                        Choose your role
+                    </option>
+
+                    <option>Student</option>
+                    <option>Bachelor</option>
+                    <option>Family</option>
+                    <option>Property Owner</option>
+                    <option>PG/Hostel Owner</option>
+                    <option>Mess Owner</option>
+                    <option>Hotel Owner</option>
+                    <option>Service Provider</option>
+
+                </select>
+
+
+                <button
+                    class="btn btn-primary full mt-12"
+                    type="submit"
+                >
+                    Continue to Dashboard →
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="../js/profile.js"></script>
+
+</body>
+</html>

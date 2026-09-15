@@ -1,0 +1,223 @@
+@media (max-width: 1050px) {
+
+    .hero-grid,
+    .split-feature,
+    .dashboard-two-column,
+    .explore-bottom,
+    .property-grid,
+    .owner-bottom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        max-width: 760px;
+        margin: auto;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .quick-service-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .listing-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .workflow {
+        grid-template-columns: 1fr;
+    }
+
+    .workflow-arrow {
+        transform: rotate(90deg);
+        text-align: center;
+    }
+
+    .support-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+
+@media (max-width: 750px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .site-header .main-nav,
+    .site-header .nav-actions {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
+    .main-nav.open {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        position: absolute;
+        left: 3%;
+        right: 3%;
+        top: 70px;
+        padding: 16px;
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+    }
+
+    .hero-section {
+        padding: 55px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 46px;
+    }
+
+    .hero-search {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-search-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .trust-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-phone-area {
+        min-height: 640px;
+    }
+
+    .floating-card {
+        display: none;
+    }
+
+    .phone {
+        transform: none;
+    }
+
+    .category-grid,
+    .listing-grid,
+    .support-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-service-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .app-search {
+        width: 45%;
+    }
+
+    .app-actions .location-chip {
+        display: none;
+    }
+
+    .explore-header,
+    .dashboard-welcome,
+    .page-title-row,
+    .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .explore-header h1 {
+        font-size: 31px;
+    }
+
+    .location-card {
+        width: 100%;
+    }
+
+    .result-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .form-grid,
+    .upload-grid,
+    .document-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .type-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .property-hero-card {
+        grid-template-columns: 1fr;
+    }
+
+    .property-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-side {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
+    }
+
+    .auth-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-brand-panel {
+        min-height: 330px;
+        padding: 35px;
+    }
+
+    .auth-content {
+        padding: 24px;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .phone {
+        width: 285px;
+    }
+
+    .quick-service-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .type-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .otp-grid {
+        gap: 5px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .action-row {
+        flex-wrap: wrap;
+    }
+
+}

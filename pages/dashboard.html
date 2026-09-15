@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | Nivora</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+</head>
+
+<body class="app-body">
+
+
+<header class="app-header">
+
+    <div class="container app-nav-inner">
+
+        <a href="../index.html" class="brand">
+            <span class="brand-symbol">⌂</span>
+
+            <span class="brand-copy">
+                <strong>Nivora</strong>
+                <small>Find. Verify. Live.</small>
+            </span>
+        </a>
+
+
+        <div class="app-search">
+
+            <span>⌕</span>
+
+            <input
+                id="dashboardSearch"
+                placeholder="Search PG, hostel, flat, hotel..."
+            >
+
+            <span>🎙</span>
+
+        </div>
+
+
+        <div class="app-actions">
+
+            <span class="location-chip">
+                ⌖ Patna
+            </span>
+
+            <button class="icon-button">
+                🔔
+            </button>
+
+            <button
+                class="avatar-button"
+                id="dashboardAvatar"
+            >
+                S
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="container app-main">
+
+
+<section class="dashboard-welcome">
+
+    <div>
+
+        <span class="eyebrow">
+            YOUR DASHBOARD
+        </span>
+
+        <h1>
+            Good morning,
+            <span id="dashName">User</span>
+            👋
+        </h1>
+
+        <p>
+            Find your place, food and people around you.
+        </p>
+
+    </div>
+
+
+    <div class="profile-role">
+
+        <span id="dashRole">
+            Student
+        </span>
+
+        <b>⌄</b>
+
+    </div>
+
+</section>
+
+
+
+<section class="smart-search-card">
+
+    <span>⌕</span>
+
+    <input
+        id="smartSearch"
+        placeholder="Try: PG near Khan Chowk under ₹5,000"
+    >
+
+    <span>🎙</span>
+
+    <a href="explore.html" class="btn btn-primary">
+        Search →
+    </a>
+
+</section>
+
+
+
+<section>
+
+    <div class="section-topline">
+
+        <div>
+            <span class="eyebrow">
+                QUICK DISCOVERY
+            </span>
+
+            <h2>
+                What are you looking for?
+            </h2>
+        </div>
+
+        <a href="explore.html">
+            View all →
+        </a>
+
+    </div>
+
+
+    <div class="quick-service-grid">
+
+        <a href="explore.html?type=Hotel" class="quick-service-card">
+            <span class="hotel-bg">🏨</span>
+            <strong>Hotel</strong>
+            <small>Stay nearby</small>
+        </a>
+
+        <a href="explore.html?type=Hostel" class="quick-service-card">
+            <span class="hostel-bg">🏢</span>
+            <strong>Hostel</strong>
+            <small>Verified hostels</small>
+        </a>
+
+        <a href="explore.html?type=PG" class="quick-service-card">
+            <span class="pg-bg">🏠</span>
+            <strong>PG</strong>
+            <small>Monthly stay</small>
+        </a>
+
+        <a href="explore.html?type=Rental%20Flat" class="quick-service-card">
+            <span class="flat-bg">🏘</span>
+            <strong>Rental Flat</strong>
+            <small>1–3 BHK</small>
+        </a>
+
+        <a href="explore.html?type=Room" class="quick-service-card">
+            <span class="room-bg">🛏</span>
+            <strong>Room</strong>
+            <small>Single / shared</small>
+        </a>
+
+        <a href="explore.html?type=Mess" class="quick-service-card">
+            <span class="mess-bg">🍱</span>
+            <strong>Mess</strong>
+            <small>Food nearby</small>
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<section class="dashboard-section">
+
+    <div class="section-topline">
+
+        <div>
+            <span class="eyebrow">
+                NEAR YOU
+            </span>
+
+            <h2>
+                Top verified stays
+            </h2>
+        </div>
+
+        <a href="explore.html">
+            See all →
+        </a>
+
+    </div>
+
+
+    <div class="listing-grid">
+
+        <article class="listing-card">
+
+            <a href="property.html?type=PG">
+
+                <div class="listing-image image-pg">
+
+                    <span class="verified-badge">
+                        ✓ VERIFIED
+                    </span>
+
+                    <button
+                        class="heart-btn"
+                        onclick="event.preventDefault()"
+                    >
+                        ♡
+                    </button>
+
+                </div>
+
+
+                <div class="listing-body">
+
+                    <div class="meta-row">
+                        <span>PG</span>
+                        <span>0.7 KM</span>
+                    </div>
+
+                    <h3>
+                        Sunrise Luxury PG & Co-Living
+                    </h3>
+
+                    <p>
+                        Kankarbagh · Students · Food · Wi-Fi
+                    </p>
+
+                    <div class="price-row">
+                        <strong>
+                            ₹6,500
+                            <small>/month</small>
+                        </strong>
+
+                        <span>
+                            ⭐ 4.8
+                        </span>
+                    </div>
+
+                </div>
+
+            </a>
+
+        </article>
+
+
+
+        <article class="listing-card">
+
+            <a href="property.html?type=Rental%20Flat">
+
+                <div class="listing-image image-flat">
+
+                    <span class="verified-badge">
+                        ✓ VERIFIED
+                    </span>
+
+                </div>
+
+                <div class="listing-body">
+
+                    <div class="meta-row">
+                        <span>2BHK FLAT</span>
+                        <span>1.2 KM</span>
+                    </div>
+
+                    <h3>
+                        Green Valley Shared Flat
+                    </h3>
+
+                    <p>
+                        Patna · Furnished · Parking
+                    </p>
+
+                    <div class="price-row">
+                        <strong>
+                            ₹12,000
+                            <small>/month</small>
+                        </strong>
+
+                        <span>
+                            ⭐ 4.6
+                        </span>
+                    </div>
+
+                </div>
+
+            </a>
+
+        </article>
+
+
+
+        <article class="listing-card">
+
+            <a href="property.html?type=Hostel">
+
+                <div class="listing-image image-hostel">
+
+                    <span class="verified-badge">
+                        ✓ VERIFIED
+                    </span>
+
+                </div>
+
+                <div class="listing-body">
+
+                    <div class="meta-row">
+                        <span>HOSTEL</span>
+                        <span>1.6 KM</span>
+                    </div>
+
+                    <h3>
+                        Campus View Boys Hostel
+                    </h3>
+
+                    <p>
+                        Patna · Security · Mess nearby
+                    </p>
+
+                    <div class="price-row">
+                        <strong>
+                            ₹5,200
+                            <small>/month</small>
+                        </strong>
+
+                        <span>
+                            ⭐ 4.7
+                        </span>
+                    </div>
+
+                </div>
+
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<section class="dashboard-two-column">
+
+
+    <div class="surface-card">
+
+        <div class="section-topline">
+
+            <div>
+                <span class="eyebrow">
+                    AROUND YOU
+                </span>
+
+                <h2>
+                    Nearby ecosystem
+                </h2>
+            </div>
+
+            <span class="radius-tag">
+                2 KM
+            </span>
+
+        </div>
+
+
+        <div class="map-preview">
+
+            <span class="map-pin pin-1">🏠</span>
+            <span class="map-pin pin-2">🍱</span>
+            <span class="map-pin pin-3">🏨</span>
+
+            <span class="map-center">
+                ⌖
+            </span>
+
+            <div class="map-radius"></div>
+
+        </div>
+
+
+        <div class="map-legend">
+
+            <span>🏠 Stay</span>
+            <span>🍱 Mess</span>
+            <span>🏨 Hotel</span>
+            <span>🏢 Hostel</span>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="surface-card">
+
+        <span class="eyebrow">
+            COMMUNITY
+        </span>
+
+        <h2>
+            Find a compatible flatmate
+        </h2>
+
+        <p class="muted">
+            Flatmate profiles live inside the
+            same Explore system.
+        </p>
+
+
+        <div class="match-mini">
+
+            <span class="match-avatar">
+                A
+            </span>
+
+            <div>
+                <strong>Aman Kumar</strong>
+                <small>Student · ₹4,000 · Patna</small>
+            </div>
+
+            <b>92%</b>
+
+        </div>
+
+
+        <div class="match-mini">
+
+            <span class="match-avatar purple">
+                R
+            </span>
+
+            <div>
+                <strong>Rohit Raj</strong>
+                <small>Student · ₹4,500 · Patna</small>
+            </div>
+
+            <b>87%</b>
+
+        </div>
+
+
+        <a
+            href="explore.html?type=Flatmate"
+            class="btn btn-primary full"
+        >
+            Explore Flatmates →
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<section class="mess-strip">
+
+    <div>
+
+        <span class="eyebrow">
+            FOOD AROUND YOUR PLACE
+        </span>
+
+        <h2>
+            Recommended mess
+        </h2>
+
+        <p>
+            Compare nearby plans and ratings.
+        </p>
+
+    </div>
+
+
+    <a
+        href="explore.html?type=Mess"
+        class="mess-mini-card"
+    >
+        <span>🍱</span>
+
+        <div>
+            <strong>Annapurna Student Mess</strong>
+            <small>⭐ 4.7 · 0.6 km · ₹2,800</small>
+        </div>
+
+        <b>→</b>
+    </a>
+
+
+    <a
+        href="explore.html?type=Mess"
+        class="mess-mini-card"
+    >
+        <span>🍛</span>
+
+        <div>
+            <strong>Home Food Mess</strong>
+            <small>⭐ 4.4 · 0.9 km · ₹2,600</small>
+        </div>
+
+        <b>→</b>
+    </a>
+
+</section>
+
+
+</main>
+
+
+<script src="../js/dashboard.js"></script>
+
+</body>
+</html>

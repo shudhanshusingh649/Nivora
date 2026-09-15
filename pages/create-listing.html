@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Create Listing | Nivora</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+</head>
+
+<body class="app-body">
+
+
+<header class="app-header">
+
+    <div class="container app-nav-inner">
+
+        <a href="../index.html" class="brand">
+
+            <span class="brand-symbol">⌂</span>
+
+            <span class="brand-copy">
+                <strong>Nivora</strong>
+                <small>Find. Verify. Live.</small>
+            </span>
+
+        </a>
+
+
+        <div class="app-actions">
+
+            <span class="owner-chip">
+                OWNER / PROVIDER
+            </span>
+
+            <a
+                href="owner-dashboard.html"
+                class="btn btn-ghost"
+            >
+                My Listings
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<main class="container app-main create-page">
+
+
+<section class="page-title-row">
+
+    <div>
+
+        <span class="eyebrow">
+            LIST YOUR SPACE
+        </span>
+
+        <h1>
+            Create a verified listing
+        </h1>
+
+        <p>
+            Add proper details, images,
+            video and verification information.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<form id="listingForm">
+
+
+<!-- TYPE -->
+
+<section class="surface-card form-section">
+
+    <div class="form-section-title">
+
+        <span>01</span>
+
+        <div>
+
+            <h2>
+                Choose listing type
+            </h2>
+
+            <p>
+                One common listing workflow.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="type-grid">
+
+        <label>
+            <input
+                type="radio"
+                name="listingType"
+                value="Hotel"
+            >
+            <span>🏨</span>
+            <strong>Hotel</strong>
+            <small>Stay / rooms</small>
+        </label>
+
+
+        <label>
+            <input
+                type="radio"
+                name="listingType"
+                value="Hostel"
+            >
+            <span>🏢</span>
+            <strong>Hostel</strong>
+            <small>Student stay</small>
+        </label>
+
+
+        <label>
+            <input
+                type="radio"
+                name="listingType"
+                value="PG"
+            >
+            <span>🏠</span>
+            <strong>PG</strong>
+            <small>Monthly stay</small>
+        </label>
+
+
+        <label>
+            <input
+                type="radio"
+                name="listingType"
+                value="Rental Flat"
+            >
+            <span>🏘</span>
+            <strong>Rental Flat</strong>
+            <small>1BHK / 2BHK / 3BHK</small>
+        </label>
+
+
+        <label>
+            <input
+                type="radio"
+                name="listingType"
+                value="Room"
+            >
+            <span>🛏</span>
+            <strong>Room</strong>
+            <small>Single / shared</small>
+        </label>
+
+
+        <label>
+            <input
+                type="radio"
+                name="listingType"
+                value="Mess"
+            >
+            <span>🍱</span>
+            <strong>Mess</strong>
+            <small>Food service</small>
+        </label>
+
+    </div>
+
+</section>
+
+
+
+<!-- BASIC INFO -->
+
+<section class="surface-card form-section">
+
+    <div class="form-section-title">
+
+        <span>02</span>
+
+        <div>
+
+            <h2>
+                Basic information
+            </h2>
+
+            <p>
+                Add the information users need first.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-grid">
+
+        <div>
+            <label>Listing Name</label>
+            <input
+                id="listingName"
+                required
+                placeholder="Sunrise Luxury PG"
+            >
+        </div>
+
+
+        <div>
+            <label>Price</label>
+            <input
+                id="listingPrice"
+                type="number"
+                required
+                placeholder="6500"
+            >
+        </div>
+
+
+        <div>
+            <label>City</label>
+            <input
+                id="listingCity"
+                required
+                placeholder="Patna"
+            >
+        </div>
+
+
+        <div>
+            <label>Area / Locality</label>
+            <input
+                id="listingArea"
+                required
+                placeholder="Kankarbagh"
+            >
+        </div>
+
+
+        <div>
+            <label>Landmark</label>
+            <input
+                id="landmark"
+                placeholder="Near College"
+            >
+        </div>
+
+
+        <div>
+            <label>Availability</label>
+
+            <select id="availability">
+                <option>Available</option>
+                <option>Limited</option>
+                <option>Currently unavailable</option>
+            </select>
+        </div>
+
+    </div>
+
+
+    <label>
+        Description
+    </label>
+
+    <textarea
+        id="description"
+        rows="5"
+        required
+        placeholder="Describe your property or service..."
+    ></textarea>
+
+</section>
+
+
+
+<!-- LOCATION -->
+
+<section class="surface-card form-section">
+
+    <div class="form-section-title">
+
+        <span>03</span>
+
+        <div>
+
+            <h2>
+                Location
+            </h2>
+
+            <p>
+                Maps integration will be added later.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="location-capture">
+
+        <span>
+            📍
+        </span>
+
+        <div>
+
+            <strong>
+                Property / service location
+            </strong>
+
+            <small>
+                City, area and landmark will be saved.
+            </small>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="detectLocation"
+            class="btn btn-ghost"
+        >
+            Detect later
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- MEDIA -->
+
+<section class="surface-card form-section">
+
+    <div class="form-section-title">
+
+        <span>04</span>
+
+        <div>
+
+            <h2>
+                Photos & Video
+            </h2>
+
+            <p>
+                High-quality media is important.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="upload-grid">
+
+        <label class="upload-box">
+
+            <span>📷</span>
+
+            <strong>
+                Property Photos
+            </strong>
+
+            <small>
+                JPG / PNG · multiple
+            </small>
+
+            <input
+                type="file"
+                accept="image/*"
+                multiple
+            >
+
+        </label>
+
+
+        <label class="upload-box">
+
+            <span>🎥</span>
+
+            <strong>
+                Property Video
+            </strong>
+
+            <small>
+                MP4 / MOV
+            </small>
+
+            <input
+                type="file"
+                accept="video/*"
+            >
+
+        </label>
+
+    </div>
+
+</section>
+
+
+
+<!-- DOCUMENTS -->
+
+<section class="surface-card form-section">
+
+    <div class="form-section-title">
+
+        <span>05</span>
+
+        <div>
+
+            <h2>
+                Verification documents
+            </h2>
+
+            <p>
+                Used in the future verification process.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="document-grid">
+
+        <label>
+
+            <strong>
+                Identity proof
+            </strong>
+
+            <small>
+                Government / accepted ID
+            </small>
+
+            <input type="file">
+
+        </label>
+
+
+        <label>
+
+            <strong>
+                Ownership / address proof
+            </strong>
+
+            <small>
+                Relevant property document
+            </small>
+
+            <input type="file">
+
+        </label>
+
+    </div>
+
+</section>
+
+
+
+<!-- SUBMIT -->
+
+<section class="submit-bar">
+
+    <div>
+
+        <span>🛡</span>
+
+        <div>
+
+            <strong>
+                Verification-first publishing
+            </strong>
+
+            <small>
+                Listings can stay hidden until approved.
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <button
+        type="submit"
+        class="btn btn-primary"
+    >
+        Submit Listing →
+    </button>
+
+</section>
+
+
+</form>
+
+
+</main>
+
+
+<script src="../js/owner.js"></script>
+
+</body>
+</html>

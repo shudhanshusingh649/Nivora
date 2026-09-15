@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Support | Nivora</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+</head>
+
+<body class="app-body">
+
+
+<header class="app-header">
+
+    <div class="container app-nav-inner">
+
+        <a href="../index.html" class="brand">
+
+            <span class="brand-symbol">⌂</span>
+
+            <span class="brand-copy">
+                <strong>Nivora</strong>
+                <small>Find. Verify. Live.</small>
+            </span>
+
+        </a>
+
+
+        <div class="app-actions">
+
+            <a
+                href="../index.html"
+                class="btn btn-ghost"
+            >
+                Home
+            </a>
+
+            <a
+                href="login.html"
+                class="btn btn-primary"
+            >
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<main class="container app-main">
+
+
+<section class="support-hero">
+
+    <span class="eyebrow">
+        HELP CENTER
+    </span>
+
+    <h1>
+        How can we help?
+    </h1>
+
+    <p>
+        Report an issue, ask about a listing
+        or contact Nivora support.
+    </p>
+
+
+    <div class="support-search">
+
+        ⌕
+
+        <input
+            id="supportSearch"
+            placeholder="Search help topics..."
+        >
+
+    </div>
+
+</section>
+
+
+
+<section class="support-grid">
+
+
+    <button
+        class="support-card"
+        data-topic="Scam / Fake Listing"
+    >
+
+        <span>🚨</span>
+
+        <strong>
+            Report a scam
+        </strong>
+
+        <small>
+            Fake listing, advance payment
+            or suspicious activity.
+        </small>
+
+    </button>
+
+
+    <button
+        class="support-card"
+        data-topic="Property issue"
+    >
+
+        <span>🏠</span>
+
+        <strong>
+            Property issue
+        </strong>
+
+        <small>
+            Report a problem with a listed place.
+        </small>
+
+    </button>
+
+
+    <button
+        class="support-card"
+        data-topic="Payment issue"
+    >
+
+        <span>₹</span>
+
+        <strong>
+            Payment issue
+        </strong>
+
+        <small>
+            Raise a concern about payment or pricing.
+        </small>
+
+    </button>
+
+
+    <button
+        class="support-card"
+        data-topic="Owner issue"
+    >
+
+        <span>👤</span>
+
+        <strong>
+            Owner issue
+        </strong>
+
+        <small>
+            Need help connecting with an owner?
+        </small>
+
+    </button>
+
+
+    <button
+        class="support-card"
+        data-topic="Mess complaint"
+    >
+
+        <span>🍱</span>
+
+        <strong>
+            Mess complaint
+        </strong>
+
+        <small>
+            Food quality or service concern.
+        </small>
+
+    </button>
+
+
+    <button
+        class="support-card"
+        data-topic="Account help"
+    >
+
+        <span>⚙</span>
+
+        <strong>
+            Account help
+        </strong>
+
+        <small>
+            Login, profile and verification help.
+        </small>
+
+    </button>
+
+
+</section>
+
+
+
+<section class="surface-card support-contact">
+
+    <div>
+
+        <span class="eyebrow">
+            CONTACT SUPPORT
+        </span>
+
+        <h2>
+            Tell us what happened.
+        </h2>
+
+        <p class="muted">
+            This will later connect to your
+            customer-support backend.
+        </p>
+
+    </div>
+
+
+    <form
+        id="supportForm"
+        class="form-grid"
+    >
+
+        <div>
+
+            <label>Name</label>
+
+            <input
+                required
+                placeholder="Your name"
+            >
+
+        </div>
+
+
+        <div>
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                required
+                placeholder="you@example.com"
+            >
+
+        </div>
+
+
+        <div>
+
+            <label>Issue Type</label>
+
+            <select id="issueType">
+
+                <option>
+                    General support
+                </option>
+
+                <option>
+                    Scam / Fake Listing
+                </option>
+
+                <option>
+                    Property issue
+                </option>
+
+                <option>
+                    Payment issue
+                </option>
+
+                <option>
+                    Owner issue
+                </option>
+
+                <option>
+                    Mess complaint
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div>
+
+            <label>Listing ID</label>
+
+            <input
+                placeholder="NV-000123"
+            >
+
+        </div>
+
+
+        <div class="full-span">
+
+            <label>
+                Message
+            </label>
+
+            <textarea
+                rows="5"
+                required
+                placeholder="Describe your issue..."
+            ></textarea>
+
+        </div>
+
+
+        <div class="full-span">
+
+            <button
+                class="btn btn-primary"
+                type="submit"
+            >
+                Send Request →
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
+
+</main>
+
+
+<script src="../js/support.js"></script>
+
+</body>
+</html>

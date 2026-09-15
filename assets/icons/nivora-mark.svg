@@ -1,0 +1,64 @@
+<svg
+    width="120"
+    height="120"
+    viewBox="0 0 120 120"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+
+    <!-- Outer shield -->
+    <path
+        d="M60 8
+        L101 30
+        V61
+        C101 86 84 103 60 112
+        C36 103 19 86 19 61
+        V30
+        L60 8Z"
+        fill="#10233F"
+    />
+
+    <!-- House -->
+    <path
+        d="M32 57
+        L60 32
+        L88 57
+        V88
+        H32V57Z"
+        fill="#07884A"
+    />
+
+    <!-- Roof -->
+    <path
+        d="M25 58
+        L60 27
+        L95 58
+        L88 65
+        L60 40
+        L32 65
+        L25 58Z"
+        fill="#0AA65A"
+    />
+
+    <!-- Door -->
+    <rect
+        x="53"
+        y="68"
+        width="14"
+        height="20"
+        rx="4"
+        fill="#10233F"
+    />
+
+    <!-- Verification check -->
+    <path
+        d="M44 61
+        L54 71
+        L78 47"
+        stroke="white"
+        stroke-width="7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+</svg>

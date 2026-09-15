@@ -1,0 +1,94 @@
+<svg
+    width="300"
+    height="90"
+    viewBox="0 0 300 90"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+
+    <!-- ICON -->
+
+    <g transform="translate(0 5)">
+
+        <path
+            d="M40 5
+            L71 22
+            V45
+            C71 63 58 76 40 83
+            C22 76 9 63 9 45
+            V22
+            L40 5Z"
+            fill="#10233F"
+        />
+
+        <path
+            d="M18 44
+            L40 24
+            L62 44
+            V67
+            H18V44Z"
+            fill="#07884A"
+        />
+
+        <path
+            d="M13 44
+            L40 20
+            L67 44
+            L62 49
+            L40 29
+            L18 49
+            L13 44Z"
+            fill="#0AA65A"
+        />
+
+        <rect
+            x="35"
+            y="51"
+            width="10"
+            height="16"
+            rx="3"
+            fill="#10233F"
+        />
+
+        <path
+            d="M29 45
+            L36 52
+            L52 36"
+            stroke="white"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+
+    </g>
+
+
+    <!-- WORDMARK -->
+
+    <text
+        x="90"
+        y="51"
+        font-family="Arial, sans-serif"
+        font-size="38"
+        font-weight="700"
+        fill="#10233F"
+    >
+        Nivora
+    </text>
+
+
+    <!-- TAGLINE -->
+
+    <text
+        x="92"
+        y="70"
+        font-family="Arial, sans-serif"
+        font-size="11"
+        font-weight="600"
+        fill="#07884A"
+        letter-spacing="1"
+    >
+        FIND. VERIFY. LIVE.
+    </text>
+
+</svg>
