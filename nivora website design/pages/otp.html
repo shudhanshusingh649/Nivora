@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -9,113 +10,305 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>OTP Verification | Nivora</title>
+    <meta
+        name="theme-color"
+        content="#0B1F35"
+    >
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <title>
+        Verify OTP | Nivora
+    </title>
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="../assets/icons/nivora-mark.svg"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/tokens.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/components.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
 
 </head>
 
-<body class="auth-body">
+<body class="auth-page">
 
 
-<div class="auth-shell">
-
-    <section class="auth-brand-panel">
-
-        <a href="../index.html" class="brand brand-light">
-            <span class="brand-symbol">⌂</span>
-
-            <span class="brand-copy">
-                <strong>Nivora</strong>
-                <small>Find. Verify. Live.</small>
-            </span>
-        </a>
+    <main class="auth-layout">
 
 
-        <div class="auth-brand-content">
+        <section class="auth-panel">
 
-            <span class="eyebrow-pill">
-                🔐 SECURE ACCESS
-            </span>
+            <a
+                href="../index.html"
+                class="brand"
+            >
 
-            <h1>
-                Verify your
-                <span>number.</span>
-            </h1>
+                <img
+                    src="../assets/icons/nivora-logo.svg"
+                    alt="Nivora"
+                >
 
-            <p>
-                A verified account starts
-                your personalized Nivora experience.
-            </p>
-
-        </div>
-
-    </section>
+            </a>
 
 
-    <section class="auth-content">
-
-        <div class="auth-card">
-
-            <span class="eyebrow">
-                STEP 01
-            </span>
-
-            <h2>Verify OTP</h2>
-
-            <p class="muted">
-                Code sent to
-                <strong id="phoneDisplay"></strong>
-            </p>
+            <div class="auth-panel-content">
 
 
-            <form id="otpForm">
+                <div class="eyebrow">
+                    SECURE ACCOUNT ACCESS
+                </div>
 
-                <div class="otp-grid">
 
-                    <input maxlength="1" inputmode="numeric">
-                    <input maxlength="1" inputmode="numeric">
-                    <input maxlength="1" inputmode="numeric">
-                    <input maxlength="1" inputmode="numeric">
-                    <input maxlength="1" inputmode="numeric">
-                    <input maxlength="1" inputmode="numeric">
+                <h1>
+                    Verify your
+                    <span>
+                        Nivora account.
+                    </span>
+                </h1>
+
+
+                <p class="auth-panel-description">
+
+                    Verification is the first
+                    step toward a personalized
+                    discovery experience.
+
+                </p>
+
+
+                <div class="auth-benefits">
+
+                    <span>
+                        <b>✓</b>
+                        Verified access
+                    </span>
+
+                    <span>
+                        <b>◆</b>
+                        Personalized profile
+                    </span>
+
+                    <span>
+                        <b>⌖</b>
+                        Location-aware discovery
+                    </span>
 
                 </div>
 
 
-                <button
-                    type="submit"
-                    class="btn btn-primary full"
-                >
-                    Verify & Proceed →
-                </button>
-
-            </form>
-
-
-            <button
-                class="text-btn"
-                id="resendOtp"
-            >
-                Resend code
-            </button>
-
-
-            <div class="demo-code">
-                Demo OTP:
-                <strong>123456</strong>
             </div>
 
-        </div>
 
-    </section>
+            <div class="auth-footer-note">
 
-</div>
+                SAFE · VERIFIED · CONNECTED
+
+            </div>
+
+        </section>
 
 
-<script src="../js/otp.js"></script>
+        <section class="auth-form-area">
+
+
+            <div class="auth-card otp-card">
+
+
+                <div class="otp-visual">
+
+                    <div class="otp-shield">
+                        ✓
+                    </div>
+
+                    <span>
+                        SECURE VERIFICATION
+                    </span>
+
+                </div>
+
+
+                <div class="auth-card-header centered-header">
+
+                    <span class="section-eyebrow">
+                        STEP 01
+                    </span>
+
+                    <h2>
+                        Verify OTP
+                    </h2>
+
+                    <p>
+
+                        Enter the 6-digit code
+                        sent to
+
+                        <strong
+                            id="phoneDisplay"
+                        >
+                            your number
+                        </strong>
+
+                    </p>
+
+                </div>
+
+
+                <form
+                    id="otpForm"
+                    novalidate
+                >
+
+
+                    <div
+                        class="otp-grid"
+                        id="otpGrid"
+                    >
+
+                        <input
+                            type="text"
+                            maxlength="1"
+                            inputmode="numeric"
+                            aria-label="OTP digit 1"
+                        >
+
+                        <input
+                            type="text"
+                            maxlength="1"
+                            inputmode="numeric"
+                            aria-label="OTP digit 2"
+                        >
+
+                        <input
+                            type="text"
+                            maxlength="1"
+                            inputmode="numeric"
+                            aria-label="OTP digit 3"
+                        >
+
+                        <input
+                            type="text"
+                            maxlength="1"
+                            inputmode="numeric"
+                            aria-label="OTP digit 4"
+                        >
+
+                        <input
+                            type="text"
+                            maxlength="1"
+                            inputmode="numeric"
+                            aria-label="OTP digit 5"
+                        >
+
+                        <input
+                            type="text"
+                            maxlength="1"
+                            inputmode="numeric"
+                            aria-label="OTP digit 6"
+                        >
+
+                    </div>
+
+
+                    <p
+                        class="otp-error"
+                        id="otpError"
+                    ></p>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary full-width"
+                    >
+
+                        Verify & Continue
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+
+                </form>
+
+
+                <div class="otp-meta">
+
+                    <span>
+                        Didn't receive it?
+                    </span>
+
+                    <button
+                        type="button"
+                        id="resendButton"
+                    >
+                        Resend code
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="otp-countdown"
+                    id="countdown"
+                >
+                    You can resend in 30s
+                </div>
+
+
+                <div class="auth-security">
+
+                    <div class="security-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Secure verification
+                        </strong>
+
+                        <small>
+                            In production, OTP delivery
+                            will be handled by the
+                            authentication service.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="../js/config.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/otp.js"></script>
 
 </body>
+
 </html>

@@ -1,69 +1,113 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    const menuButton =
-        document.getElementById("mobileMenuBtn");
-
-    const mainNav =
-        document.getElementById("mainNav");
-
-
-    if (menuButton && mainNav) {
-
-        menuButton.addEventListener("click", () => {
-
-            mainNav.classList.toggle("open");
-
-        });
-
-    }
+        const menuButton =
+            document.getElementById(
+                "menuButton"
+            );
 
 
-    const heroQuery =
-        document.getElementById("heroQuery");
+        if (menuButton) {
 
-    const heroSearchButton =
-        document.getElementById("heroSearchBtn");
+            menuButton.addEventListener(
+                "click",
+                () => {
 
-
-    document
-        .querySelectorAll("[data-quick]")
-        .forEach(button => {
-
-            button.addEventListener("click", () => {
-
-                if (heroQuery) {
-
-                    heroQuery.value =
-                        button.dataset.quick;
+                    document.body.classList.toggle(
+                        "menu-open"
+                    );
 
                 }
+            );
 
-            });
-
-        });
-
-
-    if (heroSearchButton) {
-
-        heroSearchButton.addEventListener(
-            "click",
-            () => {
-
-                const query =
-                    heroQuery?.value.trim() || "";
+        }
 
 
-                const url =
-                    query
-                    ? `pages/explore.html?search=${encodeURIComponent(query)}`
-                    : "pages/explore.html";
+        const heroForm =
+            document.getElementById(
+                "heroSearchForm"
+            );
 
 
-                window.location.href = url;
+        if (heroForm) {
 
-            }
-        );
+            heroForm.addEventListener(
+                "submit",
+                (event) => {
+
+                    event.preventDefault();
+
+
+                    const query =
+                        document
+                            .getElementById(
+                                "heroQuery"
+                            )
+                            .value
+                            .trim();
+
+
+                    const location =
+                        document
+                            .getElementById(
+                                "heroLocation"
+                            )
+                            .value
+                            .trim();
+
+
+                    NivoraStorage.set(
+                        "search",
+                        {
+                            query,
+                            location
+                        }
+                    );
+
+
+                    window.location.href =
+                        "pages/login.html";
+
+                }
+            );
+
+        }
+
+
+        document
+            .querySelectorAll(
+                ".quick-tags button"
+            )
+            .forEach(
+                (button) => {
+
+                    button.addEventListener(
+                        "click",
+                        () => {
+
+                            const query =
+                                button.textContent.trim();
+
+
+                            NivoraStorage.set(
+                                "search",
+                                {
+                                    query,
+                                    location:
+                                        ""
+                                }
+                            );
+
+
+                            window.location.href =
+                                "pages/login.html";
+
+                        }
+                    );
+
+                }
+            );
 
     }
-
-});
+);

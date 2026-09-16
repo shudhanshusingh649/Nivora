@@ -1,135 +1,281 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    const phone =
-        localStorage.getItem("nivora_phone") || "";
+        const auth =
+            NivoraStorage.get(
+                "auth"
+            );
 
 
-    const phoneDisplay =
-        document.getElementById("phoneDisplay");
+        if (
+            !auth ||
+            !auth.phone
+        ) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+        }
 
 
-    if (phoneDisplay) {
+        const phoneDisplay =
+            document.getElementById(
+                "phoneDisplay"
+            );
+
 
         phoneDisplay.textContent =
-            "+91 " + phone;
-
-    }
+            auth.phone;
 
 
-    const inputs =
-        [
-            ...document.querySelectorAll(
-                ".otp-grid input"
-            )
-        ];
+        const inputs =
+            Array.from(
+                document.querySelectorAll(
+                    ".otp-grid input"
+                )
+            );
 
 
-    inputs.forEach((input, index) => {
+        const form =
+            document.getElementById(
+                "otpForm"
+            );
 
 
-        input.addEventListener(
-            "input",
-            () => {
-
-                input.value =
-                    input.value
-                        .replace(/\D/g, "")
-                        .slice(0, 1);
+        const errorElement =
+            document.getElementById(
+                "otpError"
+            );
 
 
-                if (
-                    input.value &&
-                    index < inputs.length - 1
-                ) {
+        const resendButton =
+            document.getElementById(
+                "resendButton"
+            );
 
-                    inputs[index + 1].focus();
 
-                }
+        const countdown =
+            document.getElementById(
+                "countdown"
+            );
+
+
+        let secondsLeft =
+            30;
+
+
+        let timer;
+
+
+        function showError(
+            message
+        ) {
+
+            errorElement.textContent =
+                message;
+
+        }
+
+
+        function clearError() {
+
+            errorElement.textContent =
+                "";
+
+        }
+
+
+        function focusFirst() {
+
+            if (inputs[0]) {
+
+                inputs[0].focus();
 
             }
-        );
+
+        }
 
 
-        input.addEventListener(
-            "keydown",
-            event => {
+        /* ==========================
+           OTP INPUT
+        =========================== */
 
-                if (
-                    event.key === "Backspace" &&
-                    !input.value &&
-                    index > 0
-                ) {
-
-                    inputs[index - 1].focus();
-
-                }
-
-            }
-        );
+        inputs.forEach(
+            (
+                input,
+                index
+            ) => {
 
 
-    });
+                input.addEventListener(
+                    "input",
+                    () => {
+
+                        input.value =
+                            input.value
+                                .replace(
+                                    /\D/g,
+                                    ""
+                                )
+                                .slice(
+                                    0,
+                                    1
+                                );
 
 
-    const resend =
-        document.getElementById("resendOtp");
+                        clearError();
 
 
-    if (resend) {
+                        if (
+                            input.value &&
+                            index <
+                                inputs.length - 1
+                        ) {
 
-        resend.addEventListener(
-            "click",
-            () => {
+                            inputs[
+                                index + 1
+                            ].focus();
 
-                alert(
-                    "Demo OTP: 123456"
+                        }
+
+                    }
+                );
+
+
+                input.addEventListener(
+                    "keydown",
+                    (event) => {
+
+                        if (
+                            event.key ===
+                            "Backspace" &&
+                            !input.value &&
+                            index > 0
+                        ) {
+
+                            inputs[
+                                index - 1
+                            ].focus();
+
+                        }
+
+                    }
+                );
+
+
+                input.addEventListener(
+                    "paste",
+                    (event) => {
+
+                        const pasted =
+                            (
+                                event
+                                    .clipboardData
+                                    ?.getData("text") ||
+                                ""
+                            )
+                                .replace(
+                                    /\D/g,
+                                    ""
+                                )
+                                .slice(
+                                    0,
+                                    6
+                                );
+
+
+                        if (
+                            pasted.length !==
+                            6
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        event.preventDefault();
+
+
+                        pasted
+                            .split("")
+                            .forEach(
+                                (
+                                    digit,
+                                    digitIndex
+                                ) => {
+
+                                    inputs[
+                                        digitIndex
+                                    ].value =
+                                        digit;
+
+                                }
+                            );
+
+
+                        inputs[
+                            inputs.length - 1
+                        ].focus();
+
+                    }
                 );
 
             }
         );
 
-    }
 
+        /* ==========================
+           VERIFY
+        =========================== */
 
-    const otpForm =
-        document.getElementById("otpForm");
-
-
-    if (otpForm) {
-
-        otpForm.addEventListener(
+        form.addEventListener(
             "submit",
-            event => {
+            (event) => {
 
                 event.preventDefault();
 
 
-                const entered =
+                const otp =
                     inputs
-                        .map(input => input.value)
+                        .map(
+                            (input) =>
+                                input.value
+                        )
                         .join("");
 
 
-                const correctOtp =
-                    localStorage.getItem(
-                        "nivora_demo_otp"
-                    ) || "123456";
+                if (
+                    otp.length !== 6
+                ) {
 
-
-                if (entered !== correctOtp) {
-
-                    alert(
-                        "Invalid OTP. Use 123456 for demo."
+                    showError(
+                        "Please enter all 6 digits."
                     );
 
                     return;
-
                 }
 
 
-                localStorage.setItem(
-                    "nivora_verified",
-                    "true"
+                /*
+                 * Phase 1:
+                 * Accept any 6-digit value.
+                 *
+                 * Phase 2:
+                 * Replace this with real
+                 * backend OTP verification.
+                 */
+
+                NivoraStorage.set(
+                    "auth",
+                    {
+                        ...auth,
+
+                        status:
+                            "verified"
+                    }
                 );
 
 
@@ -139,6 +285,86 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         );
 
-    }
 
-});
+        /* ==========================
+           RESEND TIMER
+        =========================== */
+
+        function startTimer() {
+
+            secondsLeft =
+                30;
+
+
+            resendButton.disabled =
+                true;
+
+
+            timer =
+                window.setInterval(
+                    () => {
+
+                        secondsLeft -=
+                            1;
+
+
+                        countdown.textContent =
+                            `You can resend in ${secondsLeft}s`;
+
+
+                        if (
+                            secondsLeft <=
+                            0
+                        ) {
+
+                            window.clearInterval(
+                                timer
+                            );
+
+
+                            resendButton.disabled =
+                                false;
+
+
+                            countdown.textContent =
+                                "You can request a new code now.";
+
+                        }
+
+                    },
+                    1000
+                );
+
+        }
+
+
+        resendButton.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    resendButton.disabled
+                ) {
+
+                    return;
+                }
+
+
+                alert(
+                    "Real OTP resend will be connected in Phase 2."
+                );
+
+
+                startTimer();
+
+            }
+        );
+
+
+        startTimer();
+
+
+        focusFirst();
+
+    }
+);

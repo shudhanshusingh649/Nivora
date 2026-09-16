@@ -1,45 +1,138 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    const loginForm =
-        document.getElementById("loginForm");
+        const loginForm =
+            document.getElementById(
+                "loginForm"
+            );
 
 
-    if (loginForm) {
+        const phoneInput =
+            document.getElementById(
+                "phone"
+            );
+
+
+        const phoneMessage =
+            document.getElementById(
+                "phoneMessage"
+            );
+
+
+        if (!loginForm) {
+            return;
+        }
+
+
+        function setMessage(
+            message,
+            isError = true
+        ) {
+
+            if (!phoneMessage) {
+                return;
+            }
+
+
+            phoneMessage.textContent =
+                message;
+
+
+            phoneMessage.classList.toggle(
+                "error",
+                isError
+            );
+
+
+            phoneMessage.classList.toggle(
+                "success",
+                !isError
+            );
+
+        }
+
+
+        function cleanPhone(
+            value
+        ) {
+
+            return value
+                .replace(/\D/g, "")
+                .slice(0, 10);
+
+        }
+
+
+        if (phoneInput) {
+
+            phoneInput.addEventListener(
+                "input",
+                () => {
+
+                    phoneInput.value =
+                        cleanPhone(
+                            phoneInput.value
+                        );
+
+                    setMessage(
+                        ""
+                    );
+
+                }
+            );
+
+        }
+
 
         loginForm.addEventListener(
             "submit",
-            event => {
+            (event) => {
 
                 event.preventDefault();
 
 
                 const phone =
-                    document
-                        .getElementById("phone")
-                        .value
-                        .replace(/\D/g, "");
-
-
-                if (phone.length !== 10) {
-
-                    alert(
-                        "Please enter a valid 10-digit mobile number."
+                    cleanPhone(
+                        phoneInput.value
                     );
 
-                    return;
 
+                if (
+                    phone.length !== 10
+                ) {
+
+                    setMessage(
+                        "Enter a valid 10-digit mobile number."
+                    );
+
+                    phoneInput.focus();
+
+                    return;
                 }
 
 
-                localStorage.setItem(
-                    "nivora_phone",
-                    phone
-                );
+                /*
+                 * Phase 1:
+                 *
+                 * We only store the phone number
+                 * locally so the complete frontend
+                 * journey can be tested.
+                 *
+                 * Phase 2:
+                 * Replace this with the real
+                 * authentication API.
+                 */
 
+                NivoraStorage.set(
+                    "auth",
+                    {
+                        phone:
+                            `+91${phone}`,
 
-                localStorage.setItem(
-                    "nivora_demo_otp",
-                    "123456"
+                        status:
+                            "otp_pending"
+                    }
                 );
 
 
@@ -49,46 +142,49 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         );
 
+
+        const googleButton =
+            document.getElementById(
+                "googleButton"
+            );
+
+
+        if (googleButton) {
+
+            googleButton.addEventListener(
+                "click",
+                () => {
+
+                    alert(
+                        "Google authentication will be connected in Phase 2."
+                    );
+
+                }
+            );
+
+        }
+
+
+        const emailButton =
+            document.getElementById(
+                "emailButton"
+            );
+
+
+        if (emailButton) {
+
+            emailButton.addEventListener(
+                "click",
+                () => {
+
+                    alert(
+                        "Email authentication will be connected in Phase 2."
+                    );
+
+                }
+            );
+
+        }
+
     }
-
-
-    const googleLogin =
-        document.getElementById("googleLogin");
-
-
-    if (googleLogin) {
-
-        googleLogin.addEventListener(
-            "click",
-            () => {
-
-                alert(
-                    "Google login will be connected in the backend phase."
-                );
-
-            }
-        );
-
-    }
-
-
-    const emailLogin =
-        document.getElementById("emailLogin");
-
-
-    if (emailLogin) {
-
-        emailLogin.addEventListener(
-            "click",
-            () => {
-
-                alert(
-                    "Email verification will be connected in the backend phase."
-                );
-
-            }
-        );
-
-    }
-
-});
+);

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -9,334 +10,623 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Explore | Nivora</title>
+    <meta
+        name="theme-color"
+        content="#0B1F35"
+    >
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <meta
+        name="description"
+        content="Explore verified living spaces on Nivora."
+    >
+
+    <title>
+        Explore | Nivora
+    </title>
+
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="../assets/icons/nivora-mark.svg"
+    >
+
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="../css/tokens.css"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="../css/components.css"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
 
 </head>
 
-<body class="app-body">
+
+<body class="explore-page">
 
 
-<header class="app-header">
+    <!-- ==================================================
+         HEADER
+    =================================================== -->
 
-    <div class="container app-nav-inner">
+    <header class="explore-header">
 
-        <a href="../index.html" class="brand">
+        <div class="container explore-header-inner">
 
-            <span class="brand-symbol">⌂</span>
 
-            <span class="brand-copy">
-                <strong>Nivora</strong>
-                <small>Find. Verify. Live.</small>
+            <a
+                href="dashboard.html"
+                class="brand"
+            >
+
+                <img
+                    src="../assets/icons/nivora-logo.svg"
+                    alt="Nivora"
+                >
+
+            </a>
+
+
+            <div class="explore-top-search">
+
+                <span class="explore-search-icon">
+                    ⌕
+                </span>
+
+
+                <input
+                    id="exploreSearch"
+                    type="search"
+                    placeholder="Search PG, hostel, flat, room..."
+                    autocomplete="off"
+                >
+
+
+                <button
+                    id="exploreSearchButton"
+                    type="button"
+                    aria-label="Search"
+                >
+                    →
+                </button>
+
+            </div>
+
+
+            <div class="explore-header-actions">
+
+                <button
+                    id="exploreLocation"
+                    class="location-chip"
+                    type="button"
+                >
+                    ⌖ Location
+                </button>
+
+
+                <a
+                    href="profile.html"
+                    class="dashboard-avatar"
+                    id="exploreAvatar"
+                >
+                    U
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         MAIN
+    =================================================== -->
+
+    <main class="container explore-main">
+
+
+        <!-- ==================================================
+             INTRO
+        =================================================== -->
+
+        <section class="explore-intro">
+
+
+            <div>
+
+                <span class="section-eyebrow">
+                    DISCOVER
+                </span>
+
+
+                <h1>
+                    Find a place that
+                    <span>fits you.</span>
+                </h1>
+
+
+                <p>
+                    Explore verified places based on your
+                    location, budget and preferences.
+                </p>
+
+            </div>
+
+
+            <div class="explore-result-summary">
+
+                <span id="resultCount">
+                    0
+                </span>
+
+
+                <small>
+                    places found
+                </small>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             SEARCH
+        =================================================== -->
+
+        <section class="explore-search-panel">
+
+
+            <div class="search-field-large">
+
+                <span>
+                    ⌕
+                </span>
+
+
+                <input
+                    id="mainSearch"
+                    type="search"
+                    placeholder="Try “PG near my college”"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <button
+                id="useLocationButton"
+                class="explore-action-button"
+                type="button"
+            >
+                ⌖ Near me
+            </button>
+
+
+            <button
+                id="filterToggle"
+                class="explore-action-button"
+                type="button"
+            >
+                ⚙ Filters
+            </button>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             CATEGORY
+        =================================================== -->
+
+        <section class="explore-categories">
+
+            <button
+                class="category-tab active"
+                data-category="all"
+                type="button"
+            >
+                All
+            </button>
+
+
+            <button
+                class="category-tab"
+                data-category="hostel"
+                type="button"
+            >
+                Hostels
+            </button>
+
+
+            <button
+                class="category-tab"
+                data-category="pg"
+                type="button"
+            >
+                PG
+            </button>
+
+
+            <button
+                class="category-tab"
+                data-category="flat"
+                type="button"
+            >
+                Rental Flats
+            </button>
+
+
+            <button
+                class="category-tab"
+                data-category="room"
+                type="button"
+            >
+                Rooms
+            </button>
+
+
+            <button
+                class="category-tab"
+                data-category="mess"
+                type="button"
+            >
+                Mess
+            </button>
+
+
+            <button
+                class="category-tab"
+                data-category="flatmate"
+                type="button"
+            >
+                Flatmates
+            </button>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             FILTER PANEL
+        =================================================== -->
+
+        <section
+            id="filterPanel"
+            class="filter-panel"
+            hidden
+        >
+
+
+            <div class="filter-field">
+
+                <label for="minBudget">
+                    Minimum budget
+                </label>
+
+
+                <input
+                    id="minBudget"
+                    type="number"
+                    min="0"
+                    step="500"
+                    placeholder="₹0"
+                >
+
+            </div>
+
+
+            <div class="filter-field">
+
+                <label for="maxBudget">
+                    Maximum budget
+                </label>
+
+
+                <input
+                    id="maxBudget"
+                    type="number"
+                    min="0"
+                    step="500"
+                    placeholder="₹20,000"
+                >
+
+            </div>
+
+
+            <div class="filter-field">
+
+                <label for="roomType">
+                    Room type
+                </label>
+
+
+                <select id="roomType">
+
+                    <option value="all">
+                        Any room type
+                    </option>
+
+                    <option value="single">
+                        Single
+                    </option>
+
+                    <option value="double">
+                        Double
+                    </option>
+
+                    <option value="shared">
+                        Shared
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                id="clearFilters"
+                class="clear-filter-button"
+                type="button"
+            >
+                Clear
+            </button>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             RESULT TOOLBAR
+        =================================================== -->
+
+        <section class="result-toolbar">
+
+
+            <div>
+
+                <strong>
+                    Recommended for you
+                </strong>
+
+
+                <span id="activeSearchText">
+                    Near your location
+                </span>
+
+            </div>
+
+
+            <label class="sort-control">
+
+                <span>
+                    Sort
+                </span>
+
+
+                <select id="sortSelect">
+
+                    <option value="relevance">
+                        Relevance
+                    </option>
+
+
+                    <option value="price-low">
+                        Price: low to high
+                    </option>
+
+
+                    <option value="price-high">
+                        Price: high to low
+                    </option>
+
+
+                    <option value="rating">
+                        Rating
+                    </option>
+
+
+                    <option value="distance">
+                        Nearest first
+                    </option>
+
+                </select>
+
+            </label>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             LISTINGS
+        =================================================== -->
+
+        <section
+            id="listingGrid"
+            class="explore-listing-grid"
+        ></section>
+
+
+
+        <!-- ==================================================
+             EMPTY STATE
+        =================================================== -->
+
+        <section
+            id="emptyState"
+            class="explore-empty-state"
+            hidden
+        >
+
+            <div class="empty-state-icon">
+                ⌕
+            </div>
+
+
+            <h2>
+                Nothing matched your search.
+            </h2>
+
+
+            <p>
+                Try another category,
+                budget or location.
+            </p>
+
+
+            <button
+                id="emptyStateReset"
+                class="btn btn-primary"
+                type="button"
+            >
+                Reset search
+            </button>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==================================================
+         MOBILE NAVIGATION
+    =================================================== -->
+
+    <nav class="mobile-bottom-nav">
+
+
+        <a
+            href="dashboard.html"
+            class="mobile-nav-item"
+        >
+
+            <span>
+                ⌂
             </span>
+
+            <small>
+                Home
+            </small>
 
         </a>
 
 
-        <div class="app-search">
+        <a
+            href="explore.html"
+            class="mobile-nav-item active"
+        >
 
-            <span>⌕</span>
-
-            <input
-                id="listingSearch"
-                placeholder="Search hotel, PG, flat, room, mess, flatmate..."
-            >
-
-            <span>🎙</span>
-
-        </div>
-
-
-        <div class="app-actions">
-
-            <span class="location-chip">
-                ⌖ Patna
+            <span>
+                ⌕
             </span>
 
-            <button class="avatar-button">
-                S
-            </button>
+            <small>
+                Explore
+            </small>
 
-        </div>
+        </a>
 
-    </div>
 
-</header>
+        <a
+            href="flatmate.html"
+            class="mobile-nav-item"
+        >
 
-
-
-<main class="container app-main">
-
-
-<section class="explore-header">
-
-    <div>
-
-        <span class="eyebrow">
-            EXPLORE NIVORA
-        </span>
-
-        <h1>
-            Find your next place
-            <span>or your next connection.</span>
-        </h1>
-
-        <p>
-            One connected feed for stays,
-            rentals, food and flatmates.
-        </p>
-
-    </div>
-
-
-    <div class="location-card">
-
-        <span>📍</span>
-
-        <div>
-            <small>SEARCH LOCATION</small>
-            <strong>Patna, Bihar</strong>
-        </div>
-
-        <button>
-            Change
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<section class="explore-controls">
-
-    <div class="filter-tabs">
-
-        <button class="active" data-filter="all">
-            All
-        </button>
-
-        <button data-filter="Hotel">
-            Hotel
-        </button>
-
-        <button data-filter="Hostel">
-            Hostel
-        </button>
-
-        <button data-filter="PG">
-            PG
-        </button>
-
-        <button data-filter="Rental Flat">
-            Rental Flat
-        </button>
-
-        <button data-filter="Room">
-            Room
-        </button>
-
-        <button data-filter="Mess">
-            Mess
-        </button>
-
-        <button data-filter="Flatmate">
-            Flatmate
-        </button>
-
-    </div>
-
-
-    <div class="filter-row">
-
-        <button>⌖ 2 KM</button>
-        <button>₹ Budget</button>
-        <button>⭐ Rating</button>
-        <button>Availability</button>
-        <button>⚙ More Filters</button>
-
-    </div>
-
-</section>
-
-
-
-<section class="result-head">
-
-    <div>
-
-        <span class="eyebrow">
-            NEAR YOU
-        </span>
-
-        <h2 id="listingTitle">
-            All verified listings
-        </h2>
-
-        <p id="resultCount">
-            Showing verified options around you
-        </p>
-
-    </div>
-
-
-    <div class="sort-control">
-
-        <label>Sort</label>
-
-        <select id="sortSelect">
-
-            <option value="recommended">
-                Recommended
-            </option>
-
-            <option value="rating">
-                Highest Rated
-            </option>
-
-            <option value="price">
-                Price: Low to High
-            </option>
-
-        </select>
-
-    </div>
-
-</section>
-
-
-
-<section
-    id="listingGrid"
-    class="listing-grid"
->
-</section>
-
-
-
-<section class="explore-bottom">
-
-
-    <div class="surface-card">
-
-        <div class="section-topline">
-
-            <div>
-                <span class="eyebrow">
-                    AROUND YOU
-                </span>
-
-                <h2>
-                    Nearby ecosystem
-                </h2>
-            </div>
-
-            <span class="radius-tag">
-                2 KM
+            <span>
+                ◎
             </span>
 
-        </div>
-
-
-        <div class="map-preview">
-
-            <span class="map-pin pin-1">🏠</span>
-            <span class="map-pin pin-2">🍱</span>
-            <span class="map-pin pin-3">🏨</span>
-            <span class="map-pin pin-4">🏢</span>
-
-            <span class="map-center">
-                ⌖
-            </span>
-
-            <div class="map-radius"></div>
-
-        </div>
-
-
-        <div class="map-legend">
-
-            <span>🏠 PG / Flat</span>
-            <span>🍱 Mess</span>
-            <span>🏨 Hotel</span>
-            <span>🏢 Hostel</span>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="surface-card">
-
-        <span class="eyebrow">
-            COMMUNITY
-        </span>
-
-        <h2>
-            Flatmate connection
-        </h2>
-
-        <p class="muted">
-            Flatmates appear in the same
-            Explore and filter system.
-        </p>
-
-
-        <div class="connection-card">
-
-            <span class="match-avatar">
-                A
-            </span>
-
-            <div>
-                <strong>Aman Kumar</strong>
-                <small>Student · ₹4,000 · 92% match</small>
-            </div>
-
-            <button>
+            <small>
                 Connect
-            </button>
+            </small>
 
-        </div>
+        </a>
 
 
-        <div class="connection-card">
+        <a
+            href="support.html"
+            class="mobile-nav-item"
+        >
 
-            <span class="match-avatar purple">
-                R
+            <span>
+                ♡
             </span>
 
-            <div>
-                <strong>Rohit Raj</strong>
-                <small>Student · ₹4,500 · 87% match</small>
-            </div>
+            <small>
+                Support
+            </small>
 
-            <button>
-                Connect
-            </button>
-
-        </div>
+        </a>
 
 
-        <div class="safety-note">
-            🛡 Chat, connect and report
-            will be handled inside Nivora.
-        </div>
+        <a
+            href="profile.html"
+            class="mobile-nav-item"
+        >
 
-    </div>
+            <span id="mobileExploreInitial">
+                U
+            </span>
 
-</section>
+            <small>
+                Profile
+            </small>
+
+        </a>
+
+    </nav>
 
 
-</main>
 
+    <!-- ==================================================
+         JAVASCRIPT
+    =================================================== -->
 
-<script src="../js/explore.js"></script>
-<script src="../js/flatmate.js"></script>
+    <script src="../js/config.js"></script>
+
+    <script src="../js/storage.js"></script>
+
+    <script src="../js/explore.js"></script>
+
 
 </body>
+
 </html>

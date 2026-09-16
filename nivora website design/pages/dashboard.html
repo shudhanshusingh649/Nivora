@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -9,532 +10,1169 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Dashboard | Nivora</title>
+    <meta
+        name="theme-color"
+        content="#0B1F35"
+    >
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <meta
+        name="description"
+        content="Nivora personalized living dashboard."
+    >
+
+    <title>
+        Dashboard | Nivora
+    </title>
+
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="../assets/icons/nivora-mark.svg"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="../css/tokens.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/components.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
 
 </head>
 
-<body class="app-body">
+
+<body class="premium-dashboard">
 
 
-<header class="app-header">
+<!-- =========================================
+     DESKTOP / TABLET HEADER
+========================================= -->
 
-    <div class="container app-nav-inner">
+<header class="dashboard-header">
 
-        <a href="../index.html" class="brand">
-            <span class="brand-symbol">⌂</span>
 
-            <span class="brand-copy">
-                <strong>Nivora</strong>
-                <small>Find. Verify. Live.</small>
-            </span>
+    <div class="container dashboard-nav">
+
+
+        <!-- BRAND -->
+
+        <a
+            href="../index.html"
+            class="brand"
+        >
+
+            <img
+                src="../assets/icons/nivora-logo.svg"
+                alt="Nivora"
+            >
+
         </a>
 
 
-        <div class="app-search">
+        <!-- SEARCH -->
 
-            <span>⌕</span>
-
-            <input
-                id="dashboardSearch"
-                placeholder="Search PG, hostel, flat, hotel..."
-            >
-
-            <span>🎙</span>
-
-        </div>
+        <div class="dashboard-search">
 
 
-        <div class="app-actions">
-
-            <span class="location-chip">
-                ⌖ Patna
+            <span class="search-symbol">
+                ⌕
             </span>
 
-            <button class="icon-button">
-                🔔
-            </button>
 
-            <button
-                class="avatar-button"
-                id="dashboardAvatar"
+            <input
+                id="headerSearch"
+                type="search"
+                autocomplete="off"
+                placeholder="Search PG, hostel, flat, room..."
             >
-                S
-            </button>
+
+
+            <span class="voice-symbol">
+                ◉
+            </span>
+
 
         </div>
 
+
+        <!-- ACTIONS -->
+
+        <div class="dashboard-actions">
+
+
+            <button
+                class="location-chip"
+                id="locationChip"
+                type="button"
+            >
+                ⌖ Location
+            </button>
+
+
+            <button
+                class="dashboard-icon notification-btn"
+                type="button"
+                aria-label="Notifications"
+            >
+
+                <span
+                    class="notification-dot"
+                ></span>
+
+                ♢
+
+            </button>
+
+
+            <button
+                class="dashboard-avatar"
+                id="headerAvatar"
+                type="button"
+            >
+                U
+            </button>
+
+
+        </div>
+
+
     </div>
+
 
 </header>
 
 
-<main class="container app-main">
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main class="container premium-dashboard-main">
 
 
-<section class="dashboard-welcome">
+    <!-- =====================================
+         GREETING
+    ====================================== -->
 
-    <div>
+    <section class="dashboard-hero-row">
 
-        <span class="eyebrow">
-            YOUR DASHBOARD
-        </span>
-
-        <h1>
-            Good morning,
-            <span id="dashName">User</span>
-            👋
-        </h1>
-
-        <p>
-            Find your place, food and people around you.
-        </p>
-
-    </div>
-
-
-    <div class="profile-role">
-
-        <span id="dashRole">
-            Student
-        </span>
-
-        <b>⌄</b>
-
-    </div>
-
-</section>
-
-
-
-<section class="smart-search-card">
-
-    <span>⌕</span>
-
-    <input
-        id="smartSearch"
-        placeholder="Try: PG near Khan Chowk under ₹5,000"
-    >
-
-    <span>🎙</span>
-
-    <a href="explore.html" class="btn btn-primary">
-        Search →
-    </a>
-
-</section>
-
-
-
-<section>
-
-    <div class="section-topline">
 
         <div>
-            <span class="eyebrow">
-                QUICK DISCOVERY
+
+
+            <span class="section-eyebrow">
+                YOUR NIVORA
             </span>
 
-            <h2>
-                What are you looking for?
-            </h2>
-        </div>
 
-        <a href="explore.html">
-            View all →
-        </a>
+            <h1>
 
-    </div>
 
+                Good to see you,
 
-    <div class="quick-service-grid">
-
-        <a href="explore.html?type=Hotel" class="quick-service-card">
-            <span class="hotel-bg">🏨</span>
-            <strong>Hotel</strong>
-            <small>Stay nearby</small>
-        </a>
-
-        <a href="explore.html?type=Hostel" class="quick-service-card">
-            <span class="hostel-bg">🏢</span>
-            <strong>Hostel</strong>
-            <small>Verified hostels</small>
-        </a>
-
-        <a href="explore.html?type=PG" class="quick-service-card">
-            <span class="pg-bg">🏠</span>
-            <strong>PG</strong>
-            <small>Monthly stay</small>
-        </a>
-
-        <a href="explore.html?type=Rental%20Flat" class="quick-service-card">
-            <span class="flat-bg">🏘</span>
-            <strong>Rental Flat</strong>
-            <small>1–3 BHK</small>
-        </a>
-
-        <a href="explore.html?type=Room" class="quick-service-card">
-            <span class="room-bg">🛏</span>
-            <strong>Room</strong>
-            <small>Single / shared</small>
-        </a>
-
-        <a href="explore.html?type=Mess" class="quick-service-card">
-            <span class="mess-bg">🍱</span>
-            <strong>Mess</strong>
-            <small>Food nearby</small>
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<section class="dashboard-section">
-
-    <div class="section-topline">
-
-        <div>
-            <span class="eyebrow">
-                NEAR YOU
-            </span>
-
-            <h2>
-                Top verified stays
-            </h2>
-        </div>
-
-        <a href="explore.html">
-            See all →
-        </a>
-
-    </div>
-
-
-    <div class="listing-grid">
-
-        <article class="listing-card">
-
-            <a href="property.html?type=PG">
-
-                <div class="listing-image image-pg">
-
-                    <span class="verified-badge">
-                        ✓ VERIFIED
-                    </span>
-
-                    <button
-                        class="heart-btn"
-                        onclick="event.preventDefault()"
-                    >
-                        ♡
-                    </button>
-
-                </div>
-
-
-                <div class="listing-body">
-
-                    <div class="meta-row">
-                        <span>PG</span>
-                        <span>0.7 KM</span>
-                    </div>
-
-                    <h3>
-                        Sunrise Luxury PG & Co-Living
-                    </h3>
-
-                    <p>
-                        Kankarbagh · Students · Food · Wi-Fi
-                    </p>
-
-                    <div class="price-row">
-                        <strong>
-                            ₹6,500
-                            <small>/month</small>
-                        </strong>
-
-                        <span>
-                            ⭐ 4.8
-                        </span>
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-
-
-        <article class="listing-card">
-
-            <a href="property.html?type=Rental%20Flat">
-
-                <div class="listing-image image-flat">
-
-                    <span class="verified-badge">
-                        ✓ VERIFIED
-                    </span>
-
-                </div>
-
-                <div class="listing-body">
-
-                    <div class="meta-row">
-                        <span>2BHK FLAT</span>
-                        <span>1.2 KM</span>
-                    </div>
-
-                    <h3>
-                        Green Valley Shared Flat
-                    </h3>
-
-                    <p>
-                        Patna · Furnished · Parking
-                    </p>
-
-                    <div class="price-row">
-                        <strong>
-                            ₹12,000
-                            <small>/month</small>
-                        </strong>
-
-                        <span>
-                            ⭐ 4.6
-                        </span>
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-
-
-        <article class="listing-card">
-
-            <a href="property.html?type=Hostel">
-
-                <div class="listing-image image-hostel">
-
-                    <span class="verified-badge">
-                        ✓ VERIFIED
-                    </span>
-
-                </div>
-
-                <div class="listing-body">
-
-                    <div class="meta-row">
-                        <span>HOSTEL</span>
-                        <span>1.6 KM</span>
-                    </div>
-
-                    <h3>
-                        Campus View Boys Hostel
-                    </h3>
-
-                    <p>
-                        Patna · Security · Mess nearby
-                    </p>
-
-                    <div class="price-row">
-                        <strong>
-                            ₹5,200
-                            <small>/month</small>
-                        </strong>
-
-                        <span>
-                            ⭐ 4.7
-                        </span>
-                    </div>
-
-                </div>
-
-            </a>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-
-<section class="dashboard-two-column">
-
-
-    <div class="surface-card">
-
-        <div class="section-topline">
-
-            <div>
-                <span class="eyebrow">
-                    AROUND YOU
+                <span id="dashboardName">
+                    User
                 </span>
 
-                <h2>
-                    Nearby ecosystem
-                </h2>
-            </div>
+                <span class="wave">
+                    👋
+                </span>
 
-            <span class="radius-tag">
-                2 KM
-            </span>
+
+            </h1>
+
+
+            <p>
+
+                Discover verified places,
+                people and services around you.
+
+            </p>
+
 
         </div>
 
 
-        <div class="map-preview">
 
-            <span class="map-pin pin-1">🏠</span>
-            <span class="map-pin pin-2">🍱</span>
-            <span class="map-pin pin-3">🏨</span>
+        <!-- STATUS -->
 
-            <span class="map-center">
-                ⌖
-            </span>
-
-            <div class="map-radius"></div>
-
-        </div>
+        <div class="dashboard-status">
 
 
-        <div class="map-legend">
+            <span class="status-pulse"></span>
 
-            <span>🏠 Stay</span>
-            <span>🍱 Mess</span>
-            <span>🏨 Hotel</span>
-            <span>🏢 Hostel</span>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="surface-card">
-
-        <span class="eyebrow">
-            COMMUNITY
-        </span>
-
-        <h2>
-            Find a compatible flatmate
-        </h2>
-
-        <p class="muted">
-            Flatmate profiles live inside the
-            same Explore system.
-        </p>
-
-
-        <div class="match-mini">
-
-            <span class="match-avatar">
-                A
-            </span>
 
             <div>
-                <strong>Aman Kumar</strong>
-                <small>Student · ₹4,000 · Patna</small>
+
+
+                <small>
+                    PROFILE STATUS
+                </small>
+
+
+                <strong>
+                    Verified account
+                </strong>
+
+
             </div>
 
-            <b>92%</b>
 
         </div>
 
 
-        <div class="match-mini">
+    </section>
 
-            <span class="match-avatar purple">
-                R
-            </span>
 
-            <div>
-                <strong>Rohit Raj</strong>
-                <small>Student · ₹4,500 · Patna</small>
-            </div>
 
-            <b>87%</b>
+    <!-- =====================================
+         SMART SEARCH
+    ====================================== -->
+
+    <section class="smart-search premium-search">
+
+
+        <div class="smart-search-icon">
+            ⌕
+        </div>
+
+
+        <div class="smart-search-copy">
+
+
+            <small>
+                SEARCH SMARTER
+            </small>
+
+
+            <input
+                id="smartSearch"
+                type="search"
+                autocomplete="off"
+                placeholder="Try “PG near my college”"
+            >
+
 
         </div>
 
 
-        <a
-            href="explore.html?type=Flatmate"
-            class="btn btn-primary full"
+        <button
+            class="near-button"
+            id="nearButton"
+            type="button"
         >
-            Explore Flatmates →
-        </a>
-
-    </div>
-
-</section>
+            ⌖ Near me
+        </button>
 
 
-
-<section class="mess-strip">
-
-    <div>
-
-        <span class="eyebrow">
-            FOOD AROUND YOUR PLACE
-        </span>
-
-        <h2>
-            Recommended mess
-        </h2>
-
-        <p>
-            Compare nearby plans and ratings.
-        </p>
-
-    </div>
+        <button
+            class="btn btn-primary"
+            id="dashboardExploreButton"
+            type="button"
+        >
+            Explore →
+        </button>
 
 
-    <a
-        href="explore.html?type=Mess"
-        class="mess-mini-card"
-    >
-        <span>🍱</span>
+    </section>
 
-        <div>
-            <strong>Annapurna Student Mess</strong>
-            <small>⭐ 4.7 · 0.6 km · ₹2,800</small>
+
+
+    <!-- =====================================
+         EXPLORE CATEGORIES
+    ====================================== -->
+
+    <section class="premium-section">
+
+
+        <div class="dashboard-section-heading">
+
+
+            <div>
+
+
+                <span class="section-eyebrow">
+                    EXPLORE
+                </span>
+
+
+                <h2>
+                    What are you looking for?
+                </h2>
+
+
+            </div>
+
+
+            <a
+                class="view-all-link"
+                href="explore.html"
+            >
+                View all →
+            </a>
+
+
         </div>
 
-        <b>→</b>
-    </a>
 
 
-    <a
-        href="explore.html?type=Mess"
-        class="mess-mini-card"
-    >
-        <span>🍛</span>
+        <div class="category-grid premium-category-grid">
 
-        <div>
-            <strong>Home Food Mess</strong>
-            <small>⭐ 4.4 · 0.9 km · ₹2,600</small>
+
+            <!-- HOSTEL -->
+
+            <button
+                class="category-card premium-category-card"
+                data-category="Hostel"
+                type="button"
+            >
+
+                <span class="category-card-icon hostel-icon">
+
+                    <img
+                        src="../assets/icons/pg-owner.svg"
+                        alt=""
+                    >
+
+                </span>
+
+
+                <strong>
+                    Hostels
+                </strong>
+
+
+                <small>
+                    Verified spaces
+                </small>
+
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+
+            </button>
+
+
+
+            <!-- PG -->
+
+            <button
+                class="category-card premium-category-card"
+                data-category="PG"
+                type="button"
+            >
+
+                <span class="category-card-icon pg-icon">
+
+                    <img
+                        src="../assets/icons/property-owner.svg"
+                        alt=""
+                    >
+
+                </span>
+
+
+                <strong>
+                    PG
+                </strong>
+
+
+                <small>
+                    Monthly stays
+                </small>
+
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+
+            </button>
+
+
+
+            <!-- FLAT -->
+
+            <button
+                class="category-card premium-category-card"
+                data-category="Rental Flat"
+                type="button"
+            >
+
+                <span class="category-card-icon flat-icon">
+
+                    <img
+                        src="../assets/icons/property-owner.svg"
+                        alt=""
+                    >
+
+                </span>
+
+
+                <strong>
+                    Rental Flats
+                </strong>
+
+
+                <small>
+                    Homes & shared
+                </small>
+
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+
+            </button>
+
+
+
+            <!-- ROOM -->
+
+            <button
+                class="category-card premium-category-card"
+                data-category="Room"
+                type="button"
+            >
+
+                <span class="category-card-icon room-icon">
+
+                    <span>
+                        ▭
+                    </span>
+
+                </span>
+
+
+                <strong>
+                    Rooms
+                </strong>
+
+
+                <small>
+                    Single & shared
+                </small>
+
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+
+            </button>
+
+
+
+            <!-- MESS -->
+
+            <button
+                class="category-card premium-category-card"
+                data-category="Mess"
+                type="button"
+            >
+
+                <span class="category-card-icon mess-icon">
+
+                    <img
+                        src="../assets/icons/mess-owner.svg"
+                        alt=""
+                    >
+
+                </span>
+
+
+                <strong>
+                    Mess
+                </strong>
+
+
+                <small>
+                    Food nearby
+                </small>
+
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+
+            </button>
+
+
+
+            <!-- FLATMATE -->
+
+            <button
+                class="category-card premium-category-card"
+                data-category="Flatmate"
+                type="button"
+            >
+
+                <span class="category-card-icon flatmate-icon">
+
+                    <img
+                        src="../assets/icons/family.svg"
+                        alt=""
+                    >
+
+                </span>
+
+
+                <strong>
+                    Flatmates
+                </strong>
+
+
+                <small>
+                    Find a match
+                </small>
+
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+
+            </button>
+
+
         </div>
 
-        <b>→</b>
-    </a>
 
-</section>
+    </section>
+
+
+
+    <!-- =====================================
+         FEATURED AREA
+    ====================================== -->
+
+    <section class="featured-layout">
+
+
+        <!-- DISCOVERY -->
+
+        <article class="featured-banner">
+
+
+            <div class="featured-content">
+
+
+                <span class="featured-label">
+                    SMART DISCOVERY
+                </span>
+
+
+                <h2>
+
+                    Find what fits
+
+                    <span>
+                        your life.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    Search by location,
+                    budget, facilities and
+                    your preferred living style.
+
+                </p>
+
+
+                <a
+                    class="btn btn-light"
+                    href="explore.html"
+                >
+                    Start exploring →
+                </a>
+
+
+            </div>
+
+
+
+            <!-- DECORATIVE ORBIT -->
+
+            <div class="featured-orbit">
+
+
+                <div class="orbit-ring ring-one"></div>
+
+                <div class="orbit-ring ring-two"></div>
+
+
+                <div class="orbit-core">
+                    N
+                </div>
+
+
+                <div class="orbit-tag tag-one">
+                    ✓ Verified
+                </div>
+
+
+                <div class="orbit-tag tag-two">
+                    ⌖ Nearby
+                </div>
+
+
+                <div class="orbit-tag tag-three">
+                    ★ Rated
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- PROFILE -->
+
+        <article class="profile-card-premium">
+
+
+            <div class="premium-card-header">
+
+
+                <div>
+
+
+                    <span class="section-eyebrow">
+                        YOUR PROFILE
+                    </span>
+
+
+                    <h3>
+                        Profile overview
+                    </h3>
+
+
+                </div>
+
+
+                <a href="profile.html">
+                    Edit
+                </a>
+
+
+            </div>
+
+
+            <div class="profile-overview premium-profile">
+
+
+                <div
+                    class="profile-avatar large-avatar"
+                    id="profileAvatar"
+                >
+                    U
+                </div>
+
+
+                <div>
+
+
+                    <h3 id="profileName">
+                        User
+                    </h3>
+
+
+                    <p id="profileCity">
+                        Location
+                    </p>
+
+
+                    <span
+                        class="profile-role"
+                        id="profileRole"
+                    >
+                        User
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="profile-mini-stats">
+
+
+                <div>
+
+
+                    <strong>
+                        <span id="profileCompletion">
+                            100
+                        </span>%
+                    </strong>
+
+
+                    <small>
+                        Profile
+                    </small>
+
+
+                </div>
+
+
+                <div>
+
+
+                    <strong>
+                        0
+                    </strong>
+
+
+                    <small>
+                        Saved
+                    </small>
+
+
+                </div>
+
+
+                <div>
+
+
+                    <strong>
+                        0
+                    </strong>
+
+
+                    <small>
+                        Connections
+                    </small>
+
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         JOURNEY
+    ====================================== -->
+
+    <section class="journey-section">
+
+
+        <div class="dashboard-section-heading">
+
+
+            <div>
+
+
+                <span class="section-eyebrow">
+                    YOUR JOURNEY
+                </span>
+
+
+                <h2>
+                    Everything in one place
+                </h2>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="journey-progress">
+
+
+            <div class="journey-line"></div>
+
+
+
+            <article class="journey-step complete">
+
+
+                <div class="journey-icon">
+                    ✓
+                </div>
+
+
+                <div>
+
+
+                    <small>
+                        01
+                    </small>
+
+
+                    <strong>
+                        Verified
+                    </strong>
+
+
+                    <span>
+                        Account secured
+                    </span>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <article class="journey-step complete">
+
+
+                <div class="journey-icon">
+                    ✓
+                </div>
+
+
+                <div>
+
+
+                    <small>
+                        02
+                    </small>
+
+
+                    <strong>
+                        Profile
+                    </strong>
+
+
+                    <span>
+                        Preferences saved
+                    </span>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <article class="journey-step">
+
+
+                <div class="journey-icon">
+                    03
+                </div>
+
+
+                <div>
+
+
+                    <small>
+                        03
+                    </small>
+
+
+                    <strong>
+                        Discover
+                    </strong>
+
+
+                    <span>
+                        Find your place
+                    </span>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <article class="journey-step">
+
+
+                <div class="journey-icon">
+                    04
+                </div>
+
+
+                <div>
+
+
+                    <small>
+                        04
+                    </small>
+
+
+                    <strong>
+                        Connect
+                    </strong>
+
+
+                    <span>
+                        People & services
+                    </span>
+
+
+                </div>
+
+
+            </article>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         QUICK ACCESS
+    ====================================== -->
+
+    <section class="quick-access">
+
+
+        <article class="quick-access-card">
+
+
+            <div class="quick-access-icon">
+                ◎
+            </div>
+
+
+            <div>
+
+
+                <strong>
+                    Looking for a flatmate?
+                </strong>
+
+
+                <span>
+
+                    Find compatible people
+                    or publish your requirement.
+
+                </span>
+
+
+            </div>
+
+
+            <a href="flatmate.html">
+                →
+            </a>
+
+
+        </article>
+
+
+
+        <article class="quick-access-card">
+
+
+            <div class="quick-access-icon">
+                ✓
+            </div>
+
+
+            <div>
+
+
+                <strong>
+                    Verified listings only
+                </strong>
+
+
+                <span>
+
+                    Discover listings after
+                    verification.
+
+                </span>
+
+
+            </div>
+
+
+            <a href="explore.html">
+                →
+            </a>
+
+
+        </article>
+
+
+
+        <article class="quick-access-card">
+
+
+            <div class="quick-access-icon">
+                ♡
+            </div>
+
+
+            <div>
+
+
+                <strong>
+                    Need help?
+                </strong>
+
+
+                <span>
+
+                    Contact Nivora support
+                    whenever you need assistance.
+
+                </span>
+
+
+            </div>
+
+
+            <a href="support.html">
+                →
+            </a>
+
+
+        </article>
+
+
+    </section>
 
 
 </main>
 
 
+
+<!-- =========================================
+     MOBILE BOTTOM NAV
+========================================= -->
+
+<nav class="mobile-bottom-nav">
+
+
+    <a
+        href="dashboard.html"
+        class="mobile-nav-item active"
+    >
+
+        <span>
+            ⌂
+        </span>
+
+        <small>
+            Home
+        </small>
+
+    </a>
+
+
+    <a
+        href="explore.html"
+        class="mobile-nav-item"
+    >
+
+        <span>
+            ⌕
+        </span>
+
+        <small>
+            Explore
+        </small>
+
+    </a>
+
+
+    <a
+        href="flatmate.html"
+        class="mobile-nav-item"
+    >
+
+        <span>
+            ◎
+        </span>
+
+        <small>
+            Connect
+        </small>
+
+    </a>
+
+
+    <a
+        href="support.html"
+        class="mobile-nav-item"
+    >
+
+        <span>
+            ♡
+        </span>
+
+        <small>
+            Support
+        </small>
+
+    </a>
+
+
+    <a
+        href="profile.html"
+        class="mobile-nav-item"
+    >
+
+        <span id="mobileProfileInitial">
+            U
+        </span>
+
+        <small>
+            Profile
+        </small>
+
+    </a>
+
+
+</nav>
+
+
+
+<script src="../js/config.js"></script>
+<script src="../js/storage.js"></script>
 <script src="../js/dashboard.js"></script>
 
 </body>
+
 </html>

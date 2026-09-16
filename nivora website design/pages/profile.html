@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -9,216 +10,1236 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Profile Setup | Nivora</title>
+    <meta
+        name="theme-color"
+        content="#0B1F35"
+    >
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <meta
+        name="description"
+        content="Create your Nivora profile."
+    >
+
+    <title>
+        Profile Setup | Nivora
+    </title>
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="../assets/icons/nivora-mark.svg"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/tokens.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/components.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
 
 </head>
 
-<body class="auth-body">
+
+<body class="auth-page">
 
 
-<div class="auth-shell">
+<main class="auth-layout">
 
-    <section class="auth-brand-panel">
 
-        <a href="../index.html" class="brand brand-light">
-            <span class="brand-symbol">⌂</span>
+    <!-- =====================================
+         LEFT BRAND PANEL
+    ====================================== -->
 
-            <span class="brand-copy">
-                <strong>Nivora</strong>
-                <small>Find. Verify. Live.</small>
-            </span>
+    <section class="auth-panel">
+
+
+        <a
+            href="../index.html"
+            class="brand"
+        >
+
+            <img
+                src="../assets/icons/nivora-logo.svg"
+                alt="Nivora"
+            >
+
         </a>
 
 
-        <div class="auth-brand-content">
+        <div class="auth-panel-content">
 
-            <span class="eyebrow-pill">
-                ✨ PERSONALIZED DISCOVERY
-            </span>
+
+            <div class="eyebrow">
+                PERSONALIZED EXPERIENCE
+            </div>
+
 
             <h1>
-                Tell us
-                <span>about you.</span>
+
+                Build your
+
+                <span>
+                    Nivora profile.
+                </span>
+
             </h1>
 
-            <p>
-                Your profile helps Nivora personalize
-                your discovery experience.
+
+            <p class="auth-panel-description">
+
+                Tell us a little about yourself
+                so Nivora can personalize your
+                discovery experience.
+
             </p>
 
+
+            <div class="auth-benefits">
+
+
+                <span>
+
+                    <b>
+                        01
+                    </b>
+
+                    Personal information
+
+                </span>
+
+
+                <span>
+
+                    <b>
+                        02
+                    </b>
+
+                    Location & education
+
+                </span>
+
+
+                <span>
+
+                    <b>
+                        03
+                    </b>
+
+                    Choose your role
+
+                </span>
+
+
+                <span>
+
+                    <b>
+                        04
+                    </b>
+
+                    Review & confirm
+
+                </span>
+
+
+            </div>
+
+
         </div>
+
+
+        <div class="auth-footer-note">
+
+            FIND. VERIFY. LIVE.
+
+        </div>
+
 
     </section>
 
 
-    <section class="auth-content">
 
-        <div class="auth-card profile-card">
+    <!-- =====================================
+         RIGHT PROFILE AREA
+    ====================================== -->
 
-            <div class="progress-bar">
-                <span></span>
-            </div>
-
-            <span class="eyebrow">
-                STEP 02 · PROFILE
-            </span>
-
-            <h2>Create your profile</h2>
-
-            <p class="muted">
-                Add your basic information.
-            </p>
+    <section class="auth-form-area">
 
 
-            <form id="profileForm">
-
-                <div class="form-grid">
-
-                    <div>
-                        <label>Full Name</label>
-                        <input
-                            id="fullName"
-                            required
-                            placeholder="Shudhanshu Kumar"
-                        >
-                    </div>
+        <div class="profile-card">
 
 
-                    <div>
-                        <label>Username</label>
-                        <input
-                            id="username"
-                            required
-                            placeholder="shudhanshu"
-                        >
-                    </div>
+            <!-- PROFILE HEADER -->
+
+            <div class="profile-header">
 
 
-                    <div>
-                        <label>Age</label>
-                        <input
-                            id="age"
-                            type="number"
-                            min="13"
-                            max="100"
-                            required
-                        >
-                    </div>
+                <div>
+
+                    <span class="section-eyebrow">
+                        PROFILE SETUP
+                    </span>
 
 
-                    <div>
-                        <label>Gender</label>
-
-                        <select id="gender">
-                            <option value="">Select</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Other</option>
-                            <option>Prefer not to say</option>
-                        </select>
-                    </div>
+                    <h2>
+                        Tell us about you
+                    </h2>
 
 
-                    <div>
-                        <label>Current City</label>
-                        <input
-                            id="currentCity"
-                            required
-                            placeholder="Patna"
-                        >
-                    </div>
-
-
-                    <div>
-                        <label>Permanent City</label>
-                        <input
-                            id="permanentCity"
-                            placeholder="Optional"
-                        >
-                    </div>
-
-
-                    <div>
-                        <label>Occupation</label>
-                        <input
-                            id="occupation"
-                            placeholder="Student"
-                        >
-                    </div>
-
-
-                    <div>
-                        <label>College / University</label>
-                        <input
-                            id="college"
-                            placeholder="IIT Patna"
-                        >
-                    </div>
-
-
-                    <div>
-                        <label>Course</label>
-                        <input
-                            id="course"
-                            placeholder="B.Sc Computer Science"
-                        >
-                    </div>
-
-
-                    <div>
-                        <label>Year / Semester</label>
-                        <input
-                            id="year"
-                            placeholder="3rd Year"
-                        >
-                    </div>
+                    <p class="profile-subtitle">
+                        Complete the steps below.
+                    </p>
 
                 </div>
 
 
-                <label>
-                    User Type
-                </label>
+                <div class="profile-counter">
 
-                <select id="role" required>
+                    <span id="currentStep">
+                        1
+                    </span>
 
-                    <option value="">
-                        Choose your role
-                    </option>
+                    <small>
+                        / 4
+                    </small>
 
-                    <option>Student</option>
-                    <option>Bachelor</option>
-                    <option>Family</option>
-                    <option>Property Owner</option>
-                    <option>PG/Hostel Owner</option>
-                    <option>Mess Owner</option>
-                    <option>Hotel Owner</option>
-                    <option>Service Provider</option>
-
-                </select>
+                </div>
 
 
-                <button
-                    class="btn btn-primary full mt-12"
-                    type="submit"
+            </div>
+
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress-wrapper">
+
+
+                <div class="progress-track">
+
+                    <div
+                        class="progress-bar"
+                        id="progressBar"
+                    ></div>
+
+                </div>
+
+
+                <div class="progress-labels">
+
+                    <span class="active">
+                        Personal
+                    </span>
+
+                    <span>
+                        Location
+                    </span>
+
+                    <span>
+                        Role
+                    </span>
+
+                    <span>
+                        Confirm
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <form
+                id="profileForm"
+                novalidate
+            >
+
+
+                <!-- =================================
+                     STEP 1
+                ================================== -->
+
+                <section
+                    class="profile-step active"
+                    data-step="1"
                 >
-                    Continue to Dashboard →
-                </button>
+
+
+                    <div class="step-icon">
+
+                        <img
+                            src="../assets/icons/user-profile.svg"
+                            alt=""
+                            onerror="this.style.display='none'; this.parentElement.textContent='●';"
+                        >
+
+                    </div>
+
+
+                    <span class="step-label">
+                        STEP 1 OF 4
+                    </span>
+
+
+                    <h3>
+                        Personal information
+                    </h3>
+
+
+                    <p class="step-description">
+
+                        Basic information for your
+                        Nivora profile.
+
+                    </p>
+
+
+                    <div class="profile-form-grid">
+
+
+                        <div class="form-field">
+
+                            <label for="fullName">
+                                Full name *
+                            </label>
+
+                            <input
+                                id="fullName"
+                                type="text"
+                                autocomplete="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="username">
+                                Username *
+                            </label>
+
+                            <input
+                                id="username"
+                                type="text"
+                                autocomplete="username"
+                                placeholder="Choose a username"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="age">
+                                Age *
+                            </label>
+
+                            <input
+                                id="age"
+                                type="number"
+                                min="13"
+                                max="100"
+                                placeholder="21"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="gender">
+                                Gender *
+                            </label>
+
+                            <select
+                                id="gender"
+                                required
+                            >
+
+                                <option value="">
+                                    Select gender
+                                </option>
+
+                                <option value="Male">
+                                    Male
+                                </option>
+
+                                <option value="Female">
+                                    Female
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                                <option value="Prefer not to say">
+                                    Prefer not to say
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="profile-info">
+
+                        <span>
+                            ✓
+                        </span>
+
+                        <span>
+
+                            Only information required
+                            for the account experience
+                            should be collected.
+
+                        </span>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================
+                     STEP 2
+                ================================== -->
+
+                <section
+                    class="profile-step"
+                    data-step="2"
+                >
+
+
+                    <div class="step-icon">
+                        ⌖
+                    </div>
+
+
+                    <span class="step-label">
+                        STEP 2 OF 4
+                    </span>
+
+
+                    <h3>
+                        Location & education
+                    </h3>
+
+
+                    <p class="step-description">
+
+                        Help Nivora understand
+                        where and how you study,
+                        work or live.
+
+                    </p>
+
+
+                    <div class="profile-form-grid">
+
+
+                        <div class="form-field">
+
+                            <label for="currentCity">
+                                Current city *
+                            </label>
+
+                            <input
+                                id="currentCity"
+                                type="text"
+                                autocomplete="address-level2"
+                                placeholder="Patna"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="permanentCity">
+                                Permanent city
+                            </label>
+
+                            <input
+                                id="permanentCity"
+                                type="text"
+                                placeholder="Gaya"
+                            >
+
+                        </div>
+
+
+                        <div class="form-field profile-full">
+
+                            <label for="educationType">
+                                Education / work type *
+                            </label>
+
+                            <select
+                                id="educationType"
+                                required
+                            >
+
+                                <option value="">
+                                    Select type
+                                </option>
+
+                                <option value="College / University">
+                                    College / University
+                                </option>
+
+                                <option value="Coaching">
+                                    Coaching
+                                </option>
+
+                                <option value="Self Study">
+                                    Self Study
+                                </option>
+
+                                <option value="School">
+                                    School
+                                </option>
+
+                                <option value="Working Professional">
+                                    Working Professional
+                                </option>
+
+                                <option value="Freelancer">
+                                    Freelancer
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="institution">
+                                Institution / workplace
+                            </label>
+
+                            <input
+                                id="institution"
+                                type="text"
+                                placeholder="IIT Patna"
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="course">
+                                Course / field
+                            </label>
+
+                            <input
+                                id="course"
+                                type="text"
+                                placeholder="Computer Science"
+                            >
+
+                        </div>
+
+
+                        <div class="form-field profile-full">
+
+                            <label for="studyYear">
+                                Year / semester
+                            </label>
+
+                            <input
+                                id="studyYear"
+                                type="text"
+                                placeholder="3rd Year"
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="profile-info">
+
+                        <span>
+                            ⌖
+                        </span>
+
+                        <span>
+
+                            Location can later be
+                            connected to real map,
+                            coordinates and radius
+                            based discovery.
+
+                        </span>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================
+                     STEP 3 — ROLE
+                ================================== -->
+
+                <section
+                    class="profile-step"
+                    data-step="3"
+                >
+
+
+                    <div class="step-icon">
+                        ◆
+                    </div>
+
+
+                    <span class="step-label">
+                        STEP 3 OF 4
+                    </span>
+
+
+                    <h3>
+                        I am a...
+                    </h3>
+
+
+                    <p class="step-description">
+
+                        Select your role to
+                        personalize your Nivora
+                        experience.
+
+                    </p>
+
+
+                    <div class="role-list">
+
+
+
+                        <!-- STUDENT -->
+
+                        <label class="role-option">
+
+
+                            <input
+                                type="radio"
+                                name="role"
+                                value="Student"
+                                required
+                            >
+
+
+                            <span class="role-option-icon">
+
+                                <img
+                                    src="../assets/icons/student.svg"
+                                    alt="Student"
+                                >
+
+                            </span>
+
+
+                            <span class="role-option-content">
+
+                                <strong>
+                                    Student
+                                </strong>
+
+                                <small>
+                                    Hostel, PG, room,
+                                    flatmate and mess discovery
+                                </small>
+
+                            </span>
+
+
+                            <span class="role-check">
+                                ✓
+                            </span>
+
+
+                        </label>
+
+
+
+                        <!-- BACHELOR -->
+
+                        <label class="role-option">
+
+
+                            <input
+                                type="radio"
+                                name="role"
+                                value="Bachelor"
+                            >
+
+
+                            <span class="role-option-icon">
+
+                                <img
+                                    src="../assets/icons/bachelor.svg"
+                                    alt="Bachelor"
+                                >
+
+                            </span>
+
+
+                            <span class="role-option-content">
+
+                                <strong>
+                                    Bachelor
+                                </strong>
+
+                                <small>
+                                    Flats, rooms, PGs
+                                    and flatmate connection
+                                </small>
+
+                            </span>
+
+
+                            <span class="role-check">
+                                ✓
+                            </span>
+
+
+                        </label>
+
+
+
+                        <!-- FAMILY -->
+
+                        <label class="role-option">
+
+
+                            <input
+                                type="radio"
+                                name="role"
+                                value="Family"
+                            >
+
+
+                            <span class="role-option-icon">
+
+                                <img
+                                    src="../assets/icons/family.svg"
+                                    alt="Family"
+                                >
+
+                            </span>
+
+
+                            <span class="role-option-content">
+
+                                <strong>
+                                    Family
+                                </strong>
+
+                                <small>
+                                    Homes, rental flats
+                                    and local services
+                                </small>
+
+                            </span>
+
+
+                            <span class="role-check">
+                                ✓
+                            </span>
+
+
+                        </label>
+
+
+
+                        <!-- PROPERTY OWNER -->
+
+                        <label class="role-option">
+
+
+                            <input
+                                type="radio"
+                                name="role"
+                                value="Property Owner"
+                            >
+
+
+                            <span class="role-option-icon">
+
+                                <img
+                                    src="../assets/icons/property-owner.svg"
+                                    alt="Property Owner"
+                                >
+
+                            </span>
+
+
+                            <span class="role-option-content">
+
+                                <strong>
+                                    Property Owner
+                                </strong>
+
+                                <small>
+                                    List rental flats,
+                                    rooms or houses
+                                </small>
+
+                            </span>
+
+
+                            <span class="role-check">
+                                ✓
+                            </span>
+
+
+                        </label>
+
+
+
+                        <!-- PG / HOSTEL OWNER -->
+
+                        <label class="role-option">
+
+
+                            <input
+                                type="radio"
+                                name="role"
+                                value="PG / Hostel Owner"
+                            >
+
+
+                            <span class="role-option-icon">
+
+                                <img
+                                    src="../assets/icons/pg-owner.svg"
+                                    alt="PG / Hostel Owner"
+                                >
+
+                            </span>
+
+
+                            <span class="role-option-content">
+
+                                <strong>
+                                    PG / Hostel Owner
+                                </strong>
+
+                                <small>
+                                    List verified PG
+                                    and hostel spaces
+                                </small>
+
+                            </span>
+
+
+                            <span class="role-check">
+                                ✓
+                            </span>
+
+
+                        </label>
+
+
+
+                        <!-- MESS OWNER -->
+
+                        <label class="role-option">
+
+
+                            <input
+                                type="radio"
+                                name="role"
+                                value="Mess Owner"
+                            >
+
+
+                            <span class="role-option-icon">
+
+                                <img
+                                    src="../assets/icons/mess-owner.svg"
+                                    alt="Mess Owner"
+                                >
+
+                            </span>
+
+
+                            <span class="role-option-content">
+
+                                <strong>
+                                    Mess Owner
+                                </strong>
+
+                                <small>
+                                    List meal plans
+                                    and food services
+                                </small>
+
+                            </span>
+
+
+                            <span class="role-check">
+                                ✓
+                            </span>
+
+
+                        </label>
+
+
+
+                        <!-- HOTEL OWNER -->
+
+                        <label class="role-option">
+
+
+                            <input
+                                type="radio"
+                                name="role"
+                                value="Hotel Owner"
+                            >
+
+
+                            <span class="role-option-icon">
+
+                                <img
+                                    src="../assets/icons/hotel-owner.svg"
+                                    alt="Hotel Owner"
+                                >
+
+                            </span>
+
+
+                            <span class="role-option-content">
+
+                                <strong>
+                                    Hotel Owner
+                                </strong>
+
+                                <small>
+                                    List hotels,
+                                    rooms and stay facilities
+                                </small>
+
+                            </span>
+
+
+                            <span class="role-check">
+                                ✓
+                            </span>
+
+
+                        </label>
+
+
+
+                        <!-- SERVICE PROVIDER -->
+
+                        <label class="role-option">
+
+
+                            <input
+                                type="radio"
+                                name="role"
+                                value="Service Provider"
+                            >
+
+
+                            <span class="role-option-icon">
+
+                                <img
+                                    src="../assets/icons/service-provider.svg"
+                                    alt="Service Provider"
+                                >
+
+                            </span>
+
+
+                            <span class="role-option-content">
+
+                                <strong>
+                                    Service Provider
+                                </strong>
+
+                                <small>
+                                    Offer services like
+                                    electrician or plumber
+                                </small>
+
+                            </span>
+
+
+                            <span class="role-check">
+                                ✓
+                            </span>
+
+
+                        </label>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================
+                     STEP 4
+                ================================== -->
+
+                <section
+                    class="profile-step"
+                    data-step="4"
+                >
+
+
+                    <div class="step-icon">
+                        ✓
+                    </div>
+
+
+                    <span class="step-label">
+                        STEP 4 OF 4
+                    </span>
+
+
+                    <h3>
+                        Review your profile
+                    </h3>
+
+
+                    <p class="step-description">
+
+                        Check your information
+                        before entering Nivora.
+
+                    </p>
+
+
+                    <div class="summary-list">
+
+
+                        <div class="summary-item">
+
+
+                            <div class="summary-item-icon">
+                                ●
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    PERSONAL
+                                </small>
+
+                                <strong id="summaryName">
+                                    —
+                                </strong>
+
+                                <span id="summaryBasic">
+                                    —
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="summary-item">
+
+
+                            <div class="summary-item-icon">
+                                ⌖
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    LOCATION
+                                </small>
+
+                                <strong id="summaryCity">
+                                    —
+                                </strong>
+
+                                <span id="summaryEducation">
+                                    —
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="summary-item">
+
+
+                            <div class="summary-item-icon">
+                                ◆
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    ROLE
+                                </small>
+
+                                <strong id="summaryRole">
+                                    —
+                                </strong>
+
+                                <span>
+                                    Personalized Nivora experience
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="confirmation-box">
+
+
+                        <div class="confirmation-box-icon">
+                            ✓
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Profile ready
+                            </strong>
+
+                            <small>
+
+                                Your profile will be
+                                stored for the next
+                                stage of the application.
+
+                            </small>
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================
+                     ACTION BUTTONS
+                ================================== -->
+
+                <div class="wizard-actions">
+
+
+                    <button
+                        type="button"
+                        id="backButton"
+                        class="btn btn-outline"
+                    >
+                        ← Back
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="nextButton"
+                        class="btn btn-primary"
+                    >
+                        Continue →
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        id="finishButton"
+                        class="btn btn-primary"
+                    >
+                        Enter Nivora →
+                    </button>
+
+
+                </div>
+
 
             </form>
 
+
         </div>
+
 
     </section>
 
-</div>
+
+</main>
 
 
+<script src="../js/config.js"></script>
+<script src="../js/storage.js"></script>
 <script src="../js/profile.js"></script>
 
 </body>
+
 </html>
