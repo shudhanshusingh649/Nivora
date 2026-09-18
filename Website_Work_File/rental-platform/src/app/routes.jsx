@@ -3,42 +3,20 @@ export const PATHS = {
 
   personal: "/onboarding/personal",
 
-  /*
-  |--------------------------------------------------------------------------
-  | Main platform section selection
-  |--------------------------------------------------------------------------
-  */
-
   profession: "/onboarding/profession",
-
-  /*
-  |--------------------------------------------------------------------------
-  | User details
-  |--------------------------------------------------------------------------
-  */
 
   studentDetails: "/onboarding/student",
   bachelorDetails: "/onboarding/bachelor",
   familyDetails: "/onboarding/family",
 
-  /*
-  |--------------------------------------------------------------------------
-  | Owner flow
-  |--------------------------------------------------------------------------
-  */
-
   ownerDetails: "/onboarding/owner",
-
-  /*
-  |--------------------------------------------------------------------------
-  | Dashboards
-  |--------------------------------------------------------------------------
-  */
 
   studentDashboard: "/dashboard/student",
   bachelorDashboard: "/dashboard/bachelor",
   familyDashboard: "/dashboard/family",
   ownerDashboard: "/dashboard/owner",
+
+  explore: "/explore",
 };
 
 export const ROLE_DASHBOARD_PATHS = {

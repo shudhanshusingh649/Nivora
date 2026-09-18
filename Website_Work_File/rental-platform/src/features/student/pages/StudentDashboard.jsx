@@ -2,10 +2,14 @@ import React from "react";
 
 import {
   ArrowRight,
+  BedDouble,
+  Building2,
+  Home,
   LogOut,
+  MapPinned,
   Pencil,
-  GraduationCap,
   Sparkles,
+  UsersRound,
 } from "lucide-react";
 
 import {
@@ -26,6 +30,15 @@ import {
 import {
   STUDENT_DASHBOARD,
 } from "../student.config";
+
+const CATEGORY_ICONS = {
+  hostel: BedDouble,
+  pg: Building2,
+  "rental-flat": Home,
+  room: BedDouble,
+  flatmate: UsersRound,
+  nearby: MapPinned,
+};
 
 export default function StudentDashboard() {
   const navigate = useNavigate();
@@ -60,6 +73,16 @@ export default function StudentDashboard() {
     navigate(PATHS.home);
   }
 
+  function handleCategoryClick(
+    categoryId
+  ) {
+    navigate(
+      `/explore?category=${encodeURIComponent(
+        categoryId
+      )}&role=student`
+    );
+  }
+
   return (
     <div className="dashboard-page">
       <header className="dashboard-header">
@@ -91,10 +114,10 @@ export default function StudentDashboard() {
       </header>
 
       <main className="dashboard-content">
-        <section className="dashboard-hero">
+        <section className="dashboard-hero student-dashboard-hero">
           <div className="dashboard-hero-copy">
             <div className="dashboard-kicker">
-              <GraduationCap size={16} />
+              <Sparkles size={16} />
 
               <span>
                 STUDENT EXPERIENCE
@@ -102,18 +125,17 @@ export default function StudentDashboard() {
             </div>
 
             <h1>
-              Welcome,
+              Find a space
               <br />
-
               <span>
-                {personalInfo.firstName ||
-                  "there"}
-                .
+                that fits your life.
               </span>
             </h1>
 
             <p>
-              {STUDENT_DASHBOARD.subtitle}
+              Explore accommodation and everyday
+              living options around your study,
+              budget, and lifestyle needs.
             </p>
           </div>
 
@@ -146,60 +168,63 @@ export default function StudentDashboard() {
           </div>
         </section>
 
-        <section className="phase-banner">
-          <div className="phase-banner-icon">
-            <Sparkles size={19} />
+        <section className="student-dashboard-intro">
+          <div>
+            <span className="section-eyebrow">
+              START EXPLORING
+            </span>
+
+            <h2>
+              What are you looking for?
+            </h2>
+
+            <p>
+              Choose one category. We will ask only
+              the questions relevant to that category.
+            </p>
           </div>
 
-          <div>
-            <strong>
-              Your personalised experience
-              is ready.
-            </strong>
-
-            <span>
-              Search, listings, property
-              details, maps, nearby services,
-              chat and flatmate features will be
-              added phase by phase.
-            </span>
+          <div className="smart-search-badge">
+            <Sparkles size={15} />
+            Smart Search
           </div>
         </section>
 
-        <section className="dashboard-section">
-          <div className="section-heading">
-            <div>
-              <span className="section-eyebrow">
-                YOUR EXPERIENCE
-              </span>
+        <section className="dashboard-grid student-category-grid">
+          {STUDENT_DASHBOARD.categories.map(
+            (category, index) => {
+              const Icon =
+                CATEGORY_ICONS[category.id] ||
+                Home;
 
-              <h2>
-                {STUDENT_DASHBOARD.title}
-              </h2>
-            </div>
-
-            <span className="phase-label">
-              Phase 2+
-            </span>
-          </div>
-
-          <div className="dashboard-grid">
-            {STUDENT_DASHBOARD.categories.map(
-              (category, index) => (
-                <article
-                  className={`dashboard-tile tile-${
-                    index + 1
-                  }`}
+              return (
+                <button
+                  type="button"
+                  className={`student-category-card student-category-${index + 1}`}
                   key={category.id}
+                  onClick={() =>
+                    handleCategoryClick(
+                      category.id
+                    )
+                  }
                 >
-                  <div className="tile-number">
-                    {String(index + 1).padStart(
-                      2,
-                      "0"
-                    )}
+                  <div className="category-card-top">
+                    <span className="category-number">
+                      {String(index + 1).padStart(
+                        2,
+                        "0"
+                      )}
+                    </span>
+
+                    <div className="category-icon">
+                      <Icon
+                        size={21}
+                        strokeWidth={1.8}
+                      />
+                    </div>
                   </div>
 
-                  <div className="tile-content">
+                  <div className="category-card-content">
                     <h3>
                       {category.title}
                     </h3>
@@ -209,113 +234,47 @@ export default function StudentDashboard() {
                     </p>
                   </div>
 
-                  <div className="tile-arrow">
-                    <ArrowRight size={18} />
+                  <div className="category-card-footer">
+                    <span>
+                      Explore options
+                    </span>
+
+                    <div className="category-arrow">
+                      <ArrowRight size={17} />
+                    </div>
                   </div>
-                </article>
-              )
-            )}
-          </div>
+                </button>
+              );
+            }
+          )}
         </section>
 
-        <section className="dashboard-info-grid">
-          <div className="future-note">
-            <span className="future-note-label">
-              YOUR STUDY PROFILE
-            </span>
-
-            <strong>
-              {getStudyTitle(roleDetails)}
-            </strong>
-
-            <span>
-              {getStudyDescription(
-                roleDetails
-              )}
-            </span>
+        <section className="student-personalisation">
+          <div className="personalisation-icon">
+            <MapPinned size={20} />
           </div>
 
-          <div className="future-note">
-            <span className="future-note-label">
-              COMING NEXT
+          <div>
+            <span className="section-eyebrow">
+              BUILT AROUND YOUR NEEDS
             </span>
 
-            <strong>
-              Smarter nearby discovery
-            </strong>
+            <h3>
+              Your search becomes more specific
+              as you tell us more.
+            </h3>
 
-            <span>
-              Selected properties will later
-              connect with relevant services
-              within approximately 2 km,
-              including messes, libraries,
-              pharmacies, hospitals and
-              transport.
-            </span>
+            <p>
+              Location, monthly budget, room type,
+              food preference, furnishing, move-in
+              date, flatmate preferences and other
+              category-specific filters will be
+              used to refine your results.
+            </p>
           </div>
         </section>
       </main>
     </div>
-  );
-}
-
-function getStudyTitle(roleDetails) {
-  if (!roleDetails?.studyType) {
-    return "Student profile";
-  }
-
-  if (roleDetails.studyType === "college") {
-    return (
-      roleDetails.institutionName ||
-      "College / University"
-    );
-  }
-
-  if (roleDetails.studyType === "self-study") {
-    return (
-      roleDetails.studyGoal ||
-      "Self Study / Exam Preparation"
-    );
-  }
-
-  if (roleDetails.studyType === "coaching") {
-    return (
-      roleDetails.institutionName ||
-      "Coaching / Institute"
-    );
-  }
-
-  return "Other Learning";
-}
-
-function getStudyDescription(roleDetails) {
-  if (!roleDetails?.studyType) {
-    return "Your student preferences will appear here.";
-  }
-
-  if (roleDetails.studyType === "college") {
-    return (
-      roleDetails.course ||
-      "Academic profile"
-    );
-  }
-
-  if (roleDetails.studyType === "self-study") {
-    return roleDetails.studyLocation
-      ? `Preparing around ${roleDetails.studyLocation}`
-      : "Independent preparation";
-  }
-
-  if (roleDetails.studyType === "coaching") {
-    return (
-      roleDetails.studyGoal ||
-      "Coaching-based preparation"
-    );
-  }
-
-  return (
-    roleDetails.studyGoal ||
-    "Personal learning journey"
   );
 }
 
