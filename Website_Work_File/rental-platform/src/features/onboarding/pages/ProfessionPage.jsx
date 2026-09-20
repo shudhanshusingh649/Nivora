@@ -1,306 +1,305 @@
-import React, { useState } from "react";
-import { ArrowRight, Check } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-
-import OnboardingLayout from "../../../components/layout/OnboardingLayout";
-import StepHeader from "../../../components/common/StepHeader";
-import OptionCard from "../../../components/common/OptionCard";
+import React, {
+  useState,
+} from "react";
 
 import {
-  PLATFORM_SECTIONS,
-  OWNER_LISTING_TYPES,
-} from "../onboarding.config";
+  ArrowRight,
+  BriefcaseBusiness,
+  Building2,
+  GraduationCap,
+  Users,
+} from "lucide-react";
 
 import {
-  getOnboardingDraft,
-  saveOnboardingDraft,
-} from "../../authentication/auth.utils";
+  useNavigate,
+} from "react-router-dom";
 
-import { PATHS } from "../../../app/routes";
+import BrandLogo from "../../../components/common/BrandLogo";
+
+import {
+  PATHS,
+} from "../../../app/routes";
+
+const OPTIONS = [
+  {
+    id: "student",
+
+    title: "Student",
+
+    description:
+      "For college students, exam aspirants, self-learners, and coaching students.",
+
+    icon: GraduationCap,
+  },
+
+  {
+    id: "bachelor",
+
+    title: "Bachelor",
+
+    description:
+      "For independent or working bachelors looking for PGs, rooms, flats and flatmates.",
+
+    icon: BriefcaseBusiness,
+  },
+
+  {
+    id: "family",
+
+    title: "Family",
+
+    description:
+      "For families looking for suitable rental homes and family-friendly spaces.",
+
+    icon: Users,
+  },
+
+  {
+    id: "owner",
+
+    title: "Owner / Provider",
+
+    description:
+      "For property and service providers. Listing registration happens through the Nivora app.",
+
+    icon: Building2,
+  },
+];
 
 export default function ProfessionPage() {
   const navigate = useNavigate();
 
-  const savedDraft = getOnboardingDraft();
+  const [selected, setSelected] =
+    useState("");
 
-  const [selectedSection, setSelectedSection] =
-    useState(savedDraft.role || "");
+  const [error, setError] =
+    useState("");
 
-  const [selectedOwnerType, setSelectedOwnerType] =
-    useState(savedDraft.ownerListingType || "");
+  function handleSelect(value) {
+    setSelected(value);
 
-  const [error, setError] = useState("");
-
-  function handleSectionChange(sectionId) {
-    setSelectedSection(sectionId);
-    setSelectedOwnerType("");
-    setError("");
-  }
-
-  function handleOwnerTypeChange(typeId) {
-    setSelectedOwnerType(typeId);
     setError("");
   }
 
   function handleContinue() {
-    if (!selectedSection) {
+    if (!selected) {
       setError(
-        "Please choose how you want to use the platform."
+        "Please select an option to continue."
       );
+
       return;
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Student
-    |--------------------------------------------------------------------------
-    */
-
-    if (selectedSection === "student") {
-      const studentDraft = {
-        ...savedDraft,
-        role: "student",
-        ownerListingType: null,
-        roleDetails: {},
-      };
-
-      saveOnboardingDraft(studentDraft);
-
-      navigate(PATHS.studentDetails);
-      return;
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Bachelor
-    |--------------------------------------------------------------------------
-    */
-
-    if (selectedSection === "bachelor") {
-      const bachelorDraft = {
-        ...savedDraft,
-        role: "bachelor",
-        ownerListingType: null,
-        roleDetails: {},
-      };
-
-      saveOnboardingDraft(bachelorDraft);
-
-      navigate(PATHS.bachelorDetails);
-      return;
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Family
-    |--------------------------------------------------------------------------
-    */
-
-    if (selectedSection === "family") {
-      const familyDraft = {
-        ...savedDraft,
-        role: "family",
-        ownerListingType: null,
-        roleDetails: {},
-      };
-
-      saveOnboardingDraft(familyDraft);
-
-      navigate(PATHS.familyDetails);
-      return;
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Owner
-    |--------------------------------------------------------------------------
-    */
-
-    if (selectedSection === "owner") {
-      if (!selectedOwnerType) {
-        setError(
-          "Please choose what you want to list."
+    switch (selected) {
+      case "student":
+        navigate(
+          PATHS.studentDetails
         );
-        return;
-      }
+        break;
 
-      const ownerDraft = {
-        ...savedDraft,
-        role: "owner",
-        ownerListingType: selectedOwnerType,
-        roleDetails: {},
-      };
+      case "bachelor":
+        navigate(
+          PATHS.bachelorDetails
+        );
+        break;
 
-      saveOnboardingDraft(ownerDraft);
+      case "family":
+        navigate(
+          PATHS.familyDetails
+        );
+        break;
 
-      navigate(PATHS.ownerDetails);
+      case "owner":
+        navigate(
+          PATHS.ownerAppOnly
+        );
+        break;
+
+      default:
+        break;
     }
-  }
-
-  function handleBack() {
-    navigate(PATHS.personal);
   }
 
   return (
-    <OnboardingLayout
-      step={2}
-      total={3}
-      onBack={handleBack}
-    >
-      <StepHeader
-        eyebrow="STEP 02"
-        title="How will you use the platform?"
-        description="Choose the section that best matches your purpose. Your choice will shape the experience you see next."
-      />
+    <main className="role-page">
 
-      <div className="section-selection-grid">
-        {PLATFORM_SECTIONS.map((section) => (
-          <OptionCard
-            key={section.id}
-            icon={section.icon}
-            title={section.title}
-            description={section.description}
-            selected={
-              selectedSection === section.id
-            }
-            onClick={() =>
-              handleSectionChange(section.id)
-            }
-          />
-        ))}
-      </div>
+      {/* =====================================================
+          HEADER
+      ===================================================== */}
 
-      {selectedSection === "owner" && (
-        <div className="owner-selection-panel">
-          <div className="dynamic-section-heading">
-            <span>OWNER / PROVIDER</span>
+      <header className="role-page-header">
 
-            <h3>
-              What would you like to list?
-            </h3>
+        <BrandLogo />
 
-            <p>
-              Each listing type will have its own
-              fields, verification flow, and management
-              section.
-            </p>
-          </div>
-
-          <div className="owner-listing-grid">
-            {OWNER_LISTING_TYPES.map(
-              (listingType) => {
-                const selected =
-                  selectedOwnerType ===
-                  listingType.id;
-
-                return (
-                  <button
-                    key={listingType.id}
-                    type="button"
-                    className={`owner-listing-card ${
-                      selected ? "selected" : ""
-                    }`}
-                    onClick={() =>
-                      handleOwnerTypeChange(
-                        listingType.id
-                      )
-                    }
-                  >
-                    <div className="owner-card-icon">
-                      <listingType.icon
-                        size={20}
-                        strokeWidth={1.8}
-                      />
-                    </div>
-
-                    <div className="owner-card-copy">
-                      <strong>
-                        {listingType.title}
-                      </strong>
-
-                      <span>
-                        {listingType.description}
-                      </span>
-                    </div>
-
-                    <div className="owner-card-radio">
-                      <span />
-                    </div>
-                  </button>
-                );
-              }
-            )}
-          </div>
-        </div>
-      )}
-
-      {selectedSection &&
-        selectedSection !== "owner" && (
-          <div className="role-note">
-            <div className="role-note-icon">
-              <Check size={17} />
-            </div>
-
-            <div>
-              <strong>
-                Personalised section selected
-              </strong>
-
-              <span>
-                Your next screen will contain only
-                questions relevant to your selected
-                section.
-              </span>
-            </div>
-          </div>
-        )}
-
-      {selectedSection === "owner" &&
-        selectedOwnerType && (
-          <div className="role-note">
-            <div className="role-note-icon">
-              <Check size={17} />
-            </div>
-
-            <div>
-              <strong>
-                Listing type selected
-              </strong>
-
-              <span>
-                Your owner flow will continue with
-                fields specific to{" "}
-                {getOwnerLabel(selectedOwnerType)}.
-              </span>
-            </div>
-          </div>
-        )}
-
-      {error && (
-        <div className="form-alert">
-          {error}
-        </div>
-      )}
-
-      <div className="form-actions">
         <button
           type="button"
-          className="primary-button"
-          onClick={handleContinue}
+          className="role-back-button"
+          onClick={() =>
+            navigate(
+              PATHS.personal
+            )
+          }
         >
-          <span>Continue</span>
-
-          <ArrowRight size={18} />
+          Back
         </button>
-      </div>
-    </OnboardingLayout>
-  );
-}
 
-function getOwnerLabel(listingType) {
-  const found = OWNER_LISTING_TYPES.find(
-    (item) => item.id === listingType
-  );
+      </header>
 
-  return found?.title || "your selected listing";
+      {/* =====================================================
+          MAIN CONTENT
+      ===================================================== */}
+
+      <section className="role-page-main">
+
+        <div className="role-page-intro">
+
+          <span>
+            STEP 02
+          </span>
+
+          <h1>
+            What do you do?
+          </h1>
+
+          <p>
+            Choose the option that best
+            represents how you currently
+            study, live, work, or provide
+            a service.
+          </p>
+
+        </div>
+
+        {/* ===================================================
+            OPTIONS
+        =================================================== */}
+
+        <div className="role-options">
+
+          {OPTIONS.map(
+            (option) => {
+              const Icon =
+                option.icon;
+
+              const isSelected =
+                selected ===
+                option.id;
+
+              return (
+                <button
+                  key={option.id}
+                  type="button"
+                  className={
+                    isSelected
+                      ? "role-option active"
+                      : "role-option"
+                  }
+                  onClick={() =>
+                    handleSelect(
+                      option.id
+                    )
+                  }
+                >
+
+                  <div className="role-option-icon">
+                    <Icon
+                      size={21}
+                    />
+                  </div>
+
+                  <div className="role-option-content">
+
+                    <strong>
+                      {option.title}
+                    </strong>
+
+                    <span>
+                      {
+                        option.description
+                      }
+                    </span>
+
+                  </div>
+
+                  <div
+                    className={
+                      isSelected
+                        ? "role-radio selected"
+                        : "role-radio"
+                    }
+                  >
+                    {isSelected && (
+                      <span />
+                    )}
+                  </div>
+
+                </button>
+              );
+            }
+          )}
+
+        </div>
+
+        {/* ===================================================
+            INFO
+        =================================================== */}
+
+        <div className="role-page-info">
+
+          <span className="role-info-mark">
+            ✓
+          </span>
+
+          <div>
+
+            <strong>
+              Your experience stays relevant
+            </strong>
+
+            <p>
+              Your choice decides which
+              questions, categories and
+              recommendations you see next.
+            </p>
+
+          </div>
+
+        </div>
+
+        {/* ===================================================
+            ERROR
+        =================================================== */}
+
+        {error && (
+          <div className="role-error">
+            {error}
+          </div>
+        )}
+
+        {/* ===================================================
+            CONTINUE
+        =================================================== */}
+
+        <div className="role-action">
+
+          <button
+            type="button"
+            className="role-continue-button"
+            onClick={
+              handleContinue
+            }
+          >
+            <span>
+              Continue
+            </span>
+
+            <ArrowRight size={18} />
+          </button>
+
+        </div>
+
+      </section>
+
+    </main>
+  );
 }

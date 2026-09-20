@@ -1,38 +1,113 @@
 :root {
-  --color-bg: #f5f6fa;
-  --color-surface: #ffffff;
-  --color-surface-soft: #f8f9fc;
+  /* =====================================================
+     ZEEVO BRAND
+  ===================================================== */
 
-  --color-primary: #15172b;
-  --color-primary-soft: #252847;
+  --zeevo-primary: #15966f;
 
-  --color-accent: #6d5dfc;
-  --color-accent-soft: #ece9ff;
+  --zeevo-primary-dark: #08785b;
 
-  --color-text: #15172b;
-  --color-text-soft: #596174;
-  --color-muted: #8b93a7;
+  --zeevo-primary-deep: #045543;
 
-  --color-border: #e7e9f0;
-  --color-border-strong: #d8dce7;
+  --zeevo-primary-light: #dff8ee;
 
-  --color-success: #14966d;
-  --color-success-soft: #eaf8f2;
+  --zeevo-primary-soft: #effbf6;
 
-  --color-danger: #d64545;
-  --color-danger-soft: #fff0f0;
+  --zeevo-accent: #39d497;
+
+  /* =====================================================
+     TEXT
+  ===================================================== */
+
+  --text-primary: #11211c;
+
+  --text-secondary: #5f7069;
+
+  --text-muted: #89958f;
+
+  --text-light: #ffffff;
+
+  /* =====================================================
+     BACKGROUNDS
+  ===================================================== */
+
+  --bg-main: #f7faf8;
+
+  --bg-soft: #eef6f2;
+
+  --bg-white: #ffffff;
+
+  --bg-dark: #0b1714;
+
+  /* =====================================================
+     BORDERS
+  ===================================================== */
+
+  --border-light: #e2ebe7;
+
+  --border-medium: #d5e1dc;
+
+  /* =====================================================
+     STATUS
+  ===================================================== */
+
+  --success: #15966f;
+
+  --warning: #d98b27;
+
+  --danger: #d94d5a;
+
+  /* =====================================================
+     SHADOWS
+  ===================================================== */
+
+  --shadow-xs:
+    0 4px 12px
+    rgba(10, 53, 42, 0.04);
+
+  --shadow-sm:
+    0 8px 24px
+    rgba(10, 53, 42, 0.06);
+
+  --shadow-md:
+    0 18px 42px
+    rgba(10, 53, 42, 0.09);
+
+  --shadow-lg:
+    0 30px 80px
+    rgba(10, 53, 42, 0.13);
+
+  /* =====================================================
+     RADIUS
+  ===================================================== */
 
   --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
 
-  --shadow-sm: 0 8px 24px rgba(21, 23, 43, 0.05);
-  --shadow-md: 0 18px 50px rgba(21, 23, 43, 0.08);
-  --shadow-lg: 0 30px 80px rgba(21, 23, 43, 0.12);
+  --radius-md: 14px;
 
-  --container: 1320px;
+  --radius-lg: 20px;
 
-  --transition-fast: 180ms ease;
-  --transition-normal: 280ms ease;
+  --radius-xl: 28px;
+
+  --radius-pill: 999px;
+
+  /* =====================================================
+     CONTAINER
+  ===================================================== */
+
+  --container:
+    1240px;
+
+  /* =====================================================
+     TRANSITION
+  ===================================================== */
+
+  --transition-fast:
+    0.18s ease;
+
+  --transition-normal:
+    0.25s ease;
+
+  --transition-slow:
+    0.4s ease;
 }

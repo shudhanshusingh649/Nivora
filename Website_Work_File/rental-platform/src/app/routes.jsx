@@ -1,27 +1,72 @@
 export const PATHS = {
+  /* =======================================================
+     MAIN
+  ======================================================= */
+
   home: "/",
 
-  personal: "/onboarding/personal",
+  login: "/login",
 
-  profession: "/onboarding/profession",
+  /* =======================================================
+     ONBOARDING
+  ======================================================= */
 
-  studentDetails: "/onboarding/student",
-  bachelorDetails: "/onboarding/bachelor",
-  familyDetails: "/onboarding/family",
+  personal:
+    "/onboarding/personal",
 
-  ownerDetails: "/onboarding/owner",
+  profession:
+    "/onboarding/profession",
 
-  studentDashboard: "/dashboard/student",
-  bachelorDashboard: "/dashboard/bachelor",
-  familyDashboard: "/dashboard/family",
-  ownerDashboard: "/dashboard/owner",
+  studentDetails:
+    "/onboarding/student",
 
-  explore: "/explore",
+  bachelorDetails:
+    "/onboarding/bachelor",
+
+  familyDetails:
+    "/onboarding/family",
+
+  /* =======================================================
+     OWNER
+  ======================================================= */
+
+  ownerAppOnly:
+    "/owner/app-only",
+
+  ownerDashboard:
+    "/dashboard/owner",
+
+  /* =======================================================
+     DASHBOARDS
+  ======================================================= */
+
+  studentDashboard:
+    "/dashboard/student",
+
+  bachelorDashboard:
+    "/dashboard/bachelor",
+
+  familyDashboard:
+    "/dashboard/family",
+
+  /* =======================================================
+     EXPLORE
+  ======================================================= */
+
+  explore:
+    "/explore",
 };
 
 export const ROLE_DASHBOARD_PATHS = {
-  student: PATHS.studentDashboard,
-  bachelor: PATHS.bachelorDashboard,
-  family: PATHS.familyDashboard,
-  owner: PATHS.ownerDashboard,
+  student:
+    PATHS.studentDashboard,
+
+  bachelor:
+    PATHS.bachelorDashboard,
+
+  family:
+    PATHS.familyDashboard,
+
+  owner:
+    PATHS.ownerAppOnly,
 };

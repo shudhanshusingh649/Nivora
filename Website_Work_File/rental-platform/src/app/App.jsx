@@ -1,102 +1,124 @@
-import React, { useEffect } from "react";
+import React from "react";
+
 import {
   BrowserRouter,
   Route,
   Routes,
 } from "react-router-dom";
 
-import { APP_CONFIG } from "./app.config";
-import { PATHS } from "./routes";
+import {
+  PATHS,
+} from "./routes";
 
-/*
-|--------------------------------------------------------------------------
-| Onboarding
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   AUTHENTICATION
+========================================================= */
 
-import LandingPage from "../features/onboarding/pages/LandingPage";
-import PersonalInfoPage from "../features/onboarding/pages/PersonalInfoPage";
-import ProfessionPage from "../features/onboarding/pages/ProfessionPage";
+import LoginPage
+  from "../features/authentication/pages/LoginPage";
 
-/*
-|--------------------------------------------------------------------------
-| Student
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   ONBOARDING
+========================================================= */
 
-import StudentDetailsPage from "../features/student/pages/StudentDetailsPage";
-import StudentDashboard from "../features/student/pages/StudentDashboard";
+import LandingPage
+  from "../features/onboarding/pages/LandingPage";
 
-/*
-|--------------------------------------------------------------------------
-| Bachelor
-|--------------------------------------------------------------------------
-*/
+import PersonalInfoPage
+  from "../features/onboarding/pages/PersonalInfoPage";
 
-import BachelorDetailsPage from "../features/bachelor/pages/BachelorDetailsPage";
-import BachelorDashboard from "../features/bachelor/pages/BachelorDashboard";
+import ProfessionPage
+  from "../features/onboarding/pages/ProfessionPage";
 
-/*
-|--------------------------------------------------------------------------
-| Family
-|--------------------------------------------------------------------------
-*/
+/* =========================================================
+   STUDENT
+========================================================= */
 
-import FamilyDetailsPage from "../features/family/pages/FamilyDetailsPage";
-import FamilyDashboard from "../features/family/pages/FamilyDashboard";
+import StudentDetailsPage
+  from "../features/student/pages/StudentDetailsPage";
 
-/*
-|--------------------------------------------------------------------------
-| Owner
-|--------------------------------------------------------------------------
-*/
+import StudentDashboard
+  from "../features/student/pages/StudentDashboard";
 
-import OwnerDetailsPage from "../features/owner/pages/OwnerDetailsPage";
-import OwnerDashboard from "../features/owner/pages/OwnerDashboard";
+/* =========================================================
+   BACHELOR
+========================================================= */
 
-/*
-|--------------------------------------------------------------------------
-| Explore
-|--------------------------------------------------------------------------
-*/
+import BachelorDetailsPage
+  from "../features/bachelor/pages/BachelorDetailsPage";
 
-import ExplorePage from "../features/explore/pages/ExplorePage";
+import BachelorDashboard
+  from "../features/bachelor/pages/BachelorDashboard";
+
+/* =========================================================
+   FAMILY
+========================================================= */
+
+import FamilyDetailsPage
+  from "../features/family/pages/FamilyDetailsPage";
+
+import FamilyDashboard
+  from "../features/family/pages/FamilyDashboard";
+
+/* =========================================================
+   OWNER
+========================================================= */
+
+import OwnerAppOnlyPage
+  from "../features/owner/pages/OwnerAppOnlyPage";
+
+/* =========================================================
+   EXPLORE
+========================================================= */
+
+import ExplorePage
+  from "../features/explore/pages/ExplorePage";
 
 export default function App() {
-  useEffect(() => {
-    document.title = `${APP_CONFIG.name} — ${APP_CONFIG.tagline}`;
-  }, []);
-
   return (
     <BrowserRouter>
+
       <Routes>
 
-        {/* =========================================================
+        {/* =====================================================
             LANDING
-        ========================================================= */}
+        ===================================================== */}
 
         <Route
           path={PATHS.home}
           element={<LandingPage />}
         />
 
-        {/* =========================================================
-            ONBOARDING
-        ========================================================= */}
+        {/* =====================================================
+            LOGIN
+        ===================================================== */}
+
+        <Route
+          path={PATHS.login}
+          element={<LoginPage />}
+        />
+
+        {/* =====================================================
+            PERSONAL INFORMATION
+        ===================================================== */}
 
         <Route
           path={PATHS.personal}
           element={<PersonalInfoPage />}
         />
 
+        {/* =====================================================
+            PROFESSION / MAIN SECTION
+        ===================================================== */}
+
         <Route
           path={PATHS.profession}
           element={<ProfessionPage />}
         />
 
-        {/* =========================================================
+        {/* =====================================================
             STUDENT
-        ========================================================= */}
+        ===================================================== */}
 
         <Route
           path={PATHS.studentDetails}
@@ -108,9 +130,9 @@ export default function App() {
           element={<StudentDashboard />}
         />
 
-        {/* =========================================================
+        {/* =====================================================
             BACHELOR
-        ========================================================= */}
+        ===================================================== */}
 
         <Route
           path={PATHS.bachelorDetails}
@@ -122,9 +144,9 @@ export default function App() {
           element={<BachelorDashboard />}
         />
 
-        {/* =========================================================
+        {/* =====================================================
             FAMILY
-        ========================================================= */}
+        ===================================================== */}
 
         <Route
           path={PATHS.familyDetails}
@@ -136,32 +158,27 @@ export default function App() {
           element={<FamilyDashboard />}
         />
 
-        {/* =========================================================
-            OWNER
-        ========================================================= */}
+        {/* =====================================================
+            OWNER — WEBSITE APP GATE
+        ===================================================== */}
 
         <Route
-          path={PATHS.ownerDetails}
-          element={<OwnerDetailsPage />}
+          path={PATHS.ownerAppOnly}
+          element={<OwnerAppOnlyPage />}
         />
 
-        <Route
-          path={PATHS.ownerDashboard}
-          element={<OwnerDashboard />}
-        />
-
-        {/* =========================================================
+        {/* =====================================================
             EXPLORE
-        ========================================================= */}
+        ===================================================== */}
 
         <Route
           path={PATHS.explore}
           element={<ExplorePage />}
         />
 
-        {/* =========================================================
+        {/* =====================================================
             FALLBACK
-        ========================================================= */}
+        ===================================================== */}
 
         <Route
           path="*"
@@ -169,6 +186,7 @@ export default function App() {
         />
 
       </Routes>
+
     </BrowserRouter>
   );
 }
