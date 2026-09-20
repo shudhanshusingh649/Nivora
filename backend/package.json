@@ -1,0 +1,15 @@
+{
+  "name": "nivora-auth",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nivora JavaScript backend authentication module",
+  "main": "auth.js",
+  "scripts": {
+    "test": "node test-auth.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "dotenv": "^16.0.0",
+    "jsonwebtoken": "^9.0.0"
+  }
+}
