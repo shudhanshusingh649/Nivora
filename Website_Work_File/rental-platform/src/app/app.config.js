@@ -1,150 +1,86 @@
-/* =========================================================
-   ZEEVO APP CONFIGURATION
-========================================================= */
-
 export const APP_CONFIG = {
-  /* -------------------------------------------------------
-     BRAND
-  ------------------------------------------------------- */
-
   name: "ZEEVO",
 
   shortName: "ZEEVO",
 
   tagline: "FIND. VERIFY. LIVE.",
 
-
-  /* -------------------------------------------------------
-     WEBSITE DESCRIPTION
-  ------------------------------------------------------- */
-
   description:
-    "ZEEVO is a modern living platform designed around your lifestyle, location, budget and everyday needs.",
+    "ZEEVO is a modern living platform for students, bachelors and families to discover spaces that fit their lifestyle, location, budget and everyday needs.",
 
+  extendedDescription:
+    "ZEEVO starts with understanding you. After you create your profile, your selected role, location, lifestyle and preferences shape the living experience you see across the platform.",
 
-  /* -------------------------------------------------------
-     FOOTER
-  ------------------------------------------------------- */
+  websiteDescription:
+    "Discover relevant living spaces, understand what fits your needs and continue your complete living journey through the ZEEVO ecosystem.",
 
-  footerText:
-    "FIND. VERIFY. LIVE.",
+  logo: "/zeevo-logo.png",
 
+  navigation: {
+    home: "/",
+    features: "#features",
+    howItWorks: "#how-it-works",
+    about: "#about",
+    contact: "#contact",
 
-  /* -------------------------------------------------------
-     WEBSITE FLOW
-  ------------------------------------------------------- */
+    getStarted: "/login",
 
-  getStartedPath:
-    "/onboarding/personal",
-
-
-  /* -------------------------------------------------------
-     MOBILE APP
-     
-     Temporary Google Play URL for testing.
-     Later replace this with the real ZEEVO app link.
-  ------------------------------------------------------- */
-
-  appDownloadUrl:
-    "https://play.google.com/store/",
-
-
-  /* -------------------------------------------------------
-     BRAND ASSET
-     
-     Main transparent ZEEVO logo is stored inside
-     public/zeevo-logo.png
-  ------------------------------------------------------- */
-
-  logoPath:
-    "/zeevo-logo.png",
-
-
-  /* -------------------------------------------------------
-     PRODUCT FLOW
-  ------------------------------------------------------- */
-
-  flow: {
-    landing:
-      "/",
-
-    personalInfo:
-      "/onboarding/personal",
-
-    profession:
-      "/onboarding/profession",
-
-    role:
-      "/onboarding/role",
-
-    student:
-      "/onboarding/student",
-
-    bachelor:
-      "/onboarding/bachelor",
-
-    family:
-      "/onboarding/family",
-
-    owner:
-      "/owner",
+    downloadApp: "#download-app",
   },
-
-
-  /* -------------------------------------------------------
-     USER ROLES
-  ------------------------------------------------------- */
 
   roles: {
-    student: "student",
-
-    bachelor: "bachelor",
-
-    family: "family",
-
-    owner: "owner",
+    student: "Student",
+    bachelor: "Bachelor",
+    family: "Family",
+    owner: "Owner",
   },
 
-
-  /* -------------------------------------------------------
-     PROPERTY / SERVICE CATEGORIES
-  ------------------------------------------------------- */
-
   categories: {
-    hostel: "hostel",
+    residential: [
+      "PG",
+      "Hostel",
+      "Rental Flat",
+      "Room",
+    ],
 
-    pg: "pg",
+    student: [
+      "PG",
+      "Hostel",
+      "Rental Flat",
+      "Room",
+      "Flatmate",
+    ],
 
-    rentalFlat: "rental-flat",
+    bachelor: [
+      "PG",
+      "Hostel",
+      "Rental Flat",
+      "Room",
+      "Flatmate",
+    ],
 
-    room: "room",
+    family: [
+      "Family Rental",
+    ],
 
-    flatmate: "flatmate",
-
-    hotel: "hotel",
-
-    mess: "mess",
+    services: [
+      "Hotel",
+      "Mess",
+      "Nearby Services",
+    ],
   },
 };
 
-
-/* =========================================================
-   LOCAL STORAGE KEYS
-========================================================= */
-
 export const STORAGE_KEYS = {
   onboardingDraft:
-    "rental_platform_onboarding_draft",
+    "zeevo_onboarding_draft",
 
   userProfile:
-    "rental_platform_user_profile",
+    "zeevo_user_profile",
 
-  selectedRole:
-    "rental_platform_selected_role",
+  authSession:
+    "zeevo_auth_session",
 
-  selectedCategory:
-    "rental_platform_selected_category",
-
-  authUser:
-    "rental_platform_auth_user",
+  authMethod:
+    "zeevo_auth_method",
 };

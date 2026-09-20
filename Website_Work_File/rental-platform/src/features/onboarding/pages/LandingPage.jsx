@@ -1,823 +1,1105 @@
-import React from "react";
-
-import {
-  ArrowRight,
-  Check,
-  Download,
-  MapPin,
-  Menu,
-  ShieldCheck,
-  Sparkles,
-  Users,
-  X,
-} from "lucide-react";
-
-import { Link } from "react-router-dom";
-
-import BrandLogo from "../../../components/common/BrandLogo";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { APP_CONFIG } from "../../../app/app.config";
 
 import "../../../styles/landing.css";
 
+function ArrowIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14" />
+      <path d="m13 6 6 6-6 6" />
+    </svg>
+  );
+}
+
+function DownloadIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 3v12" />
+      <path d="m7 10 5 5 5-5" />
+      <path d="M5 21h14" />
+    </svg>
+  );
+}
+
+function ShieldIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 3 20 6v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3Z" />
+      <path d="m8.5 12 2.2 2.2 4.8-5" />
+    </svg>
+  );
+}
+
+function LocationIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </svg>
+  );
+}
+
+function UsersIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  );
+}
+
+function SearchIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20 20-4-4" />
+    </svg>
+  );
+}
+
+function SparkIcon() {
+  return (
+    <svg
+      width="17"
+      height="17"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m12 2 1.4 6.6L20 10l-6.6 1.4L12 18l-1.4-6.6L4 10l6.6-1.4L12 2Z" />
+    </svg>
+  );
+}
+
+function MenuIcon() {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M4 7h16" />
+      <path d="M4 12h16" />
+      <path d="M4 17h16" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m6 6 12 12" />
+      <path d="M18 6 6 18" />
+    </svg>
+  );
+}
 
 export default function LandingPage() {
+  const navigate = useNavigate();
+
   const [mobileMenuOpen, setMobileMenuOpen] =
-    React.useState(false);
+    useState(false);
 
-
-  const closeMenu = () => {
+  function handleGetStarted() {
     setMobileMenuOpen(false);
-  };
+    navigate("/login");
+  }
 
+  function handleDownload() {
+    setMobileMenuOpen(false);
 
-  const handleDownloadApp = () => {
-    window.open(
-      APP_CONFIG.appDownloadUrl,
-      "_blank",
-      "noopener,noreferrer"
-    );
-  };
+    const target =
+      APP_CONFIG.navigation.downloadApp;
 
+    if (target.startsWith("#")) {
+      const element =
+        document.getElementById(
+          target.substring(1)
+        );
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+
+      return;
+    }
+
+    window.location.href = target;
+  }
+
+  function scrollToSection(id) {
+    setMobileMenuOpen(false);
+
+    const element =
+      document.getElementById(id);
+
+    if (!element) {
+      return;
+    }
+
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+
+  function scrollHome() {
+    setMobileMenuOpen(false);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
 
   return (
-    <main className="zeevo-landing">
-
-      {/* =====================================================
-          BACKGROUND
-      ====================================================== */}
-
-      <div
-        className="zeevo-landing-background"
-        aria-hidden="true"
-      >
-        <div className="zeevo-glow zeevo-glow-one" />
-
-        <div className="zeevo-glow zeevo-glow-two" />
-
-        <div className="zeevo-glow zeevo-glow-three" />
-
-        <div className="zeevo-grid" />
+    <div className="landing-page">
+      <div className="landing-background">
+        <div className="landing-glow landing-glow-one" />
+        <div className="landing-glow landing-glow-two" />
+        <div className="landing-grid" />
       </div>
 
-
-      {/* =====================================================
-          NAVBAR
-      ====================================================== */}
-
-      <header className="zeevo-navbar">
-
-        {/* LOGO */}
-
-        <Link
-          to="/"
-          className="zeevo-navbar-logo"
-          onClick={closeMenu}
-          aria-label="ZEEVO Home"
-        >
-          <BrandLogo />
-        </Link>
-
-
-        {/* DESKTOP / MOBILE NAVIGATION */}
-
-        <nav
-          className={[
-            "zeevo-nav",
-            mobileMenuOpen
-              ? "zeevo-nav-open"
-              : "",
-          ].join(" ")}
-        >
-
-          <a
-            href="#home"
-            className="
-              zeevo-nav-link
-              zeevo-nav-active
-            "
-            onClick={closeMenu}
+      <header className="landing-header">
+        <div className="landing-header-inner">
+          <button
+            type="button"
+            className="landing-logo-button"
+            onClick={scrollHome}
+            aria-label="ZEEVO home"
           >
-            Home
-          </a>
-
-
-          <a
-            href="#features"
-            className="zeevo-nav-link"
-            onClick={closeMenu}
-          >
-            Features
-          </a>
-
-
-          <a
-            href="#how-it-works"
-            className="zeevo-nav-link"
-            onClick={closeMenu}
-          >
-            How It Works
-          </a>
-
-
-          <a
-            href="#about"
-            className="zeevo-nav-link"
-            onClick={closeMenu}
-          >
-            About
-          </a>
-
-
-          <a
-            href="#contact"
-            className="zeevo-nav-link"
-            onClick={closeMenu}
-          >
-            Contact
-          </a>
-
-        </nav>
-
-
-        {/* RIGHT ACTION */}
-
-        <div className="zeevo-navbar-actions">
-
-          {/* FIND YOUR SPACE REMOVED */}
-
-          <Link
-            to={APP_CONFIG.getStartedPath}
-            className="zeevo-header-cta"
-            onClick={closeMenu}
-          >
-            <span>
-              Get Started
+            <span className="landing-logo-wrap">
+              <img
+                src={APP_CONFIG.logo}
+                alt="ZEEVO"
+                className="landing-logo"
+              />
             </span>
+          </button>
 
-            <ArrowRight size={17} />
-          </Link>
-
-        </div>
-
-
-        {/* MOBILE MENU */}
-
-        <button
-          type="button"
-          className="zeevo-mobile-menu"
-          onClick={() =>
-            setMobileMenuOpen(
-              (current) => !current
-            )
-          }
-          aria-label={
-            mobileMenuOpen
-              ? "Close navigation"
-              : "Open navigation"
-          }
-        >
-          {mobileMenuOpen ? (
-            <X size={21} />
-          ) : (
-            <Menu size={21} />
-          )}
-        </button>
-
-      </header>
-
-
-      {/* =====================================================
-          HERO
-      ====================================================== */}
-
-      <section
-        id="home"
-        className="zeevo-hero"
-      >
-
-        {/* ===================================================
-            LEFT CONTENT
-        =================================================== */}
-
-        <div className="zeevo-hero-content">
-
-          {/* BADGE */}
-
-          <div className="zeevo-hero-badge">
-
-            <span className="zeevo-badge-icon">
-              <Sparkles size={14} />
-            </span>
-
-            <span>
-              A smarter way to find your space
-            </span>
-
-          </div>
-
-
-          {/* TITLE */}
-
-          <h1 className="zeevo-hero-title">
-
-            <span className="zeevo-title-white">
-              Find a place
-            </span>
-
-            <span className="zeevo-title-green">
-              that feels right.
-            </span>
-
-          </h1>
-
-
-          {/* DESCRIPTION */}
-
-          <p className="zeevo-hero-description">
-
-            ZEEVO is a modern living platform designed
-            to help students, bachelors and families
-            find spaces that fit their lifestyle,
-            location, budget and everyday needs.
-
-            <br />
-            <br />
-
-            Start by creating your profile. ZEEVO then
-            understands who you are and shows a
-            relevant experience based on your selected
-            role and preferences.
-
-          </p>
-
-
-          {/* ACTIONS */}
-
-          <div className="zeevo-hero-actions">
-
-            {/* GET STARTED */}
-
-            <Link
-              to={APP_CONFIG.getStartedPath}
-              className="zeevo-primary-cta"
+          <nav className="landing-nav">
+            <button
+              type="button"
+              className="landing-nav-link active"
+              onClick={scrollHome}
             >
-              <span>
-                Get Started
-              </span>
-
-              <ArrowRight size={18} />
-            </Link>
-
-
-            {/* DOWNLOAD APP */}
+              Home
+            </button>
 
             <button
               type="button"
-              className="zeevo-download-button"
-              onClick={handleDownloadApp}
+              className="landing-nav-link"
+              onClick={() =>
+                scrollToSection("features")
+              }
             >
-
-              <span className="zeevo-download-icon">
-
-                <Download size={17} />
-
-              </span>
-
-              <span>
-                Download App
-              </span>
-
+              Features
             </button>
 
+            <button
+              type="button"
+              className="landing-nav-link"
+              onClick={() =>
+                scrollToSection(
+                  "how-it-works"
+                )
+              }
+            >
+              How It Works
+            </button>
+
+            <button
+              type="button"
+              className="landing-nav-link"
+              onClick={() =>
+                scrollToSection("about")
+              }
+            >
+              About
+            </button>
+
+            <button
+              type="button"
+              className="landing-nav-link"
+              onClick={() =>
+                scrollToSection("contact")
+              }
+            >
+              Contact
+            </button>
+          </nav>
+
+          <div className="landing-header-actions">
+            <button
+              type="button"
+              className="landing-header-cta"
+              onClick={handleGetStarted}
+            >
+              Get Started
+              <ArrowIcon />
+            </button>
+
+            <button
+              type="button"
+              className="landing-mobile-menu-button"
+              onClick={() =>
+                setMobileMenuOpen(
+                  (current) => !current
+                )
+              }
+              aria-label="Open navigation"
+            >
+              {mobileMenuOpen ? (
+                <CloseIcon />
+              ) : (
+                <MenuIcon />
+              )}
+            </button>
           </div>
-
-
-          {/* =================================================
-              FEATURE HIGHLIGHTS
-          ================================================== */}
-
-          <div
-            id="features"
-            className="zeevo-trust-row"
-          >
-
-            {/* VERIFIED */}
-
-            <div className="zeevo-trust-item">
-
-              <div className="zeevo-trust-icon">
-
-                <ShieldCheck size={17} />
-
-              </div>
-
-              <div className="zeevo-trust-text">
-
-                <strong>
-                  Verified Homes
-                </strong>
-
-                <span>
-                  Safer discovery
-                </span>
-
-              </div>
-
-            </div>
-
-
-            <div className="zeevo-trust-divider" />
-
-
-            {/* LOCATION */}
-
-            <div className="zeevo-trust-item">
-
-              <div className="zeevo-trust-icon">
-
-                <MapPin size={17} />
-
-              </div>
-
-              <div className="zeevo-trust-text">
-
-                <strong>
-                  Location First
-                </strong>
-
-                <span>
-                  Built around you
-                </span>
-
-              </div>
-
-            </div>
-
-
-            <div className="zeevo-trust-divider" />
-
-
-            {/* ROLE BASED */}
-
-            <div className="zeevo-trust-item">
-
-              <div className="zeevo-trust-icon">
-
-                <Users size={17} />
-
-              </div>
-
-              <div className="zeevo-trust-text">
-
-                <strong>
-                  Role Based
-                </strong>
-
-                <span>
-                  Student · Bachelor · Family
-                </span>
-
-              </div>
-
-            </div>
-
-          </div>
-
         </div>
 
+        {mobileMenuOpen && (
+          <div className="landing-mobile-menu">
+            <button
+              type="button"
+              onClick={scrollHome}
+            >
+              Home
+            </button>
 
-        {/* ===================================================
-            RIGHT VISUAL
-        =================================================== */}
+            <button
+              type="button"
+              onClick={() =>
+                scrollToSection("features")
+              }
+            >
+              Features
+            </button>
 
-        <div className="zeevo-visual">
+            <button
+              type="button"
+              onClick={() =>
+                scrollToSection(
+                  "how-it-works"
+                )
+              }
+            >
+              How It Works
+            </button>
 
-          {/* ORBITS */}
+            <button
+              type="button"
+              onClick={() =>
+                scrollToSection("about")
+              }
+            >
+              About
+            </button>
 
-          <div className="zeevo-orbit zeevo-orbit-one" />
+            <button
+              type="button"
+              onClick={() =>
+                scrollToSection("contact")
+              }
+            >
+              Contact
+            </button>
 
-          <div className="zeevo-orbit zeevo-orbit-two" />
+            <button
+              type="button"
+              className="mobile-menu-start"
+              onClick={handleGetStarted}
+            >
+              Start with ZEEVO
+              <ArrowIcon />
+            </button>
+          </div>
+        )}
+      </header>
 
+      <main>
+        {/* =====================================================
+            HERO
+        ====================================================== */}
 
-          {/* MAIN CARD */}
+        <section className="landing-hero">
+          <div className="landing-hero-content">
+            <div className="landing-badge">
+              <SparkIcon />
 
-          <div className="zeevo-space-card">
+              <span>
+                A smarter way to find your
+                space
+              </span>
+            </div>
 
-            {/* CARD TOP */}
+            <h1 className="landing-title">
+              Find a place
+              <span>
+                that feels right.
+              </span>
+            </h1>
 
-            <div className="zeevo-card-top">
+            <p className="landing-description">
+              ZEEVO is a modern living
+              platform designed to help
+              students, bachelors and
+              families discover spaces that
+              fit their lifestyle, preferred
+              location, budget and everyday
+              needs.
+            </p>
 
-              <div className="zeevo-card-title">
+            <p className="landing-description secondary">
+              Create your profile once.
+              ZEEVO then understands your
+              selected role and preferences
+              and shows a relevant living
+              experience after you sign in.
+            </p>
 
-                <span>
-                  ZEEVO
+            <div className="landing-actions">
+              <button
+                type="button"
+                className="landing-primary-button"
+                onClick={handleGetStarted}
+              >
+                Get Started
+                <ArrowIcon />
+              </button>
+
+              <button
+                type="button"
+                className="landing-secondary-button"
+                onClick={handleDownload}
+              >
+                <DownloadIcon />
+                Download App
+              </button>
+            </div>
+
+            <div className="landing-trust-list">
+              <div className="landing-trust-item">
+                <span className="landing-icon-box">
+                  <ShieldIcon />
                 </span>
 
-                <strong>
-                  YOUR NEXT SPACE
-                </strong>
+                <span>
+                  <strong>
+                    Verified-first
+                  </strong>
 
+                  <small>
+                    Safer discovery
+                  </small>
+                </span>
               </div>
 
+              <div className="landing-trust-divider" />
 
-              <div className="zeevo-live-status">
+              <div className="landing-trust-item">
+                <span className="landing-icon-box">
+                  <LocationIcon />
+                </span>
 
-                <span />
+                <span>
+                  <strong>
+                    Location-first
+                  </strong>
 
-                Live
-
+                  <small>
+                    Built around you
+                  </small>
+                </span>
               </div>
 
+              <div className="landing-trust-divider" />
+
+              <div className="landing-trust-item">
+                <span className="landing-icon-box">
+                  <UsersIcon />
+                </span>
+
+                <span>
+                  <strong>
+                    Role-based
+                  </strong>
+
+                  <small>
+                    Student · Bachelor ·
+                    Family
+                  </small>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="landing-visual">
+            <div className="landing-orbit landing-orbit-one" />
+            <div className="landing-orbit landing-orbit-two" />
+
+            <div className="landing-showcase">
+              <div className="landing-showcase-header">
+                <div>
+                  <span className="landing-showcase-label">
+                    ZEEVO
+                  </span>
+
+                  <strong>
+                    YOUR NEXT SPACE
+                  </strong>
+                </div>
+
+                <span className="landing-live">
+                  <i />
+                  Live
+                </span>
+              </div>
+
+              <div className="landing-logo-stage">
+                <div className="landing-logo-backplate">
+                  <img
+                    src={APP_CONFIG.logo}
+                    alt="ZEEVO official logo"
+                    className="landing-main-logo"
+                  />
+                </div>
+              </div>
+
+              <div className="landing-showcase-footer">
+                <div>
+                  <strong>
+                    Built around you
+                  </strong>
+
+                  <span>
+                    Spaces, services and
+                    everyday essentials
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleGetStarted}
+                  aria-label="Get started"
+                >
+                  <ArrowIcon />
+                </button>
+              </div>
             </div>
 
-
-            {/* LOGO */}
-
-            <div className="zeevo-card-logo-area">
-
-              <div className="zeevo-card-logo-glow" />
-
-              <img
-                src="/zeevo-logo.png"
-                alt="ZEEVO — Find. Verify. Live."
-                className="zeevo-card-logo"
-                draggable="false"
-              />
-
-            </div>
-
-
-            {/* DIVIDER */}
-
-            <div className="zeevo-card-divider" />
-
-
-            {/* CARD FOOTER */}
-
-            <div className="zeevo-card-bottom">
+            <div className="landing-floating-card landing-location-card">
+              <span className="landing-floating-icon">
+                <LocationIcon />
+              </span>
 
               <div>
-
                 <strong>
-                  Built around you
+                  Location first
                 </strong>
 
                 <span>
-                  Personalised living experience
+                  Your preferences shape
+                  discovery
                 </span>
-
               </div>
-
-
-              {/* Arrow now starts onboarding */}
-
-              <Link
-                to={APP_CONFIG.getStartedPath}
-                className="zeevo-card-arrow"
-                aria-label="Get started with ZEEVO"
-              >
-                <ArrowRight size={18} />
-              </Link>
-
             </div>
 
-          </div>
-
-
-          {/* =================================================
-              LOCATION CARD
-          ================================================== */}
-
-          <div
-            className="
-              zeevo-floating-card
-              zeevo-location-card
-            "
-          >
-
-            <div className="zeevo-floating-icon">
-
-              <MapPin size={17} />
-
-            </div>
-
-
-            <div className="zeevo-floating-content">
-
-              <strong>
-                Location first
-              </strong>
-
-              <span>
-                Your preferences shape discovery
+            <div className="landing-floating-card landing-personal-card">
+              <span className="landing-floating-icon check">
+                ✓
               </span>
 
-            </div>
+              <div>
+                <strong>
+                  Personalised experience
+                </strong>
 
+                <span>
+                  Simple. Clear. Relevant.
+                </span>
+              </div>
+            </div>
           </div>
-
-
-          {/* =================================================
-              DESIGNED CARD
-          ================================================== */}
-
-          <div
-            className="
-              zeevo-floating-card
-              zeevo-designed-card
-            "
-          >
-
-            <div className="zeevo-floating-icon">
-
-              <Check size={17} />
-
-            </div>
-
-
-            <div className="zeevo-floating-content">
-
-              <strong>
-                Personalised experience
-              </strong>
-
-              <span>
-                Simple. Clear. Relevant.
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          HOW IT WORKS
-      ====================================================== */}
-
-      <section
-        id="how-it-works"
-        className="zeevo-info-section"
-      >
-
-        <div className="zeevo-section-heading">
-
-          <span>
-            HOW IT WORKS
-          </span>
-
-          <h2>
-            Your journey starts
-            <br />
-            with knowing you.
-          </h2>
-
-          <p>
-            ZEEVO does not open every section to every
-            person. Your experience is shaped from the
-            information you provide during onboarding.
-          </p>
-
-        </div>
-
-
-        <div className="zeevo-info-grid">
-
-          {/* STEP 01 */}
-
-          <article className="zeevo-info-card">
-
-            <span className="zeevo-step-number">
-              01
-            </span>
-
-            <h3>
-              Register or login
-            </h3>
-
-            <p>
-              Start your ZEEVO journey by signing in
-              or creating your account before accessing
-              the main living experience.
-            </p>
-
-          </article>
-
-
-          {/* STEP 02 */}
-
-          <article className="zeevo-info-card">
-
-            <span className="zeevo-step-number">
-              02
-            </span>
-
-            <h3>
-              Tell us about you
-            </h3>
-
-            <p>
-              Provide your personal information,
-              current situation, location and other
-              details that help shape your experience.
-            </p>
-
-          </article>
-
-
-          {/* STEP 03 */}
-
-          <article className="zeevo-info-card">
-
-            <span className="zeevo-step-number">
-              03
-            </span>
-
-            <h3>
-              Choose your role
-            </h3>
-
-            <p>
-              Select the profile that fits you, such as
-              Student, Bachelor, Family or the relevant
-              provider journey.
-            </p>
-
-          </article>
-
-
-          {/* STEP 04 */}
-
-          <article className="zeevo-info-card">
-
-            <span className="zeevo-step-number">
-              04
-            </span>
-
-            <h3>
-              Get your experience
-            </h3>
-
-            <p>
-              Once your role is selected, ZEEVO opens
-              the relevant sections, questions and
-              services for that specific journey.
-            </p>
-
-          </article>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          ABOUT
-      ====================================================== */}
-
-      <section
-        id="about"
-        className="zeevo-about-section"
-      >
-
-        <div>
-
-          <span className="zeevo-section-label">
-            ABOUT ZEEVO
-          </span>
-
-          <h2>
-            A living platform
-            built around people.
-          </h2>
-
-        </div>
-
-
-        <p>
-          ZEEVO is being designed as a connected living
-          platform where the experience changes according
-          to the person using it. Students, bachelors and
-          families can have different needs, so the
-          platform is structured to keep their journeys
-          relevant instead of showing the same experience
-          to everyone.
-          <br />
-          <br />
-          Property providers, PG and hostel owners, room
-          owners, mess providers and hotel providers will
-          have separate workflows and listing experiences
-          as the platform grows.
-        </p>
-
-      </section>
-
-
-      {/* =====================================================
-          CONTACT / GET STARTED
-      ====================================================== */}
-
-      <section
-        id="contact"
-        className="zeevo-contact-section"
-      >
-
-        <div className="zeevo-contact-card">
-
-          <div>
-
-            <span className="zeevo-section-label">
-              START YOUR JOURNEY
-            </span>
+        </section>
+
+        {/* =====================================================
+            FEATURES
+        ====================================================== */}
+
+        <section
+          id="features"
+          className="landing-section"
+        >
+          <div className="landing-section-heading">
+            <span>FEATURES</span>
 
             <h2>
-              Tell ZEEVO what
-              you need.
+              More than a listing
+              <br />
+              platform.
             </h2>
 
             <p>
-              Create your profile first. Your relevant
-              experience will open after onboarding.
+              ZEEVO connects discovery,
+              personal preferences and the
+              living services around a user
+              into a role-based experience.
             </p>
-
           </div>
 
+          <div className="landing-feature-grid">
+            <article className="landing-feature-card">
+              <span className="landing-feature-number">
+                01
+              </span>
 
-          <div className="zeevo-contact-actions">
+              <div className="landing-feature-icon">
+                <UsersIcon />
+              </div>
 
-            <Link
-              to={APP_CONFIG.getStartedPath}
-              className="zeevo-contact-primary"
-            >
-              Get Started
+              <h3>
+                Role-based discovery
+              </h3>
 
-              <ArrowRight size={17} />
+              <p>
+                Students, bachelors and
+                families follow different
+                journeys, so each section
+                remains relevant to the user.
+              </p>
+            </article>
 
-            </Link>
+            <article className="landing-feature-card">
+              <span className="landing-feature-number">
+                02
+              </span>
 
+              <div className="landing-feature-icon">
+                <LocationIcon />
+              </div>
+
+              <h3>
+                Location-aware experience
+              </h3>
+
+              <p>
+                Preferred locations,
+                nearby areas and useful
+                services become part of the
+                discovery experience.
+              </p>
+            </article>
+
+            <article className="landing-feature-card">
+              <span className="landing-feature-number">
+                03
+              </span>
+
+              <div className="landing-feature-icon">
+                <ShieldIcon />
+              </div>
+
+              <h3>
+                Verified-first ecosystem
+              </h3>
+
+              <p>
+                The product is designed
+                around relevant listings,
+                verification workflows and
+                safer discovery.
+              </p>
+            </article>
+
+            <article className="landing-feature-card">
+              <span className="landing-feature-number">
+                04
+              </span>
+
+              <div className="landing-feature-icon">
+                <SearchIcon />
+              </div>
+
+              <h3>
+                Smart search
+              </h3>
+
+              <p>
+                Location, budget, room type
+                and user-specific preferences
+                can shape the results shown to
+                each person.
+              </p>
+            </article>
+
+            <article className="landing-feature-card">
+              <span className="landing-feature-number">
+                05
+              </span>
+
+              <div className="landing-feature-icon">
+                <UsersIcon />
+              </div>
+
+              <h3>
+                Flatmate connection
+              </h3>
+
+              <p>
+                Compatible flatmate
+                requirements and connection
+                workflows can become part of
+                the living journey.
+              </p>
+            </article>
+
+            <article className="landing-feature-card">
+              <span className="landing-feature-number">
+                06
+              </span>
+
+              <div className="landing-feature-icon">
+                <LocationIcon />
+              </div>
+
+              <h3>
+                Nearby essentials
+              </h3>
+
+              <p>
+                Relevant places such as
+                messes, libraries, pharmacies,
+                hospitals and transport can
+                connect with property discovery.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        {/* =====================================================
+            HOW IT WORKS
+        ====================================================== */}
+
+        <section
+          id="how-it-works"
+          className="landing-section landing-section-dark"
+        >
+          <div className="landing-section-heading">
+            <span>
+              HOW IT WORKS
+            </span>
+
+            <h2>
+              One profile.
+              <br />
+              A relevant journey.
+            </h2>
+
+            <p>
+              ZEEVO does not show every
+              section to every user. Your
+              profile, profession and selected
+              role determine which experience
+              becomes relevant.
+            </p>
+          </div>
+
+          <div className="landing-flow">
+            <div className="landing-flow-step">
+              <span>01</span>
+
+              <strong>
+                Sign in
+              </strong>
+
+              <p>
+                Continue through mobile OTP,
+                Google or email.
+              </p>
+            </div>
+
+            <div className="landing-flow-line" />
+
+            <div className="landing-flow-step">
+              <span>02</span>
+
+              <strong>
+                Tell us about you
+              </strong>
+
+              <p>
+                Add your basic information,
+                profession and location.
+              </p>
+            </div>
+
+            <div className="landing-flow-line" />
+
+            <div className="landing-flow-step">
+              <span>03</span>
+
+              <strong>
+                Choose your experience
+              </strong>
+
+              <p>
+                Student, Bachelor or Family
+                determines the relevant flow.
+              </p>
+            </div>
+
+            <div className="landing-flow-line" />
+
+            <div className="landing-flow-step">
+              <span>04</span>
+
+              <strong>
+                Discover
+              </strong>
+
+              <p>
+                Explore relevant spaces,
+                flatmates and nearby services.
+              </p>
+            </div>
+          </div>
+
+          <div className="landing-role-strip">
+            <div>
+              <span>STUDENT</span>
+              <strong>
+                PG + Hostel · Flats · Rooms
+                · Flatmates
+              </strong>
+            </div>
+
+            <div>
+              <span>BACHELOR</span>
+              <strong>
+                PG + Hostel · Flats · Rooms
+                · Flatmates
+              </strong>
+            </div>
+
+            <div>
+              <span>FAMILY</span>
+              <strong>
+                Family-focused rental homes
+              </strong>
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================
+            APP SECTION
+        ====================================================== */}
+
+        <section
+          id="download-app"
+          className="landing-section"
+        >
+          <div className="landing-app-card">
+            <div className="landing-app-copy">
+              <span>
+                ZEEVO MOBILE APP
+              </span>
+
+              <h2>
+                Continue your living
+                journey on the app.
+              </h2>
+
+              <p>
+                The website introduces ZEEVO
+                and helps users begin their
+                journey. The mobile app is
+                designed for the deeper
+                experience, including owner-side
+                listing submission and other
+                platform interactions.
+              </p>
+
+              <button
+                type="button"
+                className="landing-primary-button"
+                onClick={() =>
+                  scrollToSection("contact")
+                }
+              >
+                Get the ZEEVO App
+                <ArrowIcon />
+              </button>
+            </div>
+
+            <div className="landing-app-points">
+              <div>
+                <span>01</span>
+                <strong>
+                  Find relevant spaces
+                </strong>
+                <p>
+                  Explore according to your
+                  selected experience.
+                </p>
+              </div>
+
+              <div>
+                <span>02</span>
+                <strong>
+                  Connect your journey
+                </strong>
+                <p>
+                  Continue with property,
+                  flatmate and service
+                  experiences.
+                </p>
+              </div>
+
+              <div>
+                <span>03</span>
+                <strong>
+                  Owner listing
+                </strong>
+                <p>
+                  Owners use the mobile app
+                  for listing registration and
+                  submission.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================
+            ABOUT
+        ====================================================== */}
+
+        <section
+          id="about"
+          className="landing-section landing-about-section"
+        >
+          <div className="landing-section-heading">
+            <span>ABOUT ZEEVO</span>
+
+            <h2>
+              Built around how
+              <br />
+              people actually live.
+            </h2>
+          </div>
+
+          <div className="landing-about-grid">
+            <div className="landing-about-intro">
+              <div className="landing-about-logo">
+                <img
+                  src={APP_CONFIG.logo}
+                  alt="ZEEVO"
+                />
+              </div>
+
+              <strong>
+                FIND. VERIFY. LIVE.
+              </strong>
+            </div>
+
+            <div className="landing-about-content">
+              <p>
+                ZEEVO is a modern living
+                platform built around the idea
+                that finding a place should
+                start with understanding the
+                person looking for it.
+              </p>
+
+              <p>
+                A student may need a hostel,
+                PG, room, rental flat, flatmate
+                and nearby study essentials.
+                A bachelor may have a different
+                set of living preferences. A
+                family may need an entirely
+                different rental experience.
+              </p>
+
+              <p>
+                Instead of showing everything
+                to everyone, ZEEVO uses the
+                user's profile and selected
+                experience to make the journey
+                more relevant.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================
+            CONTACT
+        ====================================================== */}
+
+        <section
+          id="contact"
+          className="landing-section"
+        >
+          <div className="landing-contact-card">
+            <div>
+              <span>
+                GET STARTED
+              </span>
+
+              <h2>
+                Your next place starts
+                with knowing what you need.
+              </h2>
+
+              <p>
+                Create your ZEEVO profile
+                and begin with the experience
+                that fits you.
+              </p>
+            </div>
 
             <button
               type="button"
-              className="zeevo-contact-secondary"
-              onClick={handleDownloadApp}
+              className="landing-primary-button"
+              onClick={handleGetStarted}
             >
-              Download App
-
-              <Download size={17} />
-
+              Start with ZEEVO
+              <ArrowIcon />
             </button>
-
           </div>
+        </section>
+      </main>
 
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
+      {/* =======================================================
           FOOTER
-      ====================================================== */}
+      ======================================================== */}
 
-      <footer className="zeevo-footer">
-
-        <div className="zeevo-footer-brand">
-
-          <BrandLogo compact />
-
-          <span>
-            FIND. VERIFY. LIVE.
+      <footer className="landing-footer">
+        <div className="landing-footer-brand">
+          <span className="footer-logo-wrap">
+            <img
+              src={APP_CONFIG.logo}
+              alt="ZEEVO"
+            />
           </span>
 
+          <div>
+            <strong>
+              © 2026 ZEEVO
+            </strong>
+
+            <span>
+              {APP_CONFIG.tagline}
+            </span>
+          </div>
         </div>
 
-
-        <span className="zeevo-footer-copy">
-          © 2026 ZEEVO. All rights reserved.
-        </span>
-
-
-        <div className="zeevo-footer-links">
-
-          <a href="#about">
+        <div className="landing-footer-links">
+          <button type="button">
             Privacy
-          </a>
+          </button>
 
-          <a href="#about">
+          <button type="button">
             Terms
-          </a>
+          </button>
 
-          <a href="#contact">
+          <button
+            type="button"
+            onClick={() =>
+              scrollToSection("contact")
+            }
+          >
             Help
-          </a>
-
+          </button>
         </div>
-
       </footer>
-
-    </main>
+    </div>
   );
 }
