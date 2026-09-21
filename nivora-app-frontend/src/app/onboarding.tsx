@@ -43,7 +43,7 @@ export default function Onboarding() {
   };
 
   const handleSkipOrStart = () => {
-    router.push({ pathname: "/Auth" });
+    router.replace("/(tabs)");
   };
 
   const renderScreen = (item: (typeof SCREENS)[0]) => {
