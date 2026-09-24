@@ -1,21 +1,20 @@
-import React, { useRef, useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  Dimensions,
-} from "react-native";
 import { useRouter } from "expo-router";
 import { styled } from "nativewind";
+import { useRef, useState } from "react";
+import {
+    Dimensions,
+    ScrollView,
+    Text,
+    TouchableOpacity,
+    View,
+} from "react-native";
 import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
 
-// Components
-import ScreenOne from "../../components/onboarding/ScreenOne";
-import ScreenTwo from "../../components/onboarding/ScreenTwo";
-import ScreenThree from "../../components/onboarding/ScreenThree";
-import Pagination from "../../components/onboarding/Pagination";
-import ActionButton from "../../components/onboarding/ActionButton";
+import ActionButton from "../components/onboarding/ActionButton";
+import Pagination from "../components/onboarding/Pagination";
+import ScreenOne from "../components/onboarding/ScreenOne";
+import ScreenThree from "../components/onboarding/ScreenThree";
+import ScreenTwo from "../components/onboarding/ScreenTwo";
 
 const SafeAreaView = styled(RNSafeAreaView);
 
@@ -61,7 +60,6 @@ export default function Onboarding() {
 
   return (
     <SafeAreaView className="flex-1 bg-white">
-      {/* Skip Button */}
       {currentIndex < SCREENS.length - 1 && (
         <View className="flex-row justify-end px-6 py-4">
           <TouchableOpacity onPress={handleSkipOrStart}>
@@ -70,7 +68,6 @@ export default function Onboarding() {
         </View>
       )}
 
-      {/* Main Content: Swipeable Screens */}
       <ScrollView
         ref={scrollViewRef}
         horizontal
@@ -83,7 +80,6 @@ export default function Onboarding() {
         {SCREENS.map(renderScreen)}
       </ScrollView>
 
-      {/* Footer: Pagination & Button */}
       <View className="px-6 pb-10 pt-4 flex-row items-center justify-between">
         <Pagination screens={SCREENS} currentIndex={currentIndex} />
         <ActionButton

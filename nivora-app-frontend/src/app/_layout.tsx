@@ -1,8 +1,25 @@
-import { Stack, SplashScreen } from "expo-router";
+import { useSyncUser } from "@/hooks/useUserSync";
+import { ClerkProvider } from "@clerk/expo";
+import { tokenCache } from "@clerk/expo/token-cache";
 import { useFonts } from "expo-font";
+import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import "../../global.css";
 
+const clerkPublishableKey = process.env
+  .EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY as string;
+
+if (!clerkPublishableKey) {
+  throw new Error(
+    "Missing Clerk configuration. Set EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY.",
+  );
+}
+
+function AppNavigator() {
+  useSyncUser();
+
+  return <Stack screenOptions={{ headerShown: false }} />;
+}
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -21,6 +38,10 @@ export default function RootLayout() {
   }, [fontsLoaded]);
 
   if (!fontsLoaded) return null;
-  
-  return <Stack screenOptions={{ headerShown: false }} />;
+
+  return (
+    <ClerkProvider publishableKey={clerkPublishableKey} tokenCache={tokenCache}>
+      <AppNavigator />
+    </ClerkProvider>
+  );
 }

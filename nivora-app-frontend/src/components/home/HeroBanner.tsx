@@ -1,22 +1,16 @@
-import {
-  View,
-  Text,
-  ImageBackground,
-  TouchableOpacity,
-} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
 
 export default function HeroBanner() {
   return (
     <View className="px-5 mb-5 z-10">
       <View className="rounded-[28px] overflow-hidden">
         <ImageBackground
-          source={require("../../assets/images/hero-building.png")}
+          source={require("../../../assets/images/hero-building.png")}
           resizeMode="cover"
           className="w-full justify-center"
           style={{ height: 180 }}
         >
-          {/* Text Content */}
           <View className="absolute top-4 px-6 w-[80%] z-10">
             <Text className="text-[23px] font-sans-extrabold text-black tracking-tight leading-[28px]">
               Better People{"\n"}Brighter Places{" "}

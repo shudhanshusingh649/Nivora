@@ -11,6 +11,7 @@
       "icon": "./assets/icon.png"
     },
     "android": {
+      "package": "com.abhiraj.zeevo",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/icon.png"
@@ -45,11 +46,19 @@
         }
       ],
       "expo-image",
+      "expo-secure-store",
       "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "225ac463-b488-4326-9dfb-b5f594eca211"
+      }
+    },
+    "owner": "abhiraj12345"
   }
 }
