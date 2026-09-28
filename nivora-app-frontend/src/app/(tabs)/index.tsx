@@ -4,6 +4,7 @@ import { ScrollView, View } from "react-native";
 import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
 const SafeAreaView = styled(RNSafeAreaView);
 
+import FloatingChatButton from "@/components/FloatingChatButton";
 import CategoryGrid from "../../components/home/CategoryGrid";
 import Header from "../../components/home/Header";
 import HeroBanner from "../../components/home/HeroBanner";
@@ -23,6 +24,7 @@ export default function HomeScreen() {
 
         <View className="mt-8 px-6"></View>
       </ScrollView>
+      <FloatingChatButton />
     </SafeAreaView>
   );
 }

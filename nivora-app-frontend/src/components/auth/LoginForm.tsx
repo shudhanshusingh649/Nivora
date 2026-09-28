@@ -1,8 +1,10 @@
 import { useAuth, useSignIn } from "@clerk/expo";
+import { Feather } from "@expo/vector-icons"; // Eye icon ke liye
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
   ActivityIndicator,
+  Image,
   Text,
   TextInput,
   TouchableOpacity,
@@ -31,6 +33,9 @@ export default function LoginForm({
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Password show/hide state
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSignIn = async () => {
     if (!/^\S+@\S+\.\S+$/.test(email.trim()))
@@ -90,14 +95,23 @@ export default function LoginForm({
   if (!isLoaded) return null;
 
   return (
-    <View className="px-6 py-4">
+    <View className="px-6 pb-8">
+      {/* 1. Zeevo Logo Added here */}
+      <View className="items-center mb-6 -mt-4">
+        <Image
+          source={require("@/assets/images/logo.png")} // path dekh lena bhai
+          className="w-40 h-20"
+          resizeMode="contain"
+        />
+      </View>
+
       <Text className="text-2xl font-sans-extrabold mb-2 text-slate-900">
         {isVerifying ? "Check your inbox" : "Welcome Back"}
       </Text>
       <Text className="text-slate-500 font-sans-medium text-sm mb-6">
         {isVerifying
           ? `Enter the code sent to ${email.trim()}`
-          : "Sign in to your account."}
+          : "Sign in to your account to continue."}
       </Text>
 
       {!!error && (
@@ -108,7 +122,7 @@ export default function LoginForm({
 
       {isVerifying ? (
         <TextInput
-          className={`h-14 rounded-xl border bg-gray-50 px-4 text-center text-2xl tracking-[0.5em] text-slate-900 mb-6 ${error ? "border-red-400" : "border-gray-200"}`}
+          className={`h-14 rounded-2xl border bg-gray-50 px-4 text-center text-2xl tracking-[0.5em] text-slate-900 mb-6 ${error ? "border-red-400" : "border-gray-200"}`}
           value={code}
           onChangeText={(value) => {
             setCode(value.replace(/\D/g, "").slice(0, 6));
@@ -121,49 +135,81 @@ export default function LoginForm({
           autoFocus
         />
       ) : (
-        <>
-          <TextInput
-            className={`h-14 bg-gray-50 border rounded-xl px-4 mb-4 font-sans-medium ${error && !email ? "border-red-400" : "border-gray-200"}`}
-            value={email}
-            onChangeText={(v) => {
-              setEmail(v);
-              setError("");
-            }}
-            placeholder="Email Address"
-            autoCapitalize="none"
-            keyboardType="email-address"
-          />
-          <TextInput
-            className={`h-14 bg-gray-50 border rounded-xl px-4 mb-6 font-sans-medium ${error && password.length < 8 ? "border-red-400" : "border-gray-200"}`}
-            value={password}
-            onChangeText={(v) => {
-              setPassword(v);
-              setError("");
-            }}
-            placeholder="Password"
-            secureTextEntry
-          />
-        </>
+        <View className="gap-5 mb-8">
+          {/* Email Field with Label */}
+          <View>
+            <Text className="font-sans-bold text-[13px] text-gray-600 mb-2 ml-1">
+              Email Address
+            </Text>
+            <TextInput
+              className={`h-14 bg-gray-50 border rounded-2xl px-4 font-sans-medium text-[15px] ${error && !email ? "border-red-400" : "border-gray-200"}`}
+              value={email}
+              onChangeText={(v) => {
+                setEmail(v);
+                setError("");
+              }}
+              placeholder="e.g. johndoe@gmail.com"
+              placeholderTextColor="#9ca3af"
+              autoCapitalize="none"
+              keyboardType="email-address"
+            />
+          </View>
+
+          {/* Password Field with Label & Eye Icon */}
+          <View>
+            <Text className="font-sans-bold text-[13px] text-gray-600 mb-2 ml-1">
+              Password
+            </Text>
+            <View
+              className={`flex-row items-center h-14 bg-gray-50 border rounded-2xl px-4 ${error && password.length < 8 ? "border-red-400" : "border-gray-200"}`}
+            >
+              <TextInput
+                className="flex-1 font-sans-medium text-[15px]"
+                value={password}
+                onChangeText={(v) => {
+                  setPassword(v);
+                  setError("");
+                }}
+                placeholder="Enter your password"
+                placeholderTextColor="#9ca3af"
+                secureTextEntry={!showPassword}
+              />
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => setShowPassword(!showPassword)}
+                className="p-2 -mr-2"
+              >
+                <Feather
+                  name={showPassword ? "eye" : "eye-off"}
+                  size={18}
+                  color="#6B7280"
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
       )}
 
+      {/* Login Button */}
       <TouchableOpacity
         onPress={isVerifying ? handleVerify : handleSignIn}
         disabled={isSubmitting}
-        className={`w-full h-14 rounded-xl items-center justify-center ${isSubmitting ? "bg-emerald-400" : "bg-[#059669]"}`}
+        className={`w-full h-14 rounded-2xl items-center justify-center shadow-sm ${isSubmitting ? "bg-emerald-400 shadow-none" : "bg-[#059669] shadow-emerald-200"}`}
       >
         {isSubmitting ? (
           <ActivityIndicator color="#fff" />
         ) : (
-          <Text className="text-white font-sans-bold text-base">
+          <Text className="text-white font-sans-bold text-[15px]">
             {isVerifying ? "Verify Code" : "Log In"}
           </Text>
         )}
       </TouchableOpacity>
 
+      {/* Footer Links */}
       {isVerifying ? (
         <TouchableOpacity
           onPress={() => setIsVerifying(false)}
-          className="mt-4 items-center"
+          className="mt-6 items-center"
         >
           <Text className="font-sans-bold text-slate-600">
             Use a different account

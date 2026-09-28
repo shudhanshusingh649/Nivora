@@ -1,15 +1,15 @@
 export const colors = {
-  background: "#fff9e3",
-  foreground: "#081126",
-  card: "#fff8e7",
-  muted: "#f6eecf",
+  background: "#f4fbf8", // Halka green app background ke liye
+  foreground: "#059669", // Dark Emerald Green (Active Icons ke liye)
+  card: "#ffffff",
+  muted: "#9CA3AF", // Gray color (Inactive Icons ke liye)
   mutedForeground: "rgba(0, 0, 0, 0.6)",
-  primary: "#081126",
-  accent: "#ea7a53",
-  border: "rgba(0, 0, 0, 0.1)",
+  primary: "#ffffff", // Tab bar ka background ab WHITE hoga
+  accent: "#ecfdf5", // Halka Green (Active tab ke piche ka gol background)
+  border: "rgba(0, 0, 0, 0.05)",
   success: "#16a34a",
   destructive: "#dc2626",
-  subscription: "#8fd1bd",
+  subscription: "#059669",
 } as const;
 
 export const spacing = {

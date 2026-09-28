@@ -1,13 +1,10 @@
-import { styled } from "nativewind";
-import { Text } from "react-native";
-import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
-const SafeAreaView = styled(RNSafeAreaView);
+import Header from "@/components/Header";
+import { View } from "react-native";
 
 export default function Explore() {
-  
   return (
-    <SafeAreaView className="flex-1 bg-background p-5">
-        <Text className="text-2xl font-bold text-primary">Explore</Text>
-    </SafeAreaView>
+    <View className="flex-1 bg-gray-100">
+      <Header title="Explore" />
+    </View>
   );
 }

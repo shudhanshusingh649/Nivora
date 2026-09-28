@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import { useUserStore } from "@/store/userStore";
 import { Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -13,26 +14,20 @@ export default function ProfileDetails() {
   const { user, profile } = useUserStore();
 
   return (
-    <SafeAreaView className="flex-1 bg-gray-50">
-      <View className="px-5 py-4 flex-row justify-between items-center bg-white border-b border-gray-100">
-        <TouchableOpacity
-          onPress={() => router.back()}
-          className="w-10 h-10 rounded-full bg-gray-50 items-center justify-center"
-        >
-          <Feather name="arrow-left" size={20} color="#374151" />
-        </TouchableOpacity>
-
-        <Text className="font-sans-extrabold text-lg text-slate-900">
-          My Profile
-        </Text>
-
-        <TouchableOpacity
-          onPress={() => router.push("/edit-profile")}
-          className="w-10 h-10 rounded-full bg-emerald-50 items-center justify-center"
-        >
-          <Feather name="edit-2" size={18} color="#059669" />
-        </TouchableOpacity>
-      </View>
+    <View className="flex-1 bg-gray-50">
+      <Header
+        title="Profile Details"
+        showBack={true}
+        rightComponent={
+          <TouchableOpacity
+            onPress={() => router.push("/edit-profile")} // Aapka edit page route
+            activeOpacity={0.7}
+            className="w-10 h-10 items-end justify-center"
+          >
+            <Feather name="edit-2" size={20} color="#ffffff" />
+          </TouchableOpacity>
+        }
+      />
 
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -110,7 +105,7 @@ export default function ProfileDetails() {
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 

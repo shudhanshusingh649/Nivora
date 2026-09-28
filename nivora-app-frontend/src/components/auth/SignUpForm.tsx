@@ -1,9 +1,11 @@
 import { useAuthSupabase } from "@/lib/auth";
 import { useAuth, useSignUp } from "@clerk/expo";
+import { Feather } from "@expo/vector-icons"; // Eye icon ke liye
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
   ActivityIndicator,
+  Image,
   Text,
   TextInput,
   TouchableOpacity,
@@ -27,8 +29,7 @@ export default function SignUpForm({
   const { signUp } = useSignUp();
   const authSupabase = useAuthSupabase();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  // firstName aur lastName ki states hata di hain
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isVerifying, setIsVerifying] = useState(false);
@@ -36,9 +37,10 @@ export default function SignUpForm({
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Password show/hide karne ki state
+  const [showPassword, setShowPassword] = useState(false);
+
   const handleSignUp = async () => {
-    if (!firstName.trim() || !lastName.trim())
-      return setError("Enter your first and last name.");
     if (!/^\S+@\S+\.\S+$/.test(email.trim()))
       return setError("Enter a valid email address.");
     if (password.length < 8)
@@ -50,8 +52,7 @@ export default function SignUpForm({
       const result = await signUp!.create({
         emailAddress: email.trim().toLowerCase(),
         password,
-        firstName: firstName.trim(),
-        lastName: lastName.trim(),
+        // firstName aur lastName yahan se bhi hata diya hai
       });
 
       if (result.error) return setError(getErrorMessage(result.error));
@@ -109,7 +110,16 @@ export default function SignUpForm({
   if (!isLoaded) return null;
 
   return (
-    <View className="px-6 py-4">
+    <View className="px-6 pb-8">
+      {/* Zeevo Logo */}
+      <View className="items-center mb-6 -mt-4">
+        <Image
+          source={require("@/assets/images/logo.png")}
+          className="w-40 h-20"
+          resizeMode="contain"
+        />
+      </View>
+
       <Text className="text-2xl font-sans-extrabold mb-2 text-slate-900">
         {isVerifying ? "Check your inbox" : "Create Account"}
       </Text>
@@ -127,7 +137,7 @@ export default function SignUpForm({
 
       {isVerifying ? (
         <TextInput
-          className={`h-14 rounded-xl border bg-gray-50 px-4 text-center text-2xl tracking-[0.5em] text-slate-900 mb-6 ${error ? "border-red-400" : "border-gray-200"}`}
+          className={`h-14 rounded-2xl border bg-gray-50 px-4 text-center text-2xl tracking-[0.5em] text-slate-900 mb-6 ${error ? "border-red-400" : "border-gray-200"}`}
           value={code}
           onChangeText={(value) => {
             setCode(value.replace(/\D/g, "").slice(0, 6));
@@ -140,69 +150,81 @@ export default function SignUpForm({
           autoFocus
         />
       ) : (
-        <>
-          <View className="flex-row justify-between mb-4">
+        <View className="gap-5 mb-8">
+          {/* Naya Email Field Labels ke sath */}
+          <View>
+            <Text className="font-sans-bold text-[13px] text-gray-600 mb-2 ml-1">
+              Email Address
+            </Text>
             <TextInput
-              placeholder="First Name"
-              value={firstName}
+              className={`h-14 bg-gray-50 border rounded-2xl px-4 font-sans-medium text-[15px] ${error && !email ? "border-red-400" : "border-gray-200"}`}
+              placeholder="e.g. abhishek@zeevo.com"
+              value={email}
               onChangeText={(v) => {
-                setFirstName(v);
+                setEmail(v);
                 setError("");
               }}
-              className="w-[48%] h-14 bg-gray-50 border border-gray-200 rounded-xl px-4 font-sans-medium"
-            />
-            <TextInput
-              placeholder="Last Name"
-              value={lastName}
-              onChangeText={(v) => {
-                setLastName(v);
-                setError("");
-              }}
-              className="w-[48%] h-14 bg-gray-50 border border-gray-200 rounded-xl px-4 font-sans-medium"
+              placeholderTextColor="#9ca3af"
+              autoCapitalize="none"
+              keyboardType="email-address"
             />
           </View>
-          <TextInput
-            className="w-full h-14 bg-gray-50 border border-gray-200 rounded-xl px-4 mb-4 font-sans-medium"
-            placeholder="Email Address"
-            value={email}
-            onChangeText={(v) => {
-              setEmail(v);
-              setError("");
-            }}
-            autoCapitalize="none"
-            keyboardType="email-address"
-          />
-          <TextInput
-            className="w-full h-14 bg-gray-50 border border-gray-200 rounded-xl px-4 mb-6 font-sans-medium"
-            placeholder="Password (8+ characters)"
-            value={password}
-            onChangeText={(v) => {
-              setPassword(v);
-              setError("");
-            }}
-            secureTextEntry
-          />
-        </>
+
+          {/* Naya Password Field Label aur Eye Icon ke sath */}
+          <View>
+            <Text className="font-sans-bold text-[13px] text-gray-600 mb-2 ml-1">
+              Password
+            </Text>
+            <View
+              className={`flex-row items-center h-14 bg-gray-50 border rounded-2xl px-4 ${error && password.length < 8 ? "border-red-400" : "border-gray-200"}`}
+            >
+              <TextInput
+                className="flex-1 font-sans-medium text-[15px]"
+                placeholder="Create a strong password"
+                value={password}
+                onChangeText={(v) => {
+                  setPassword(v);
+                  setError("");
+                }}
+                placeholderTextColor="#9ca3af"
+                secureTextEntry={!showPassword}
+              />
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => setShowPassword(!showPassword)}
+                className="p-2 -mr-2"
+              >
+                <Feather
+                  name={showPassword ? "eye" : "eye-off"}
+                  size={18}
+                  color="#6B7280"
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
       )}
 
+      {/* Sign Up Button */}
       <TouchableOpacity
         onPress={isVerifying ? handleVerify : handleSignUp}
         disabled={isSubmitting}
-        className={`w-full h-14 rounded-xl items-center justify-center ${isSubmitting ? "bg-emerald-400" : "bg-[#059669]"}`}
+        className={`w-full h-14 rounded-2xl items-center justify-center shadow-sm ${isSubmitting ? "bg-emerald-400 shadow-none" : "bg-[#059669] shadow-emerald-200"}`}
       >
         {isSubmitting ? (
           <ActivityIndicator color="#fff" />
         ) : (
-          <Text className="text-white font-sans-bold text-base">
+          <Text className="text-white font-sans-bold text-[15px]">
             {isVerifying ? "Verify Email" : "Sign Up"}
           </Text>
         )}
       </TouchableOpacity>
 
+      {/* Bottom Links */}
       {isVerifying ? (
         <TouchableOpacity
           onPress={() => setIsVerifying(false)}
-          className="mt-4 items-center"
+          className="mt-6 items-center"
         >
           <Text className="font-sans-bold text-slate-600">
             Use a different email

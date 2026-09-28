@@ -21,13 +21,15 @@ const TabLayout = () => {
       <View
         className={clsx(
           "items-center justify-center rounded-full w-12 h-12 transition-all duration-200",
-          focused ? "bg-[#ea7a53]" : "bg-transparent",
+          // Tailwind class se light green background diya active state pe
+          focused ? "bg-emerald-50" : "bg-transparent",
         )}
       >
         <Ionicons
           name={focused ? (icon.replace("-outline", "") as any) : icon}
           size={24}
-          color={focused ? "#ffffff" : colors.muted}
+          // Active hone par Dark Green (#059669), inactive par Gray
+          color={focused ? "#059669" : colors.muted}
         />
       </View>
     </View>
@@ -46,7 +48,11 @@ const TabLayout = () => {
           borderRadius: tabBar.radius,
           backgroundColor: colors.primary,
           borderTopWidth: 0,
-          elevation: 0,
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: -4 },
+          shadowOpacity: 0.05,
+          shadowRadius: 10,
+          elevation: 5,
         },
         tabBarItemStyle: {
           paddingVertical: tabBar.height / 2 - tabBar.iconFrame / 1.6,

@@ -1,30 +1,27 @@
+import Header from "@/components/Header";
 import { useAuthSupabase } from "@/lib/auth";
 import {
-    createProfile,
-    updatePhone,
-    updateProfile,
-    uploadAvatar,
+  createProfile,
+  updatePhone,
+  updateProfile,
+  uploadAvatar,
 } from "@/services/profile.service";
 import { useUserStore } from "@/store/userStore";
 import { Feather } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { useRouter } from "expo-router";
-import { styled } from "nativewind";
 import { useState } from "react";
 import {
-    ActivityIndicator,
-    Image,
-    KeyboardAvoidingView,
-    Platform,
-    ScrollView,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
-
-const SafeAreaView = styled(RNSafeAreaView);
 
 export default function EditProfile() {
   const router = useRouter();
@@ -77,7 +74,9 @@ export default function EditProfile() {
     try {
       let avatarUrl = profile ? profile.avatar_url || avatar : avatar;
 
-      avatarUrl = await uploadAvatar(authSupabase, user.clerk_id, avatar);
+      if (avatar.startsWith("file://")) {
+        avatarUrl = await uploadAvatar(authSupabase, user.clerk_id, avatar);
+      }
 
       const profileData = {
         first_name: firstName.trim(),
@@ -114,39 +113,31 @@ export default function EditProfile() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        className="flex-1"
-      >
-        <View className="px-5 py-4 flex-row justify-between items-center bg-white border-b border-gray-100 z-10">
-          <TouchableOpacity
-            onPress={() => router.back()}
-            disabled={isSaving}
-            className="w-10 h-10 rounded-full bg-gray-50 items-center justify-center"
-          >
-            <Feather name="x" size={20} color="#374151" />
-          </TouchableOpacity>
-
-          <Text className="font-sans-extrabold text-lg text-slate-900">
-            Edit Profile
-          </Text>
-
+    <View className="flex-1 bg-gray-50">
+      <Header
+        title="Edit Profile"
+        showBack={true}
+        rightComponent={
           <TouchableOpacity
             onPress={handleSave}
             disabled={isSaving}
-            className="px-4 py-2 bg-emerald-600 rounded-full items-center justify-center shadow-sm shadow-emerald-200"
+            className="py-2 px-4 bg-white rounded-full items-center justify-center shadow-sm shadow-emerald-200"
           >
             {isSaving ? (
-              <ActivityIndicator size="small" color="#ffffff" />
+              <ActivityIndicator size="small" color="#059669" />
             ) : (
-              <Text className="font-sans-bold text-white text-[13px]">
+              <Text className="font-sans-bold text-emerald-600 text-[13px]">
                 Save
               </Text>
             )}
           </TouchableOpacity>
-        </View>
+        }
+      />
 
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        className="flex-1"
+      >
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 40 }}
@@ -272,6 +263,6 @@ export default function EditProfile() {
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </View>
   );
 }

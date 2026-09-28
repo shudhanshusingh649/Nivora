@@ -9,7 +9,6 @@ export type AppTab = {
 export const tabs: AppTab[] = [
   { name: "index", title: "Home", icon: "home-outline" },
   { name: "explore", title: "Explore", icon: "compass-outline" },
-  { name: "mess", title: "Mess", icon: "restaurant-outline" },
   { name: "saved", title: "Saved", icon: "bookmark-outline" },
   { name: "profile", title: "Profile", icon: "person-outline" },
 ];

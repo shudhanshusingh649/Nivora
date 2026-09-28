@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { styled } from "nativewind";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
 
 const SafeAreaView = styled(RNSafeAreaView);
@@ -22,9 +22,9 @@ export default function ProfileScreen() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <View className="flex-1 bg-gray-50">
       <StatusBar style="dark" />
       {user ? <LoggedInProfile /> : <LoggedOutProfile />}
-    </SafeAreaView>
+    </View>
   );
 }
